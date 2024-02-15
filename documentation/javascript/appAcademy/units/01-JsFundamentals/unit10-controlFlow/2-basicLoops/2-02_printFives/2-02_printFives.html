@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-02_printFives</title>
+    <link rel="stylesheet" href="../../../../../css/newlesson.css">
+    <link rel="stylesheet" href="../../../../../css/appCodeColors.css">
+    <link rel="stylesheet" href="../../../../../css/optsFlex.css">
+    
+    <script src="../../../../../js/copycode.js" defer></script>
+</head>
+<body>
+    <h2>2. <code>printFives()</code></h2>
+    <div class="flex-col">
+        <div class="flex-item">
+            <p>
+                A functions that prints out the multiples of 5 up
+                to the <code class="v">max</code> number 
+            </p>
+        </div>
+        <div class="flex-item">
+            <pre tabindex="1" class="app-academy-code copy-pre-code">
+<span class="const-color">function</span> <span class="function-color">printFives</span>(<span class="v-code">max</span>){
+    <span class="let-color">let</span> fives = " ";
+    <span class="for-color">for</span>( <span class="let-color">let</span> i = 0; i &lt; <span class="v-code">max</span>; i += 5){
+        fives += i + " ";
+    }
+    console.log(fives)
+}
+printFives(15) <span class="g">// 0 5 10 15</span>
+printFives(28) <span class="g">// 0 5 10 15 20 25 </span>
+            </pre>
+        </div>
+        
+        
+    </div>
+</body>
+</html>

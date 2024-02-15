@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-closureLecture</title>
+    <link rel="stylesheet" href="../../../../css/lesson.css">
+    <link rel="stylesheet" href="../../../../css/colors.css">
+</head>
+<body>
+    <h2>1-Closure lecture</h2>
+    <p tabindex="1">
+        &emsp;The official definition of a closure from MDN is, "A closure is the combination of a function and the lexical
+        environment within which that function was declared."
+        <br>&emsp;A closure is when an inner function uses, or changes, variables in an outer function.
+    </p>
+    <pre tabindex="1">
+        let climber = function(what){
+            let climb = "Let's climb a "
+
+            let climbWhat = function(){
+                return climb + what;
+            }
+            return climbWhat
+        }
+    </pre>
+    <script>
+        let climber = function(what){
+            let climb = "Lets climb a ";
+
+            function climbWhat(){
+                return climb += what
+            }
+            return climbWhat();
+        }
+        console.log(climber("house"))
+    </script>
+    <h3>Private State</h3>
+    <div tabindex="1">
+        <p>
+            &emsp;Javascript does not have a way of declaring a function as exclusively private.
+            We can however, use closures to create a private state within a function.
+        </p>
+        <p>
+            The following code illustrates how to use closures to define functions that can emulate private functions and variables:
+        </p>
+    </div>
+    <div tabindex="1">
+        <pre>
+    let createCounter = function(){
+        let count = 0;
+        return function(){
+            count += 1;
+            return count;
+        }
+    }
+    let newCounter = createCounter();
+    console.log(newCounter())
+    console.log(newCounter())
+    <span class="g">// prints 1
+              2
+    </span>
+        </pre>
+        <p>
+            &emsp;By closing over (or capturing) the count variable, each function that is returned from createCounter has a
+            private,
+            mutable state that cannot be accessed externally. There is no way any outside function besides the closure itself
+            can
+            access the count state.
+        </p>
+    </div>
+    <h3>Passing Arguments Implicitly</h3>
+    <div tabindex="1">
+        <p>
+            &emsp;We can use closures to pass down arguments to helper functions without explicitly passing them into that helper
+            function.
+        </p>
+        <pre>
+            We can use closures to pass down arguments to helper functions without explicitly passing them into that helper
+            function.
+        </pre>
+    </div>
+    <div tabindex="1">
+        <p class="r">This does not do anything...</p>
+        <pre>
+            function palindrome(string){
+                function reverseString (){
+                    return string
+                        .split("")
+                        .reverse()
+                        .join("")
+                    }
+                return string === reverseString()
+            }
+
+            let reverseString = palindrome("Bob did dog")
+            console.log(reverseString)
+        </pre>
+    </div>
+
+</body>
+</html>

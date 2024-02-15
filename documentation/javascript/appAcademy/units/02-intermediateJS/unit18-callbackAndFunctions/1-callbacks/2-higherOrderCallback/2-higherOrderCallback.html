@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-higherOrderCallback</title>
+    <link rel="stylesheet" href="../../../../css/lesson.css">
+    <link rel="stylesheet" href="../../../../css/colors.css">
+    <link rel="stylesheet" href="../../../../css/flex.css">
+</head>
+<body>
+    <h2 tabindex="1">2-Higher order vs callback functions</h2>
+    <p>
+        &emsp;Just like strings,booleans,and numbers, functions are <q>first class objects</q>
+        meaning they can be passed in and returned from functions
+    </p>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <p>
+                &emsp;If we assign the <span class="o">value</span> of a variable to a function, whatever that functions returns
+                becomes
+                that <span class="o">value</span>
+            </p>
+        </div>
+        <div class="flex-item">
+            <code>
+                let foo = function(){
+            <br>&emsp;let val = "Tacos"
+            <br>&emsp;return <span class="o">val</span>
+            <br>}   
+            <br>
+            <br>let result = foo();
+            <br>console.log(result)
+            <br><span class="g">//prints Tacos</span>
+            </code>
+        </div>
+    </div>
+    <hr></hr>
+    <p tabindex="1">
+        &emsp;If we<code>console.log</code><code class="b">foo</code>, The<code class="b">foo</code>
+        function itself will be printed.
+        But, If the return value of foo is a function, and if we invoke the foo function
+        in<code>console.log</code>, the <code class="v">bar</code> function being returned will be printed
+    </p>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <code>
+                let <span class="b">foo</span> = function(){
+                <br>&emsp;let <span class="v">bar</span> = function(){
+                <br>&emsp;&emsp;console.log("interesting...")
+                <br>&emsp;}
+                <br>&emsp;return <span class="v">bar</span>
+                <br>}
+                <br> console.log(<span class="b">foo</span>)
+                <br><span class="g">// prints [Function: <span class="b">foo</span> ]</span>
+            </code>    
+        </div>
+        <div class="flex-item">
+            <code>
+                let foo = function(){
+                    <br>&emsp;let <span class="v">bar</span> = function(){
+                    <br>&emsp;&emsp;console.log("interesting...")
+                    <br>}
+                    <br>&emsp;return <span class="v">bar</span>
+                <br>}
+                <br> console.log(<span class="b">foo</span>)
+                <br><span class="g">//prints [Function: <span class="v">bar</span> ]</span>
+            </code>
+        </div> 
+    </div>
+    <h3>Higher Order function</h3>
+    <div tabindex="1">
+        <p>
+            &emsp;Just like any other return value, we can assign <code class="b">foo</code> to a variable's value
+            and invoke that <span class="v">variable</span> to invoke the return function.
+        </p>
+        <p>
+            &emsp;<code>foo</code> is the acting as a <strong>Higher Order function</strong>
+        </p>
+        <code>
+            let foo = function(){
+                <br>&emsp;let bar = function(){
+                <br>&emsp;&emsp;console.log("interesting...")
+                <br>&emsp;}
+                <br>&emsp;return bar
+            <br>}
+            <br>let <span class="v">result</span> = foo()
+            <br><span class="v">result</span>()
+            <br><span class="g">// prints interesting...</span>
+        </code>
+    </div>
+
+    
+    
+
+</body>
+</html>

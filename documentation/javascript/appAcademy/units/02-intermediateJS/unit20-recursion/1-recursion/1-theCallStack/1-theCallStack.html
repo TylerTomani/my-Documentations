@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-theCallStack</title>
+    <link rel="stylesheet" href="../../../../css/flex.css">
+    <link rel="stylesheet" href="../../../../css/lesson.css">
+
+</head>
+<body>
+    <h1 tabindex="1">The Callstack</h1>
+
+    <p tabindex="1">
+        &emsp;Javascript is a <q>single threaded</q> language meaning it can only execute a single line of code
+        at a time.
+        <br>
+        The call is a structure that keeps track of functions calls by using a
+        <i>stack data structure</i>. In computer science a <q>stack</q> is  general pattern
+        that keep a collection of items.
+    </p>
+    <ul>
+        <li>new items must be placed on top of the pile - we refer to this as pushing a new item to the stack</li>
+        <li>at any point, the only item that can be removed is the top of the pile - we refer to this as popping the top item from
+        the stack</li>
+    </ul>
+    <p tabindex="1">
+        &emsp;Stack frames are the items that are pushed and poopped in the stack. When an function is called,
+        it is pushed onto the stack. Once the function returns, the frame on the the stack is pooped off
+    </p>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <code>
+                <br>let foo = function(){
+                <br> &emsp;console.log("A");
+                <br> &emsp;bar();
+                <br> &emsp;console.log("E")
+                <br> }
+                <br> let bar = function(){
+                <br> &emsp;console.log("bar : B");
+                <br> baz();
+                <br> &emsp;console.log("bar : D");
+                <br> }
+                <br> &emsp;let baz = function(){
+                <br> &emsp;console.log("baz : C")
+                <br> }
+                <br> foo()
+            </code>
+        </div>
+        <div class="flex-item">
+            <p>
+                &emsp;First foo is called placing it on top of the stack.
+            </p>
+            <ol>
+                <li>foo()</li>
+            </ol>
+            <p>
+                &emsp;Within foo() bar is called placing it on top.
+            </p>
+            <ol>
+                <li>bar()</li>
+                <li>foo()</li>
+            </ol>
+            <p>
+                &emsp;Inside bar(), baz() gets called. When is does, baz() is placed on top of the order
+            </p>
+            <ol>
+                <li>baz()</li>
+                <li>bar()</li>
+                <li>foo()</li>
+            </ol>
+        </div>
+        <p tabindex="1">
+            &emsp;The function is not popped off the stack until it returns or after reaching its last line.
+        </p>
+    </div>
+
+    <h3>Important Notes</h3>
+    <p tabindex="1">
+        In the example program we just traced through, we mentioned that the program will exit once the call stack is empty.
+        This is not true of all programs. If a program is asynchronously listening for an event to occur, such as waiting
+        for a
+        setTimeout to expire, then the program will not exit. In this scenario, once the setTimeout timer expires, a stack
+        frame
+        corresponding to the setTimeout callback will be added to the stack. From here, the call stack would be processed in
+        the
+        way we previously explored. Imagine that we had the same functions as before, but we called foo asynchronously:
+    </p>
+
+    <script>
+        let foo = function(){
+            console.log("A");
+            bar();
+            console.log("E");
+        }
+        let bar = function(){
+            console.log("bar : B");
+            baz();
+            console.log("bar : D");
+        }
+        let baz = function(){
+            console.log("baz : C")
+        }
+        foo();
+    </script>
+
+
+
+</body>
+</html>

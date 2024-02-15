@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-05_strangeSum</title>
+    <link rel="stylesheet" href="../../../../../css/newlesson.css">
+    <link rel="stylesheet" href="../../../../../css/appCodeColors.css">
+    <link rel="stylesheet" href="../../../../../css/optsFlex.css">
+
+    <script src="../../../../../js/copycode.js" defer></script>
+</head>
+<body>
+    <h2>5. <code>strangeSum()</code></h2>
+    <div  class="flex-col">
+        <div class="flex-item">
+            Counts the amount of pairs whose sum equals 0.
+        </div>
+        <div class="flex-item">
+            <pre tabindex="1" class="app-academy-code copy-pre-code">
+<span class="const-color">function</span> <span class="function-color">strangeSums</span>(arr){
+    <span class="let-color">let</span> count = 0;
+    <span class="for-color">for</span>(<span class="let-color">let</span> i = 0; i &lt; arr.length; i++){
+        <span class="let-color">let</span> num1 = arr[i];
+        <span class="for-color">for</span>(<span class="let-color">let</span> j = i + 1; j &lt; arr.length; j++){
+            <span class="let-color">let</span> num2 = arr[j];
+            <span class="for-color">if</span>(num1 + num2 === 0){
+                count++;
+            }
+        }
+    }
+    <span class="for-color">return</span> count
+}
+console.log(<span class="function-color">strangeSums</span>([2, -3, 3, 4, -2])); <span class="g">// 2</span>
+console.log(<span class="function-color">strangeSums</span>([42, 3, -1, -42])); <span class="g">// 1</span>
+console.log(<span class="function-color">strangeSums</span>([-5, 5])); <span class="g">// 1</span>
+console.log(<span class="function-color">strangeSums</span>([19, 6, -3, -20])); <span class="g">// 0</span>
+console.log(<span class="function-color">strangeSums</span>([9])); <span class="g">// 0</span></pre>
+        </div>
+        
+    </div>
+    
+    
+</body>
+</html>

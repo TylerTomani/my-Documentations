@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-recursionBasics</title>
+    <link rel="stylesheet" href="../../../../css/lesson.css">
+    <link rel="stylesheet" href="../../../../css/flex.css">
+    <link rel="stylesheet" href="../../../../css/colors.css">
+</head>
+<body>
+    <h1 tabindex="1">Recusion Basics</h1>
+    <p tabindex="1">
+        &emsp;If we declare a default value for an arguement, we can use it without passing anything in.
+    </p>
+    <code>
+        let growNumber = function(num, amount = 1){
+            <br>return num + amount
+        <br> }
+        <br> console.log(growNumber(2))
+        <br> //prints 3
+    </code>
+    <script>
+        console.log("growNumber");
+        let growNumber = function(num , amount = 1){
+            return num + amount;
+        }
+        console.log(growNumber(2))
+    </script>
+    <p tabindex="1">
+        &emsp;Default parameters can also be used to pass in <i>flag</i>. This verbose flag
+        will print out each step of the for loop if set to <code>true</code>
+    </p>
+    <code tabindex="1">
+        let sums = function(nums, verbose = false){
+            <br>&emsp;let total = 0;
+            <br>&emsp;for(let i = 0; i &lt;nums.length; i++){
+            <br>&emsp;&emsp;if(verbose){
+            <br>&emsp;&emsp;&emsp;console.log(`${total} + ${nums[i]} = ${total + nums[i]}`);
+            <br>&emsp;&emsp;}
+            <br>&emsp;&emsp;total += num[i];
+            <br>&emsp;}
+            <br>&emsp;return total;
+        <br>}
+        <br>let numArr = [1,2,3];
+        <br>console.log(sums(numArr))
+        <br>console.log(sums(numArr,true))
+        <br> // prints 6
+        <br> // prints 0 + 1 = 1
+        <br> // 1 + 2 = 3
+        <br> // 3 + 3 = 6
+        <br> // 6
+
+
+    </code>
+    <script>
+        console.log("sums()")
+        let sums = function(nums, verbose = false){
+            let total = 0;
+            for( let i = 0; i < nums.length; i++){
+                if(verbose){
+                    console.log(`${total} + ${nums[i]} = ${total + nums[i]}`)
+                }
+                total += nums[i];
+            }
+            return total;
+        }
+        let numArr = [1,2,3]
+        console.log(sums(numArr))
+        console.log(sums(numArr, true))
+
+    </script>
+    <h3>Recursive factorials</h3>
+    <p>
+        &emsp;This example demonstrates how we can pass intermediate calculations and pass
+        data between recursive function calls.
+    </p>
+    <p>
+        If <code>n</code> is > greate than the
+    </p>
+    <script>
+        console.log("allFactorials()")
+        let allFactorials = function(n , factorials = [1]){
+            if(n > factorials.length){
+                factorials = allFactorials(n - 1,factorials)
+                console.log("n",n)
+            }
+            factorials.push(n * factorials[n - 1])
+            return factorials;
+        }
+        console.log(allFactorials(3))
+    </script>
+
+</body>
+</html>

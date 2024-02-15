@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>questions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h2>Questions</h2>
+    <h3>Personal Questions</h3>
+    <ul>
+        <li>Is there a way to key elements collapsed when saving and then opening in vs code</li>
+        <li>How can change elements inside of iframe from outside ( night mode )</li>
+    </ul>
+    <hr>
+    <h3>Course Questions</h3>
+    <div  class="question-container">
+        <div tabindex="1" class="question">
+            <h3>Unit 24 OPP and Casses </h3>
+            <p>
+                &emsp;The first static class lecture.
+                <br>How is the static method within the class returning both <code>sort()</code>
+                and <code>map()</code>
+            </p>
+            <img tabindex="" src="images/unit24-return.png">
+        </div>
+
+
+        <div tabindex="1" class="question">
+            <h3>Unit 25 context in Javascript</h3>
+            <p style="color:red">
+                &emsp;The first lesson <q>context</q>.
+                I don't get why dog === Dog, This makes sense but no really
+            </p>
+            <pre>
+class Dog{
+    test(){
+        return this === dog;
+    }
+}
+const dog = new Dog;
+console.log(dog.test())
+const cat = new Dog;
+console.log(dog.test())
+// prints 
+true 
+true        </pre>
+        </div>
+    </div>
+    
+    
+</body>
+</html>

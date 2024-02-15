@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7-myEveryDemo</title>
+    <link rel="stylesheet" href="../../../../css/colors.css">
+    <link rel="stylesheet" href="../../../../css/lesson.css">
+    <!-- <link rel="stylesheet" href="../../../../css/flex.css"> -->
+
+</head>
+<body>
+    <h2 tabindex="1">7-myEvery()</h2>
+    <p >
+        &emsp; Just like <code>forEach()</code>,<code>map()</code>, and<code>filter()</code>, the every method
+        requires a <span class="v">callback</span> as seeen at <span class="v">line 2</span>,
+        but unlike the previous methods, the <code>every()</code> function returns a boolean.
+    </p>
+    <div tabindex="1">
+            <pre>
+    1   let food = ['lettuce', 'celery', 'watermellon', 'pineapple'];
+
+    2   let result = food.every(<span class="v">function(el,i,array)</span>{
+    3       return el.includes('e')
+    4   })
+    5   console.log(result)
+    <span class="g">//prints true</span>
+    1   let food = ['lettuce', 'celery', 'watermellon', 'pineapple'];
+
+    2   let result = food.every(<span class="v">function(el,i,array)</span>{
+    3       return el.includes('x')
+    4   })
+    5   console.log(result)
+    <span class="g">//prints false</span>
+            </pre>
+    </div>
+    <div tabindex="1">
+        <p>
+            &emsp;Just like the other methods, we can create the <span class="v">callback</span> and place it into
+            <code>every()</code>'s argument
+        </p>
+        <pre>
+    let <span class="v">includesE</span> = function(el){
+        return el.includes("e")
+    }
+    let result = food.every(<span class="v">includesE</span>);
+    console.log(result)
+        </pre>
+    </div>
+    <hr>
+    <div tabindex="1">
+        <p>
+            &emsp;To clarify, the return boolean value will be true, ONLY, if every array item meets
+            its criterion
+        </p>
+    </div>
+
+    </div>
+    <h3> <code>myEvery()</code></h3>
+    <pre tabindex="1">
+    let myEvery = function(array,cb){
+        for(let i = 0; i &lt; array.length; i++){
+            if(!cb(array[i])){
+                return false;
+            }
+        }
+        return true;
+    }
+    let containsE = function(el){
+        return el.includes('e');
+
+    }
+    let result = myEvery(food,containsE)
+    </pre>
+
+<script>
+    let food = ['lettuce', 'celery', 'watermellon', 'pineapple'];
+
+    // let result = food.every(function(el,i,array){
+    //     return el.includes('x')
+    // })
+    // console.log(result)
+
+    // let includesE = function(el){
+    //     return el.includes("e")
+    // }
+    // let result = food.every(includesE);
+    // console.log(result)
+    let myEvery = function(array,cb){
+        for(let i = 0; i < array.length; i++){
+            if(cb(array[i]) === false){
+                return false;
+            }
+        }
+        return true;
+    }
+    let containsE = function(el){
+        return el.includes('e');
+
+    }
+    let result = myEvery(food,containsE)
+
+    console.log(result)
+</script>
+
+
+</body>
+</html>

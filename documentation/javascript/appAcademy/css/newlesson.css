@@ -1,0 +1,248 @@
+.line-through {
+    text-decoration: line-through;
+}
+p > code {
+    display: inline-block;
+}
+p > code.app-acdemy-code {
+    display: inline-block;
+}
+h2 > code {font-family: monospace; font-size: 1.5rem;}
+.copy-pre-code:focus, .copy-pre-code:active {
+    border: 3px solid whitesmoke;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+/* **************** Flex */
+.flex {display: flex;}
+.fc,
+.flex-container {
+    display: flex;
+    /* flex-wrap: wrap; */
+}
+.fc > .fi,
+.flex-container>.flex-item {
+    flex-basis: 47.5%;   
+}
+
+.fc > .fi > p,
+.flex-container>.flex-item > p { 
+    /* line-height: 100%; */
+}
+.fc > .code-container,
+.flex-container > .code-container {
+    display: flex;
+    flex-direction: column;
+    border: 4px solid whitesmoke;
+    /* align-items: flex-start; */
+    /* flex-basis: 25%; */
+    width: 50%;
+    
+}
+.fc > .code-container > pre,
+.flex-container>.code-container>pre {
+    text-overflow: wrap;
+    display: inline-block;
+    width: 100%;
+    overflow-x: scroll;
+    /* font-size: 1rem; */
+    
+
+}
+.fcol,
+.flex-col {
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+}
+.fi.fcol,
+.flex-item.flex-col {
+    justify-content: flex-start;
+}
+.fcol > .fi > p,
+.flex-col > .flex-item > p {line-height: 1.4rem;}
+/* Align-items */
+.ab {align-items: space-between;}
+.ac {align-items: center;}
+.ae {align-items: end;}
+.ass {align-self: flex-start;}
+.asc {align-self: center;}
+.ase {align-self: flex-end;}
+/* Justify-content */
+.jb {justify-content: space-between;}
+.jc {justify-content: center;}
+.je {justify-content: flex-end;}
+.jss {justify-self: flex-start;}
+.jsc {justify-self: center;}
+.jse {justify-self: flex-end;}
+.jcsa {justify-content: space-around;}
+.jcsb {justify-content: space-between;}
+/* //////// Code */
+code.lecture-code-center,
+pre.lecture-code-center,
+pre.lecture-code-full,
+pre.lecture-code{
+    /* background-color: lightgray; */
+    font-size: 1.1rem;
+    font-family: monospace;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 799;
+    margin: 1% 0;
+    border-top: 1px solid ;
+    /* border-bottom: 1px solid; */
+    border-right: 1px solid ;
+    border-color: rgb(0,0,0,.2);
+    border-radius: 4px;
+    margin-left: 2.5%;
+    display: inline-block;
+    width: 50%;
+    min-width: 650px;
+    padding:  1%;
+    overflow-x: scroll;
+}
+pre.lecture-code-full {
+    width: 100%;
+}
+code.lecture-code-center,
+pre.lecture-code-center {
+    border-left: 1px solid rgb(0,0,0,.2) ;
+}
+
+.fcol > .fi > pre > span.g ,
+.flex-col>.flex-item>pre > span.g {
+    font-family: monospace;
+}
+
+/* **************** Fonts Styles and Sizes */
+.fc > .fi > p,
+.flex-container > .flex-item > p {
+    font-size: 1.1rem;
+    line-height: 1.3;
+}
+.fc > .fi > p > code {
+    font-family: monospace;
+    font-size: 1.2rem;
+}
+code.lecture-code {
+    font-size: 1.1rem;
+    font-family: monospace;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 799;
+    margin: 1% 0;
+    padding: 1%;
+    display: inline-block;
+    
+}
+p {margin: 1% 0 0 0 ;}
+/* Margin */
+.mauto {margin: 0 auto !important;}
+.m0 {margin: 0 m !important;}
+.mt1 {margin-top: 1%;}
+.mt2 {margin-top: 2%;}
+.mt3 {margin-top: 3%;}
+.ml1 {margin-left: 1%;}
+.ml2 {margin-left: 2%;}
+.ml3 {margin-left: 3%;}
+.mtb1 {margin: 1% 0;}
+.mtb2 {margin: 2% 0;}
+.ms1 {margin: 0 1% ;}
+.ms2 {margin: 0 2% ;}
+.mb1 {margin-bottom: 1%;}
+.mb2 {margin-bottom: 2%;}
+.mb3 {margin-bottom: 3%;}
+/* Margin-percent */
+.mb30 {margin-bottom: 30%;}
+/* Padding */
+.pauto {padding: 0 auto !important;}
+.p0 {padding: 0 m !important;}
+.pt1 {padding-top: 1%;}
+.pt2 {padding-top: 2%;}
+.pt3 {padding-top: 3%;}
+.pl1 {padding-left: 1%;}
+.pl2 {padding-left: 2%;}
+.pl3 {padding-left: 3%;}
+.ptb1 {padding: 1% 0;}
+.ptb2 {padding: 2% 0;}
+.pb1 {padding-bottom: 1%;}
+.pb2 {padding-bottom: 2%;}
+.pb3 {padding-bottom: 3%;}
+@media screen and (max-width: 1150px){
+    .fc,
+    .flex-container {
+        /* flex-wrap: wrap; */
+        /* display: block; */
+        /* flex-direction: column; */
+    }
+    .fc > .code-container,
+    .flex-container>.code-container {
+        width: 150%;
+        flex-basis: 100%;
+        /* min-width: 1000px; */
+    }
+    .fc > .fi
+    .flex-container > .flex-item{
+        flex-wrap: wrap;
+        
+    }
+    
+    code.lecture-code {
+        font-size: 1.1rem;
+        font-family: monospace;
+        font-weight: 799;
+        margin: 1% 0;
+        /* border-top: 1px solid; */
+        border-bottom: 1px solid;
+        border-right: 1px solid;
+        border-color: rgb(0, 0, 0, .2);
+        border-radius: 4px;
+        /* display: inline-block; */
+
+        padding: 1%;
+    }
+}
+@media screen and (max-width: 750px){
+    .fc,
+    .flex-container {
+        /* display:block; */
+        flex-direction: column;
+        width: 100vw
+    }
+    .fc > .code-container,
+    .flex-container>.code-container {
+        width: 150%;
+        flex-basis: 100%;
+        /* min-width: 1000px; */
+    }
+    .fc > .fi > h3,
+    .flex-container > .flex-item > h3 {
+        margin-left: 5%;
+    }
+    .fc > .fi > p,
+    .flex-col > .flex-item > p{
+        margin: 1% 2.5%;
+
+    }
+    .fcol > .fi > ul,
+    .flex-col > .flex-item > ul{
+        margin: 1% 2.5%;
+        list-style-type: none;
+    }
+    code.lecture-code {
+        margin-left: 5.5%;
+    }
+    .fcol > .fi > pre.lecture.code,
+    .flex-col >.flex-item > pre.lecture-code {
+        font-size: 95%;
+        padding: 1% 0;
+    }
+    
+    code.lecture-code-center {
+        font-size: .95rem;
+        width: 100%;
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-usingCbFunctionsDemo1</title>
+    <link rel="stylesheet" href="../../../../css/flex.css">
+    <link rel="stylesheet" href="../../../../css/colors.css">
+    <link rel="stylesheet" href="../../../../css/colors.css">
+</head>
+<body>
+    <h2 tabindex="1">1-Using Callback Functions </h2>
+    <p tabindex="1">
+        &emsp;Remember, functions are <q>first class objects</q> which allow them to be returned
+         from within functions and assigned
+        to variables which can then be <span class="v">invoked</span>
+    </p>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <code>
+                let foo = function(){
+                <br>&emsp;return (function(){
+                <br>&emsp;&emsp;result "This is a returned anonymous function"
+                <br>&emsp;})
+                <br>}
+                <br>let result = foo()
+                <br>console.log(foo)
+                <br><span class="g">//prints [Function (anonymous)]</span>
+            </code>
+        </div>
+        <div class="flex-item">
+            <code>
+                let foo = function(){
+                <br>&emsp;return (function(){
+                <br>&emsp;&emsp;return "THis is a returned anonymous function"
+                <br>})
+                <br>}
+                <br>let result = foo();
+                <br>console.log(<span class="v">result()</span>)
+                <br><span class="g">// prints This is a returned anonymous function</span>
+            </code>
+        </div>
+
+
+    </div>
+
+    <hr>
+    <div tabindex="1">
+        <p>
+            &emsp;This is an example of using a simple callback function, remember to only <span class="r">pass in</span> the
+            <br>the <span class="r">name</span> of a callback function as a <span class="r">parameter</span>. Calling a function
+            is
+            <br>No different then calling what that function returns
+        </p>
+        <pre>
+        let superAdd = function(num1,num2,<span class="r">cb</span>){
+            sum = num1 + num2;
+            let example = <span class="r">cb</span>(sum);
+            return example;
+        }
+        let addHundred = function(num){
+            return num + 100;
+        }
+        console.log(superAdd(8 ,8 , <span class="r">addHundred</span> ))
+        // prints 116
+        </pre>
+    </div>
+    <div tabindex="1">
+        <p>
+            &emsp;Callback functions are powerful because we can pass different functions into the same parameters
+        </p>
+        <pre>
+        let superAdd = function(num1,num2,cb){
+            sum = num1 + num2;
+            let example = cb(sum);
+            return example;
+        }
+        let addHundred = function(num){
+            return num + 100;
+        }
+        let negate = function(num){
+            return -1 * num;
+        }
+        console.log(superAdd(8 ,8 , <span class="r">addHundred</span> ))
+        console.log(superAdd(8 ,8 , <span class="r">negate</span> ))
+        <span class="g">// prints 116
+        -16</span>
+        </pre>
+    </div>
+    <div tabindex="1">
+        <p>
+            &emsp;Anonymous functions can be written as arguments within the parameters.
+        </p>
+        <pre>
+        let superAdd = function(num1,num2,cb){
+            sum = num1 + num2;
+            let example = cb(sum);
+            return example;
+        }
+        let result = superAdd( 8, 8 , function(num){
+            return num + 100;
+        })
+        <span class="g">// prints 116</span>
+        </pre>
+        </pre>
+    </div>
+<script>
+    let superAdd = function(num1, num2, cb){
+        sum = num1 + num2;
+        let example = cb(sum);
+        return example;
+    }
+    let addHundred= function(num){
+        return num + 100;
+    }
+    let negate = function(num){
+        return -1 * num;
+    }
+    console.log(superAdd(8,8,addHundred));
+    console.log(superAdd(8,8,negate));
+
+    let result = superAdd(8, 8, function (num) {
+            return num + 100;
+        })
+    console.log(result)
+</script>
+
+</body>
+</html>

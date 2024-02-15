@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5_usingModules</title>
+    <link rel="stylesheet" href="../../../../css/lesson.css">
+    <link rel="stylesheet" href="../../../../css/colors.css">
+    <link rel="stylesheet" href="../../../../css/flex.css">
+</head>
+<body>
+    <h2 tabindex="1">5-Using Modules in Node.JS (intro to classes)</h2>
+    <sub>*Note, this whole unit doesn't cover how to use modules in the browser</sub>
+    <div tabindex="1" class="flex-center">
+        <ul class="">
+            <li>use the <code>module.exports</code> to export from a module</li>
+            <li>use the <code>require()</code> function to import from a module</li>
+        </ul>
+    </div>
+    <div tabindex="1">
+        <p>
+            &emsp;Node contains a variety of core modules, including modules for working with"
+        </p>
+        <ul>
+            <li>working with file paths <code>(path)</code></li>
+            <li>reading data from a stream one line at a time <code>(readline)</code></li>
+            <li>reading and writing files to the local file system <code>(fs)</code></li>
+            <li>and creating HTTP servers <code>(http)</code></li>
+        </ul>
+    </div>
+    <p tabindex="1">
+        Developers, companies, and organizations that use Node.js also create and publish modules that you can use in your
+        applications. These third-party modules are distributed and managed using <code>npm</code>, a popular package manager for Node.js.
+    </p>
+    <hr>
+    <h3>Important Note</h3>
+    <div tabindex="1">
+        <p>
+            &emsp;Recent versions of Node.js actually contain two different module systems. The original module system known as
+            CommonJS,
+            and a newer module system known as ECMAScript Modules or simply ES Modules. Conceptually, CommonJS and ES Modules
+            are
+            similar, but their syntax and implementation details differ a bit.
+        </p>
+        <p>
+            ES Modules will eventually replace CommonJS, but the transition won't happen overnight. Due to the amount of legacy
+            Node.js code that exists, you will see CommmonJS modules quite often in Node.
+        </p>
+    </div>
+    <hr>
+    <h3>Intro to Classes</h3>
+    <p tabindex="1">
+        &emsp;To add a local module to a Node application, simply add a new JavaScript file (.js) to your folder
+    </p>
+    <img tabindex="1" class="sm-img" src="images/01-introToClasses.png">
+    <h3>basic example of class script usin node</h3>
+    <pre tabindex="1" >
+<span class="class-color">class</span> <span class="lsg">CatalogItem</span> {
+    constructor(title,series){
+        <span class="class-color">this</span>.title = title;
+        <span class="class-color">this</span>.series = series
+    }
+    
+    getInfo(){
+        if(<span class="class-color">this</span>.series) {
+            return `${<span class="class-color">this</span>.title} (${<span class="class-color">this</span>.series})`
+        } else {
+            return <span class="class-color">this</span>.title;
+        }
+    }
+}
+    </pre>
+    <p tabindex="1">Below the above code we can use <code class="class-color">extends</code> along with <code class="b">super</code> to create a new class from a <i>Parent Class</i>
+        and add new <span class="v">items</span> to the constructor,
+    like python,</p>
+    <pre tabindex="1">
+        <span class="class-color">class</span> <span class="lsg">Book</span> <span class="class-color">extends</span> <span class="lsg">CatalogItem</span> {
+            constructor(title,series,<span class="v">author</span>){
+                <span class="b">super</span>(title,series);
+                <span class="class-color">this</span>.author = <span class="v">author</span>;
+            }
+        }
+        
+        
+    </pre>
+    <div tabindex="1">
+        <p>
+            We can also add <span class="v">function</span> to a child class from a parent class
+        </p>
+        <pre>
+            class Movie extends CatalogItem {
+                constructor(title,series,director){
+                    super(title,series);
+                    this.director = director;
+                }
+
+                getInfo() {
+                    let result = <span class="b">super</span>.<span class="v">getInfo()</span>
+                    
+                    if(this.director){
+                      result += `[directed by ${this.director}]`
+                    }
+                    
+                    return result;
+                }
+            }
+        </pre>
+    </div>
+    <div tabindex="1">
+        <p>
+            &emsp;To use both the <i>Parent Class</i> <code class="lsg">CatalogItem</code> and the <i>child classes</i> 
+            <code class="lsg">Movie</code> and <code class="lsg">Book</code> we must export them from the class script using
+            <code>module.exports</code> and import them into index.js with the <code>require()</code> function
+        </p>
+        <pre>
+            module.exports.Book = Book;
+            module.exports.Movie = Movie;
+        </pre>
+        <p>or</p>
+        <pre>
+            module.exports = {
+                Book,
+                Movie
+            };
+        </pre>
+    </div>
+    <p tabindex="1">
+        &emsp;Notice how we didn't export the parent class <code class="lsg">CatalogItem</code>. We are 
+        keeping it hidden in the class.js script, This is an example of <q><i>abstraction</i></q>
+    </p>
+    <hr>
+    <h3>Importing into index.js with <code>require()</code></h3>
+    <div tabindex="1">
+        <p>
+            &emsp;To import the two classes into index.js do the following
+        </p>
+        <pre>
+            const classes = require("./classes");
+            const Movie = classes.Book;
+            const Book = classes.Movie;
+        </pre>
+    </div>
+    <p>Below are both scripts side by side with the results</p>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <code>classes.js</code>
+            <code>
+<br><span class="class-color">class</span> <span class="lsg">CatalogItem</span> {
+<br>&emsp;&emsp;<span class="class-color">constructor</span>(title,series){
+<br>&emsp;&emsp;&emsp;&emsp;<span class="class-color">this</span>.title = title;
+<br>&emsp;&emsp;&emsp;&emsp;<span class="class-color">this</span>.series = series;
+<br>&emsp;&emsp;}
+<br>&emsp;&emsp;<span class="function-color">getInfo</span>() {
+<br>&emsp;&emsp;&emsp;&emsp;if(<span class="class-color">this</span>.series){
+<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;return `${<span class="class-color">this</span> .title} (${<span class="class-color">this</span>.series})`
+<br>&emsp;&emsp;&emsp;&emsp;} else {
+<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;return `${<span class="class-color">this</span>.title}`
+<br>&emsp;&emsp;&emsp;&emsp;}
+<br>&emsp;&emsp;}
+<br>}
+<br>
+<br><span class="class-color">class</span> <span class="lsg">Book</span> <span class="b">extends</span> <span class="lsg">CatalogItem</span> {
+<br>&emsp;&emsp;<span class="class-color">constructor</span>(title,series,author){
+<br>&emsp;&emsp;&emsp;&emsp;super(title,series);
+<br>&emsp;&emsp;&emsp;&emsp;<span class="class-color">this</span>.author = author;
+<br>&emsp;&emsp;}
+<br>&emsp;&emsp;<span class="function-color">getInfo</span>() {
+<br>&emsp;&emsp;&emsp;&emsp;let result = super.getInfo();
+<br>
+<br>&emsp;&emsp;&emsp;&emsp;result += ` by ${<span class="class-color">this</span>.author}`
+<br>
+<br>&emsp;&emsp;&emsp;&emsp;return result
+<br>&emsp;&emsp;}
+<br>
+<br>}
+<br>
+<br><span class="class-color">class</span> <span class="lsg">Movie</span> <span class="b">extends</span> <span class="lsg">CatalogItem</span> {
+<br>&emsp;&emsp;<span class="class-color">constructor</span>(title,series,director){
+<br>&emsp;&emsp;&emsp;&emsp;<span class="b">super</span>(title,series);
+<br>&emsp;&emsp;&emsp;&emsp;<span class="class-color">this</span>.director = director;
+<br>&emsp;&emsp;}
+<br>&emsp;&emsp;<span class="function-color">getInfo</span>() {
+<br>&emsp;&emsp;&emsp;&emsp;let result = super.getInfo();
+<br>&emsp;&emsp;&emsp;&emsp;if(<span class="class-color">this</span>.director){
+<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;result += ` [ directed by ${<span class="class-color">this</span>.director}]`
+<br>&emsp;&emsp;&emsp;&emsp;}
+<br>&emsp;&emsp;&emsp;&emsp;return result
+<br>&emsp;&emsp;}
+<br>}
+<br>
+<br>module.exports = {
+<br>&emsp;Book,
+<br>&emsp;Movie
+<br>}
+            </code>
+
+        </div>
+        <div class="flex-item">
+            <code>index.js</code>
+            <code>
+<br>const classes = require("./classes")
+<br> 
+<br>const Book = classes.Book;
+<br>const Movie = classes.Movie;
+<br>
+<br>const Rhetoric = new Book (
+<br>&emsp;&emsp;"Rhetoric",
+<br>&emsp;&emsp;null,
+<br>&emsp;&emsp;"Aristotle"
+<br>)
+<br>const aNewHope = new Movie (
+<br>&emsp;&emsp;"A New Hope",
+<br>&emsp;&emsp;"Star Wars",
+<br>&emsp;&emsp;"George Lucas"
+<br>)
+<br>
+<br>console.log(Rhetoric.getInfo())
+<br>console.log(aNewHope.getInfo())
+<br><span class="g">// prints
+<br>Rhetoric by Aristotle
+<br> A New Hope (Star Wars) [ directed by George Lucas] </span>
+            </code>
+        </div>
+        
+    </div>
+    
+</body>
+
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1_context</title>
+    <link rel="stylesheet" href="../../../../css/lesson.css">
+    <link rel="stylesheet" href="../../../../css/colors.css">
+    <link rel="stylesheet" href="../../../../css/lesson.css">
+</head>
+<body>
+    <h2 tabindex="1">1_context</h2>
+    <div tabindex="1">
+        <p>
+            &emsp;Programmers often confuse <i>scope</i> with <i>context</i>. Every function
+            has both a scope and context
+        </p>
+        <ul>
+            <li><i>Scope</i> - referes to visibility and availabiity of variables</li>
+            <li><i>Context</i> - refers to the value of <code class="b">this</code> keyword</li>
+        </ul>
+        <p tabindex="1"><strong>Context refers to the value of <code class="b">this</code> within a function and <code class="b">this</code> refers to where a function is
+                invoked.</strong></p>
+        <p>
+            &emsp;There will be times when you will have to know which object a method belongs to. The keyword <code class="b">this</code> exists in
+            every
+            function and it evaluates to the object that is currently invoking that function. So the value of <code
+                class="b">this</code> relies entirely
+            on where a function is invoked.
+        </p>
+    </div>
+    <hr>
+    <p tabindex="1">The below Examples are confusing, Did my best trying to explain</p>
+    <div tabindex="1">
+        <p>
+            &emsp;If we first initilize the value of <code>isSitting</code> to true within a new instance of the class <code>Dog</code>
+            it will be <code>true</code>. If we invoke the class method <code>stand()</code>. It will change it permanetly to <code>false</code>
+            as shown below
+        </p>
+    </div>
+    <div>
+        <pre tabindex="1" class="app-academy-code">
+class Dog {
+    constructor(name,isSitting){
+        this.name = name;
+        this.isSitting = isSitting;
+    }
+    stand(){
+        this.isSitting = false;
+        return this.isSitting;
+    }
+}
+const dog = new Dog("Rooster",true);
+console.log(dog.isSitting);
+console.log(dog.stand());
+console.log(dog.isSitting)
+<span class="g">// prints
+true
+false 
+false</span></pre>
+        </div>
+        <hr>
+        <p tabindex="1">This lesson is so confusing but i'm doing my best</p>
+        <p style="color:red">I don't get why dog === Dog, This makes sense but no really</p>
+        <pre tabindex="1" class="app-academy-code">
+class Dog{
+    test(){
+        return this === dog;
+    }
+}
+const dog = new Dog;
+console.log(dog.test())
+const cat = new Dog;
+console.log(dog.test())
+<span class="g">// prints
+true
+true</span></pre>
+    <hr>
+    <div tabindex="1" >
+        <p>
+            &emsp;Method style invocations follow the format: <code>object.method(args)</code>. You've already been doing this using built in data type
+            methods. (i.e. <code>Array.push</code>, <code>String.toUpperCase</code>, etc.)
+        </p>
+        <p>
+            &emsp;Using method-style invocation (note the dot notation) ensures the method will be invoked and that the this within the
+            method will be the object that method was called upon.
+        </p>
+    </div>
+    <hr>
+    <h3><code class="b">this</code> in normal functions</h3>
+    <div tabindex="1">
+        <p>
+            &emsp;Functions that are <strong>not</strong> defined within a object, have the
+            global object as <code class="b">this</code>
+        </p>
+        <p>
+            Run the following code to see:
+        </p>
+        <pre class="app-academy-code">
+<span class="class-color">function</span> <span class="function-color">testMe</span>(){
+    consol.log(this);
+}
+<span class="function-color">testMe</span>();
+<span class="g">Object [global] {
+global: [Circular *1],
+clearInterval: [Function: clearInterval],
+...</span>        </pre>
+        <p>
+            &emsp;This will prints out the Root Object.
+        </p>
+    </div>
+    <h3>Unexpected Context</h3>
+    <div tabindex="1">
+        <p>
+            &emsp;Problems occur when assigning class methods to variables outside the class
+        </p>
+        <pre class="app-academy-code">
+<span class="class-color">class</span> <span class="class-var">Dog</span>{
+    <span class="class-color">constructor</span>(<span class="class-param">name</span>){
+        <span class="class-color">this</span>.<span class="class-param">name</span> = <span class="class-param">name</span>;
+    }
+    <span class="function-color">changeName</span>(){
+        <span class="class-color">this</span>.<span class="class-param">name</span> = "Lucky"
+    }
+}
+<span class="const-color">const</span> <span class="var-color">dog</span> = <span class="class-color">new</span> <span class="class-var">Dog</span>("Rooster")
+<span class="const-color">const</span> <span class="var-color">newName</span> = <span class="var-color">dog</span>.<span class="function-color">changeName</span>
+console.log(<span class="function-color">newName</span>())
+<span class="g">TypeError: Cannot set properties of undefined (setting 'name')</span>
+        </pre>
+    </div>
+    <div tabindex="1">
+        <p>
+            &emsp;This will produce a type error message, becuase the function is invoked outside of the class which 
+            does <strong>not</strong> have access to <code><span class="b">this</span>.<span class="class-param">name</span></code>
+        </p>
+    </div>
+    <hr>
+    <div tabindex="1">
+        <p>
+            &emsp;Incorrectly passing context is an inherent problem with callbacks.
+        </p>
+        <p>
+            The <code>global.setTimeout()</code> method on the global object is a popular way of 
+            setting a function to run on a timer.
+        </p>
+    </div>
+    <div>
+        <pre class="app-academy-code">
+<span class="var-color">function</span> <span class="function-color">sayHey</span>(){
+    <span class="global-color">console</span>.log("Hey")
+}
+<span class="global-color">global</span>.<span class="function-color">setTimeout</span>(<span class="function-color">sayHey</span>,1000);
+<span class="g">// prints "Hey" after 1 second</span></pre>
+    </div>
+    <div>
+        <p tabindex="1">
+            &emsp;An error will occur when trying to invoke a class method with the global.<code>setTimeout</code> method
+        </p>
+        <pre tabindex="1" class="app-academy-code">
+<span class="class-color">class</span> <span class="class-var">Cat</span>{
+    <span class="function-color">purr</span>(){
+        console.log("Meow")
+    }
+    <span class="function-color">purrMore</span>(){
+        this.purr()
+    }
+}
+<span class="const-color">const</span> <span class="var-color">cat</span> = <span class="class-color">new</span> <span class="class-var">Cat</span>()
+<span class="global-color">global</span>.<span class="function-color">setTimeout</span>(<span class="const-color">cat</span>.<span class="function-color">purr</span>,1000)
+<span class="global-color">global</span>.<span class="function-color">setTimeout</span>(<span class="const-color">cat</span>.<span class="function-color">purrMore</span>,1000)
+<span class="g">// cat.purr will produce "Meow" after 1 second
+    cat.purrMore will produce a TypeError
+</span>
+
+        </pre>
+        <p tabindex="1">
+            &emsp;<code>cat.purr()</code> will work, but <code>cat.purrMore()</code> will <strong>not</strong>, because the global scope doesn't <strong>not</strong>
+            have access to <code>this.purr</code> within the Cat class
+        </p>
+    </div>
+    <hr>
+    <h3>"Use Strict"</h3>
+    <p>
+        Look at the bottom of this lesson and enter summary here...
+    </p>
+    <p>
+        &emsp;use strict if you want to invoke.... go back and do this
+    </p>
+</body>
+</html>

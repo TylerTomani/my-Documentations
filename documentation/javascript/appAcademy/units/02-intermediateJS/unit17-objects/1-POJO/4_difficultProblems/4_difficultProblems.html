@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4_difficultProblems</title>
+    <link rel="stylesheet" href="../../../../../css/lesson.css">
+    <link rel="stylesheet" href="../../../../../css/colors.css">
+    <link rel="stylesheet" href="../../../../../css/lesson.css">
+</head>
+<body>
+    <h2 tabindex="1">4_Difficult Problems</h2>
+    <p>
+        &emsp;This is problem 06-key-in-object-array from the practice for week 02 pojo
+    </p>
+    <p>
+        How to see if key exist within an array of objects
+    </p>
+    <pre tabindex="1">
+let objArray = [
+  { name: "Rupert" },
+  { age: 42 },
+  { planet: "Earth", system: "Milky Way" }
+];
+
+keyInObjectArray(objArray, 'planet'); // => true
+keyInObjectArray(objArray, 'age'); // => true
+keyInObjectArray(objArray, 'food'); // => false
+keyInObjectArray(objArray, 'animal'); // => false
+
+
+
+function keyInObjectArray(objArray, keyString) {
+  // Your code here
+    const exist = objArray.some( obj => {
+        return obj.hasOwnProperty(keyString)
+    })
+    console.log(exist)
+}
+
+    </pre>
+    <footer tabindex="1"></footer>
+</body>
+</html>

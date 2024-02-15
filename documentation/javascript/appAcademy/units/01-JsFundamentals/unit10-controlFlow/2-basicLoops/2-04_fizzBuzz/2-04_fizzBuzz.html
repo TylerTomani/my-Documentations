@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-04_fizzBuzz</title>
+    <link rel="stylesheet" href="../../../../../css/newlesson.css">
+    <link rel="stylesheet" href="../../../../../css/appCodeColors.css">
+    <link rel="stylesheet" href="../../../../../css/optsFlex.css">
+    
+    <script src="../../../../../js/copycode.js" defer></script>
+</head>
+<body>
+    <h2>4. <code>fizzBuzz()</code></h2>
+    <div class="flex-col">
+        <div class="flex-item">
+            <p>
+                A functions that prints of the numbers between 0 and <code>max</code>
+                that are divisible by 3 or 5 but <strong>not</strong> both.
+            </p>
+        </div>
+        <div class="flex-item">
+            <pre tabindex="1" class="app-academy-code copy-pre-code">
+<span class="const-color">function</span> <span class="function-color">fizzBuzz</span>(<span class="v-code">max</span>){
+    <span class="let-color">let</span> nums = " ";
+    <span class="for-color">for</span>(<span class="let-color">let</span> i = 0; i &lt; max; i++){
+        if( (i % 3 === 0 || i % 5 === 0) && !(i % 3 === 0 && i % 5 === 0)){
+            nums += i + " ";
+        }
+    }
+    console.log(nums)
+}
+<span class="function-color">fizzBuzz</span>(20);<span class="g">// 3 5 6 9 10 12 18
+</span>
+            </pre>
+        </div>
+        
+        
+    </div>
+</body>
+</html>

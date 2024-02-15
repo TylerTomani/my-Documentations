@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-05_longestName</title>
+    <link rel="stylesheet" href="../../../../../css/newlesson.css">
+    <link rel="stylesheet" href="../../../../../css/appCodeColors.css">
+    <link rel="stylesheet" href="../../../../../css/optsFlex.css">
+
+    <script src="../../../../../js/copycode.js" defer></script>
+</head>
+<body>
+    <h2>5. longestName</h2>
+    <div class="flex-col ">
+        <div class="flex-item line-height-2">
+            <p>&emsp;The function `longestName() takes an array of names and returns the longest. If there's a tie, it returns the
+                first name
+            </p>
+        </div>
+    </div>
+    <div class="flex-container">
+        <div class="code-container">
+            <pre tabindex="1" class="app-academy-code copy-pre-code">
+<span class="const-color">function</span> <span class="function-color">longestName</span>(<span class="var-color">arr</span>){
+    <span class="let-color">let</span> longestName = "";
+    
+    <span class="for-color">for</span>(<span class="let-color">let</span> i = 0; i &lt; <span class="var-color">arr</span>.<span class="length-color">length</span> ; i++){ 
+        <span class="for-color">if</span>(<span class="var-color">arr</span>[i].<span class="length-color">length</span> &gt; longestName.<span class="length-color">length</span> ){
+            longestName = <span class="var-color">arr</span>[i];
+        }
+    }
+
+    <span class="for-color">return</span> longestName;
+}
+<span class="sm-code">testNames = ["James", "Patricia", "Michael", "Elizabeth", "Christopher",
+"Sarah", "Margaret", "Kenneth", "Stephanie", "Jonathan",
+"Jeremy", "Samantha", "Alexander", "Catherine", "Benjamin"]</span>
+console.log(longestName(testNames)); <span class="g">// "Christopher"</span>
+            </pre>
+        </div>
+        
+        <div class="code-container">
+            <pre tabindex="1" class="app-academy-code copy-pre-code">
+<span class="const-color">function</span> <span class="function-color">longestName</span>(<span class="var-color">arr</span>){
+    <span class="let-color">let</span> longestName = "";
+    
+    <span class="var-color">arr</span>.<span class="function-color">forEach</span>( <span class="var-color">el</span> => {
+        <span class="for-color">if</span>(<span class="var-color">el</span>.<span class="length-color">length</span> &gt; longestName.<span class="length-color">length</span>){
+                longestName = <span class="var-color">el</span>
+            }
+        })
+        <span class="for-color">return</span> longestName;
+}
+
+<span class="sm-code">testNames = ["James", "Patricia", "Michael", "Elizabeth", "Christopher",
+"Sarah", "Margaret", "Kenneth", "Stephanie", "Jonathan",
+"Jeremy", "Samantha", "Alexander", "Catherine", "Benjamin"]</span>
+console.log(longestName(testNames)); <span class="g">// "Christopher"</span>
+            </pre>
+        </div>
+        
+    </div>
+    
+</body>
+</html>

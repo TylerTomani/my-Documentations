@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5-vsCodeDebugger</title>
+    <link rel="stylesheet" href="../../css/otherTopics.css">
+    <link rel="stylesheet" href="../../css/colors.css">
+</head>
+<body>
+    <h2 tabindex="1">5-vsCodeDebugger</h2>
+    <p>
+        &emsp;Vs code debugger allows you to step through code line by line. In
+        vs code hit,
+    </p>
+    <ul>
+        <li>Command + shift + P</li>
+        <li>type <q>Open User Settings (JSON)</q></li>
+    </ul>
+    <img tabindex="1" src="images/01-cmdShiftP.png">
+    <p tabindex="1">
+        &emsp;You will see something like this
+    </p>
+    <img tabindex="1" src="images/02-jsonSetting.png">
+    <p tabindex="1">
+        &emsp;Add the following "launch" key to the settings JSON object.
+    </p>
+    <p tabindex="1">
+This will create two configurations for launching the VSCode debugger. One to test individual Node.js files called
+"Launch", and one to test projects with mocha set up called "Mocha Tests"
+    </p>
+    <p>
+        JSON has similar syntax of a JavaScript object but one of the main differences is that all the keys must be wrapped in
+        double quotations.
+    </p>
+    <pre tabindex="1">
+"launch": {
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch",
+            "console": "integratedTerminal",
+            "program": "${file}"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Mocha Tests",
+            "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+            "args": [
+            "-u",
+            "bdd",
+            "--timeout",
+            "999999",
+            "--colors",
+            "${workspaceFolder}/test"
+        ],
+        "internalConsoleOptions": "openOnSessionStart",
+        "skipFiles": [
+            "&lt;node_internals>/**"
+        ]
+    }
+]
+}</pre>
+<hr>
+    <p tabindex="1">
+        &emsp;Open the test.js file in this project and click the debugging tab on the left side navigation bar (the play button with
+        a bug).
+    </p>
+    <p tabindex="1" >
+        If you don't have the navigation bar all the way to the left, make sure you have View &lt; Appearance &lt; Show
+        Activity Bar checked.
+    </p>
+    <img tabindex="1" src="images/03-debugButton.png">
+    <p>
+        Also, make sure that the dropdown option next to the green play button is set to Launch.
+        Launch is the name you set to the launch configuration in the settings.json file.
+    </p>
+    <img tabindex="1" src="images/04-launchBtn.png">
+<hr>
+<h2 tabindex="1">Project Instructions</h2>
+<p>
+    In this phase, you'll be using the VSCode debugger to debug the problems in the problems folder.
+</p>
+<p>
+    Go through each file one by one to debug all the errors. There could be multiple errors in one file, so make sure that
+    the code behaves as you expect before moving onto the next file.
+</p>
+<p>
+    Instead of using console.log to debug, make sure to use the debugger.
+</p>
+<p>
+    If you spot the error before using the debugger, make sure to validate the solution to the error by placing an
+    appropriate debugger, running it, and explaining to your partner that whatever the debugger exposes supports your
+    solution. Do not fix the error until you do this exercise.
+</p>
+<p>
+    Start debugging!
+</p>
+<footer tabindex="1"></footer>
+
+
+</body>
+</html>

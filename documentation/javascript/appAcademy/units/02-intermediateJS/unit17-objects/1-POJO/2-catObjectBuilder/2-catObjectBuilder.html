@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17-1_02-catBuilderObject</title>
+    <link rel="stylesheet" href="../../../../../css/lesson.css">
+</head>
+<body>
+    <h1 tabindex="1" >17-1_02-catBuilderObject</h1>
+    <h2>Instructions</h2>
+    <p>
+        &emsp;Write a function catBuilder(name, color, toys) that returns a cat object object
+       <br>  with the corresponding properties.
+    </p>
+    <pre >
+function catBuilder(name, color, toys) {
+       // your code here...
+       let cat = {
+           name : name,
+           color :color,
+           toys : toys
+       };
+       return cat;
+}
+console.log(catBuilder("Whiskers", "black", ["scratching-post", "yarn"]));
+// prints: { name: 'Whiskers', color: 'black', toys: ['scratching-post', 'yarn'] }
+
+console.log(catBuilder("Nyan", "rainbow", ["poptarts"]));
+// prints: { name: 'Nyan', color: 'rainbow', toys: [ 'poptarts' ] }
+    </pre>
+<!-- <script>
+function catBuilder(name, color, toys) {
+        // your code here...
+        let cat = {
+            name : name,
+            color :color,
+            toys : toys
+        };
+
+        return cat;
+}
+
+console.log(catBuilder("Whiskers", "black", ["scratching-post", "yarn"]));
+// prints: { name: 'Whiskers', color: 'black', toys: ['scratching-post', 'yarn'] }
+
+console.log(catBuilder("Nyan", "rainbow", ["poptarts"]));
+// prints: { name: 'Nyan', color: 'rainbow', toys: [ 'poptarts' ] }
+</script> -->
+
+</body>
+</html>

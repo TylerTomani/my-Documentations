@@ -1,0 +1,183 @@
+
+.app-academy-code  {
+    background-color: rgb(10,10,44);
+    font-family: monospace;
+    /* background-color: black; */
+    display: inline-block;
+    width: 100%;
+    color: white;
+    padding: 1% ;
+    border-radius: 4px;
+    font-size: 1.05rem;
+}
+.b {color: blue;font-weight: 800;}
+.g {color: limegreen;}
+.lsg {color: lightseagreen;font-weight: 600;}
+.o {color: darkorange;font-weight: 800;}
+.o-border {border: 1px solid darkorange;}
+.p {
+    color: purple;
+    font-weight:900;
+    outline: white solid 1px;
+}
+.r {color: red;font-weight: 800;}
+.r-border {border: 1px dashed red;}
+.v {color: magenta;font-weight: 800;}
+.v-border{border: 1px dashed magenta;}
+.y {color: yellow;font-weight: 800;}
+
+/* Code colors */
+
+.v-code {
+    color: magenta;
+    font-weight: 800;
+    font-family: monospace;
+}
+.y-code {
+    color: yellow;
+    font-weight: 800;
+    font-family: monospace;
+}
+.class-color {color: rgb(0,125,205);}
+
+.length-color {
+    color: rgb(0,180,225);
+    font-weight: 550;
+}
+
+
+.class-var {color: lightseagreen;}
+.const-color,
+.let-color{
+    color: rgb(83, 196, 218);
+    font-style: italic;
+    font-weight: 300;
+}
+
+
+.global-color {
+    color: rgb(0, 200, 255);
+    font-weight: 800;
+}
+.index {
+    color: mediumpurple;
+    font-weight: 900;
+    font-size: 110%;
+    display: inline-block;
+}
+.var-color {
+    color: rgb(0, 160, 255);
+    font-weight: 800;
+}
+.error{
+    color: rgb(255,40,50);
+    font-weight: 550;
+    text-decoration: line-through;
+}
+/* Text Size */
+.sm-code {
+    font-size: .825rem;
+}
+.lg-code {
+    font-size: 125%;
+}
+
+.b {
+    color: blue;
+    font-weight: 800;
+}
+
+.g {
+    color: limegreen;
+}
+
+
+.o {
+    color: darkorange;
+    font-weight: 800;
+}
+
+.o-border {
+    border: 1px solid darkorange;
+}
+
+.r {
+    color: red;
+    font-weight: 800;
+}
+
+.r-border {
+    border: 1px dashed red;
+}
+
+.v {
+    color: magenta;
+    font-weight: 800;
+}
+
+.v-border {
+    border: 1px dashed magenta;
+}
+
+/* Js code colors */
+.class-color,.class-var,.length-color,.const-color,
+.for-color,.function-color,
+.global-color,
+.var-color
+ {
+    font-family: monospace;
+}
+
+.class-color {
+    color: rgb(0, 125, 205);
+}
+
+.length-color {
+    color: rgb(0, 180, 225);
+    font-weight: 550;
+}
+
+.class-var {
+    color: lightseagreen;
+}
+.let-color,
+.const-color {
+    color: rgb(0, 120, 200); 
+    font-weight: 800;
+}
+
+
+
+.global-color {
+    color: rgb(0, 200, 255);
+    font-weight: 800;
+}
+
+.for-color,
+.return-color,
+.if-color {
+    /* color: rgb(193, 69, 193); */
+    color: rgb(163, 80, 80);
+    font-weight: 800;
+}
+
+.bool-color {
+color: rgb(171, 51, 171);
+}
+.function-color {
+    color: rgb(198, 191, 103);
+    font-weight: 600;
+}
+
+
+.error {
+    color: rgb(255, 40, 50);
+    font-weight: 550;
+    text-decoration: line-through;
+}
+
+@media screen and (max-width:540px) {
+    .app-academy-code {
+        /* font-size: 90%; */
+    }
+}

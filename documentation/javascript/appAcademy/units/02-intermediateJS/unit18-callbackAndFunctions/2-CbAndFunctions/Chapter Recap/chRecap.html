@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter Recap</title>
+    <link rel="stylesheet" href="../../../../css/colors.css">
+    <link rel="stylesheet" href="../../../../css/flx.css">
+    <script src="../../../../js/vsscripts.js" defer></script>
+    <script src="js/functions.js" defer></script>
+</head>
+<body>
+    <a tabindex="1" href="../../../../index.html">home</a>
+    <header>
+        <h1><span class="r">Chapter Recap</span></h1>
+        <p>Open the console and click on the script</p>
+        <p>&emsp;Notice the difference between</p>
+        <ul>
+            <li><code>forEach</code></li>
+            <li><code>map</code></li>
+            <li><code>filter</code></li>
+            <li><code>every</code></li>
+        </ul>
+        <code class="code-mid">let people = ['Susan', 'Carl', 'Red', 'Benjamin', 'Greg','Bobby','Yoshi'];</code>
+    </header>
+    <div class="flex-container">
+        <div class="flx-contain">
+            <div class="flx-2-2">
+                <!-- forEach -->
+                <h2 autofocus tabindex="1" class="clickScript">forEach</h2>
+                <p>
+                    &emsp;the <code>forEach</code> method returns <i>undefined</i>.
+                </p>
+                <pre class="vscode">
+let people = ['Susan', 'Carl', 'Red', 'Benjamin', 'Greg','Bobby','Yoshi'];
+let result = people.forEach(function (el) {
+    return el;
+}
+)
+console.log("forEach: " + result)
+                </pre>
+                <img tabindex="1" src="images/01-forEach.png">
+            </div>
+
+        </div>
+        <div class="flx-contain">
+            <div class="flx-2-2">
+                <p>In order to fill an array we need to declare
+                a <span class="v">blank one</span> before a forEach, and push the element from for each into the blank array</p>
+                <pre class="vscode">
+let newArr = [];
+people.forEach(function(e){
+    newArr.push(e)
+})
+console.log("newArr",newArr)
+
+                </pre>
+                <img tabindex="1" src="images/02-forEach.png">
+            </div>
+        </div>
+        <!-- filter -->
+        <div class="flx-contain">
+            <div tabindex="2" class="flx-2-2">
+                <h2>filter</h2>
+                <p>
+                    &emsp;<code>filter()</code> fills a newarray and can be placed into a variable as an array
+                </p>
+                <pre class="vscode">
+let filteredPeople = people.filter(function(e){
+    return e;
+})
+console.log(filteredPeople)
+                </pre>
+                <img tabindex="1" src="images/03-filtered.png">
+            </div>
+        </div>
+        <!-- map -->
+        <div class="flx-contain">
+            <div tabindex="2" class="flx-2-2">
+                <h2 tabindex="1" class="clickScript">map</h2>
+                <p>
+                    &emsp;<code>map</code> will release the contens in a comma seperated line
+                </p>
+                <pre class="vscode">
+                    1 let mapResult = people.map(function (el) {
+                    2       return el
+                    3 })
+                    4 console.log(mapResult)
+                </pre>
+                <img tabindex="1" src="images/04-map.png">
+            </div>
+
+
+        </div>
+
+    </div>
+    <h1>The boolean method <code>every()</code></h1>
+    <ul>
+        <li>Notice how <code>every</code> built in method return a boolean, which here means, yes,
+        <br>the element exist. We can use this boolean to select certain elements and placing them into a new array
+    </ul>
+    <pre>
+        let everyPeople = people.every(function(e) {
+            return e;
+        })
+        console.log("every: " + everyPeople)
+    </pre>
+
+</body>
+</html>

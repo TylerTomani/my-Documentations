@@ -1,0 +1,86 @@
+.app-academy-code {
+    background-color: rgb(10,0,4,.75);
+    color: white;
+    font-size: 1.05rem;
+    display: block;
+}
+
+.b {
+    color: blue;
+    font-weight: 800;
+}
+.g {
+    color: limegreen;
+}
+.lsg {
+    color: lightseagreen;
+    font-weight: 800;
+}
+.o {
+    color: darkorange;
+    font-weight: 800;
+}
+.o-border {
+    border: 1px solid darkorange;
+}
+.r {
+    color: red;
+    font-weight: 800;
+}
+.r-border {
+    border: 1px dashed red;
+}
+.v {
+    color: magenta;
+    font-weight: 800;
+}
+.v-border{
+    border: 1px dashed magenta;
+}
+
+/* Js code colors */
+.class-color,.class-var,.const-color,.function-color,.var-color{
+    /* font-size: 1.05rem; */
+    font-weight: 800;
+}
+.class-color {
+    color: rgb(0,125,205);
+}
+.class-param {
+    color: rgb(0,180,225);
+    font-weight: 550;
+}
+.class-var {
+    color: lightseagreen;
+}
+.let-color,
+.const-color {
+    color: rgb(0,120,200);
+    font-weight: 800;
+}
+.var-color {
+    color: rgb(0,160,255);
+    font-weight: 800;
+}
+.global-color {
+    color: rgb(0,200,255);
+    font-weight: 800;
+}
+.function-color {
+    color: rgb(198, 171, 103);
+}
+.for-color {
+    color: rgb(193, 69, 193);
+    font-weight: 800;
+}
+.error{
+    color: rgb(255,40,50);
+    font-weight: 550;
+    text-decoration: line-through;
+}
+
+@media screen and (max-width:540px){
+    .app-academy-code {
+        font-size: 90%;
+    }
+}

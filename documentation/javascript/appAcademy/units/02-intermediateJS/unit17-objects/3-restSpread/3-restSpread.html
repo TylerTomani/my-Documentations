@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-primitiveReference</title>
+    <link rel="stylesheet" href="../../../../css/colors.css">
+    <link rel="stylesheet" href="../../../../css/flex.css">
+    <link rel="stylesheet" href="../../../../css/lesson.css">
+
+</head>
+<body>
+    <h2 tabindex="1">6. Rest and Spread</h2>    
+    <div tabindex="1">
+        <ul>
+            <li>The <i>rest parameter</i> syntax accepts an arbitrary number of arguments into a function</li>
+            <li>The <i>spread operator</i> puts multiple objects arrays into one</li>
+        </ul>
+    </div>
+    <h2>Rest</h2>
+    <div tabindex="1">
+        <code class="app-academy-code md-code ">
+<span class="const-color">function</span> <span class="function-color">colorPicker</span>(<span class="v">color</span>){
+<br>&emsp;<span class="let-color">let</span> <span class="var-color">string</span> = "I picked the following colors: " + <span class="v">color</span>;
+<br>&emsp;return <span class="var-color">string</span>;
+<br> }
+<br> console.log(<span class="function-color">colorPicker</span>('red'))
+<br> <span class="g">/// returns I picked the following colors: red</span>
+        </code>
+    </div>
+    
+    <div tabindex="1">
+        <p>
+            &emsp;In the above code snipped the function has one parameter <q><span class="v">color</span></q>.
+            If we pass in another color, or parameter, nothing will change and the funcion will ignore 
+            the <span class="r">second</span> parameter <span class="r">blue</span>
+        </p>
+    </div>
+    <div>
+        <code tabindex="1" class="app-academy-code md-code">
+<span class="const-color">function</span> <span class="function-color">colorPicker</span>(<span class="var-color">color</span>){
+<br>&emsp;&emsp;<span class="let-color">let</span> <span class="var-color">string</span> = "I picked the following colors: " + <span class="var-color">color</span>;
+<br>&emsp;&emsp;return <span class="var-color">string</span>;
+<br>&emsp;}
+<br>console.log(<span class="function-color">colorPicker</span>("red",<span class="r">"blue"</span>));
+<br> <span class="g">/// returns I picked the following colors: red</span>
+
+        </code>
+    </div>
+    <hr>
+    <div tabindex="1">
+        <p>
+            &emsp;Rest allows the use of any amount of arguments within the parameters.
+             We do this by using the <code
+                class="v app-academy-code inline-code ">...</code>
+             syntax. This will create an array filled with any extra aguments
+        </p>
+    </div>
+    <div >
+        <code tabindex="1" class="app-academy-code">
+<span class="const-color">function</span> <span class="function-color">colorPicker</span>(<span class="var-color">color</span>, <span class="v">...otherColors</span> ){
+<br>&emsp;&emsp;<span class="let-color">let</span> <span class="var-color">string</span> = "I picked the following colors: " + <span class="var-color">color</span>;
+<br>&emsp;&emsp;console.log(<span class="v">otherColors</span>)
+<br>}
+<br>console.log(colorPicker("red","blue","green"));
+<br><span class="g">/// returns ["blue","green"]</span>
+        </code>
+    </div>
+    <!-- forEach() -->
+    <div>
+            <p tabindex="1">
+                &emsp; Use a <span class="o">for</span> loop or <span class="o">forEach</span> to iterate through the rest
+                parameters.
+            </p>
+            <code tabindex="1" class="app-academy-code md-code">
+<span class="const-color">function</span> <span class="function-color">colorPicker</span>(<span
+    class="var-color">color</span>, <span class="v">...otherColors</span>){
+<br>&emsp;let string = " I picked the colors : " + color;
+<br>
+<br>&emsp;<span class="v">otherColors</span>.<span class="o">forEach</span>( arg =>{
+<br>&emsp;&emsp;string = string + "," + arg
+<br>&emsp;})
+<br>&emsp;return string;
+<br>}
+<br>console.log(colorPicker("red","blue","green","yellow"))
+<br><span class="g">/// returns I picked the following colors: red,blue,green,yellow</span>
+            </code>
+    </div>
+    <div  class="flex-container">
+        <div tabindex="1" class="flex-item">
+            <p>&emsp;We could also just use <span class="v">...</span> rest to use all the parameters</p>
+            <code class="app-academy-code md-code">
+                function useArgs(<span class="v">...rest</span>){
+                <br>&emsp;rest.forEach(arg => {
+                <br>&emsp;console.log(arg)
+                <br>&emsp;})
+                <br>}
+                <br>useArgs("Orange", 22, "Larry")
+                <br><span class="g">// prints Orange 22 Larry</span>
+            </code>
+        </div>
+        <div class="flex-item">
+            <p>
+                &emsp;Which is great for compounding numbers for a total sum
+            </p>
+            <code class="app-academy-code md-code">
+function totalSum(...args){
+<br>&emsp;&emsp;  let sum = 0;
+<br>&emsp;&emsp;  args.forEach(arg => {
+<br>&emsp;&emsp;&emsp;      sum += arg;
+<br>&emsp;&emsp;  })
+<br>&emsp;&emsp;  return sum
+<br>}
+<br>console.log(totalSum(1,5,8,6))
+<br><span class="g">// prints 20</span>
+            </code>
+        </div>
+        
+    </div>
+    
+    <div tabindex="1" class="">
+        
+    </div>
+    <hr>
+
+    <h2>Spread</h2>
+    <div tabindex="1">
+        <p>
+            &emsp; Spread is similar to the concat method which combines arrays
+        </p>
+        <code class="app-academy-code md-code">
+            <span class="let-color">let</span> <span class="var-color">array3</span> = array1.<span
+                class="function-color">concat</span>(array2)
+        </code>
+    </div>
+    <div tabindex="1">
+        <p>
+            &emsp;but spread also works with objects
+        </p>
+        <code tabindex="1" class="app-academy-code md-code">
+            <br>let array1 = ['zebra','bird','parrot'];
+            <br>let array2 = ['lion','bison','panther'];
+            <br>let array3 = [<span class="v">...array1</span>, <span class="v">...array2</span> ]
+            <br>console.log(<span class="v">array3</span>)
+            <br>//prints<span class="g"> [ 'zebra', 'bird', 'parrot', 'lion', 'bison', 'panther' ]</span>
+            <br>
+            <br>let obj1 = { car: "Nissan", color: "blue"};
+            <br>let obj2 = { wheels: 4, speakers: "bose"};
+            <br>let obj3 = {<span class="v">...obj1</span>, <span class="v">...obj2</span> };
+            <br>console.log(<span class="v">obj3</span>)
+            <br>//prints <span class="g">{ car: 'Nissan', color: 'blue', wheels: 4, speakers: 'bose' }</span>
+        </code>
+    </div>
+    <h3 tabindex="1"> Spread as a parameter</h3>
+    <p tabindex="1">
+        &emsp;We can spread an object as an arguements into a functions parameters
+    </p>
+    <pre tabindex="1">
+        function speak(verb, noun){
+            console.log("I like to " + verb + " with " + noun)
+        }
+        const words = ['run', 'Rob'];
+        speak(<span class="r">...words</span>)
+        <span class="g">//prints I like to run with Rob</span>
+
+    </pre>
+    <h3>Important Note</h3>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <p>
+                &emsp;Always Keep in mind that a function will still run and return <i>undefined</i>
+                even if no arguments have been passed in.
+            </p>
+        </div>
+        <div class="flex-item">
+            <code>
+                function tester(arg) {
+               <br>&emsp;return arg;
+               <br>}
+               <br> 
+               <br>console.log(tester(5)); // => prints: 5
+               <br>console.log(tester()); // => prints: undefined
+            </code>
+        </div>
+        
+    </div>
+    
+<script>
+    function colorPicker(color, ...otherColors){
+        let string = "I picked the following colors: " + color;
+
+        otherColors.forEach( arg => {
+            string = string + "," + arg
+        })
+        return string;
+    }
+    console.log(colorPicker("red","blue","green","yellow"));
+    let array1 = ['zebra', 'bird', 'parrot'];
+    let array2 = ['lion', 'bison', 'panther'];
+    let array3 = [...array1, ...array2]
+    console.log(array3)
+
+    let obj1 = { car: "Nissan", color: "blue" };
+    let obj2 = { wheels: 4, speakers: "bose" };
+    let obj3 = {...obj1, ...obj2}
+    console.log(obj3)
+
+    function colorPicker2(color1, color2){
+        return "I picked the colors: " + color1 + "," + color2;
+    }
+    let colors = ['red','green'];
+    console.log(colorPicker(...colors))
+</script>
+
+
+
+</body>
+</html>

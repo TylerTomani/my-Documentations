@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-usingCbFunctionsDemo2</title>
+    <link rel="stylesheet" href="../../../../css/colors.css">
+</head>
+<body>
+    <a tabindex="1" href="../../../../index.html">home</a>
+    <h1>2-usingCbFunctionsDemo2</h1>
+    <p tabindex="1">
+        &emsp;Quick review from previous lesson,
+    </p>
+    <pre tabindex="1">
+        let superAdd = function( num1, num2, cb){
+            let sum = num1 + num2;
+            let res = cb(sum);
+            return res;
+        }
+        let res = superAdd(3,5,function(sum){
+            return sum * 2;
+        })
+        console.log(res))
+        // prints 16
+    </pre>
+    <p tabindex="1">
+        &emsp;This callback example will use different functions as an arguement,
+        A good example is using JS built functions such as the square root function
+
+    </p>
+    <pre tabindex="1">
+        let superAdd = function(num1,num2, cb){
+            let sum = num1 + num2;
+            let res = cb(sum);
+            return rest;
+        }
+        let sRoot = superAdd(20, 5, Math.sqrt);
+        return sRoot;
+        // prints 16
+                  5
+    </pre>
+    <h2>Pass in different number of arguements</h2>
+    <p>
+        &emsp;Here is a way to pass a different number of agruments, to either include the cb
+        <br>or just return from the function without the cb
+    </p>
+    <p>
+        &emsp;Look what happens if we don't pass in enough arguments, the third console.log
+        <br> will be undefined
+    </p>
+    <pre tabindex="1">
+        let foo = function(a,b,c){
+            console.log(a)
+            console.log(b)
+            console.log(c)
+        }
+        console.log(foo('alpha,'bravo','charlie'))
+        // prints alpha
+                  bravo
+                  undefined
+    </pre>
+    <p>
+        &emsp;To change the behavior to make the callback optional add at if statement
+        <br> to the beggining of the function,
+    </p>
+    <pre tabindex="1">
+        let addSroot = function(num1 , num2, cb){
+            let sum = num1 + num2;
+            if(cb === undefined){
+                return sum;
+            }
+
+            let sRoot = cb(sum)
+            return sRoot;
+        }
+        console.log(addSroot(30,6))
+        console.log(addSroot(30,6, Math.sqrt))
+        // prints 36
+                  6
+    </pre>
+
+<script>
+    let superAdd = function(num1, num2, cb){
+        let sum = num1 + num2;
+        let res = cb(sum);
+        return res;
+    }
+    let res = superAdd(3,5, function(sum){
+        return sum * 2;
+    })
+    let sRoot = superAdd(20,5,Math.sqrt)
+    console.log(res)
+    console.log(sRoot)
+
+    let addSroot = function(num1,num2, cb){
+        let sum = num1 + num2;
+        if( cb === undefined){
+            return sum;
+        }
+        let sRoot = cb(sum);
+        return sRoot;
+    }
+    console.log(addSroot(30, 6))
+    console.log(addSroot(30, 6, Math.sqrt))
+
+</script>
+
+</body>
+</html>

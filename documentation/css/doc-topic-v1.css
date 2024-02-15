@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+:root {
+    --maxImgHeight: 200px;
+}
+body > header {
+    display: flex;
+    border-bottom: 1px solid black;
+}
+body > header > #homeLink {
+    border: 1px solid black;
+    padding: 1% 2.5%;
+    margin: 1% 2.5%;
+    display: inline-block;
+    height: 10%;
+}
+body > header > h1 {
+    margin: 1% 0;   
+}
+body > header > img {
+    width: 50%;
+    max-height: 120px;
+    max-width: 200px;
+}
+.shortcut-txt {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1%;
+    justify-content: center;
+    flex-basis: 100%;
+}
+.shortcut-txt > p {
+    font-size: 120%;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1%;
+    margin: 0 1%;
+}
+.resource>.topics-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1% 2.5%;
+    margin-left: 2.5%;
+    gap: 2rem;
+    max-height: 140px;
+}
+
+.topic-container>h4 {
+    /* border: 1px solid black; */
+    height: 100%;
+    width: 100%;
+}
+.topic-container>h4>.topic {
+    font-size: 1.2rem;
+    display: inline-block;
+    min-height: 30px;
+    width: 100%;
+    /* border: 1px solid black; */
+    min-width: 120px;
+    padding: 1% 2.5%;
+    display: inline;
+    text-decoration: none;
+    border: 2px solid green;
+    white-space: nowrap;
+}
+.topic:active,
+.topic:focus {
+    box-shadow: 0 0 4px 4px yellow;
+    /* border: 2px solid blue; */
+    transform: scale(2.2);
+    padding: 2% 0
+    margin-left: 5%;
+    margin-top: -5%;
+    background-color: white;
+    position: relative;
+    bottom: 25%;
+    z-index: 20;
+    transition: all 250ms;
+}
+.data-analysis {
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Social_Network_Analysis_Visualization.png/375px-Social_Network_Analysis_Visualization.png');
+    background-size: 100%;
+    background-position-x: center;
+    /* background-position-y: 40%; */
+    background-repeat: no-repeat;
+}
+
+
+
+.hide {
+    display: none !important;
+}
+.show {
+    display: inline-block;
+}
+@media screen and (max-width:650px){
+    .resources-container {
+        flex-direction: column;
+    }
+    .shortcut-txt{
+        display: none;
+    }
+}

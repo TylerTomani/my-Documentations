@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-recursionBasics</title>
+    <link rel="stylesheet" href="../../../../css/flex.css">
+    <link rel="stylesheet" href="../../../../css/lesson.css">
+    <link rel="stylesheet" href="../../../../css/colors.css">
+</head>
+<body>
+    <h1 tabindex="1">Recusion Basics</h1>
+
+    <div tabindex="1">
+        <p>
+            &emsp;Recusion is the processs of calling a function from within itself.
+        </p>
+        <p>
+            researchers began using the term "recurse" to refer specifically to functions that are being called from within
+            themselves. Creating a new word by removing a suffix in this way is known as back-formation.
+        </p>
+        <p>
+            We'll prefer "recurse" when discussing this topic, but you may see "recur"
+        </p>
+    </div>
+    <p tabindex="1">
+        &emsp;Recusion has two <i>cases</i>, case are the <q>expected output</q> for the input. The two cases are known as the <i>base
+            case</i>
+        and <i>recursive case</i>.
+    </p>
+    <ul>
+        <li>the <i>base case</i> runs once and ends, also known as the <q>terminating case</q></li>
+        <li>the <i>recursive case</i> causes the function to call itself</li>
+    </ul>
+    <p tabindex="1">
+        &emsp; In the <code>dump()</code> function below the <i>base case</i> is the <code>else if</code> <code><span class="v">gentlyUnpackFruit()</span></code>
+    </p>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <code>
+                <br> function <span class="v">gentlyUnpackFruit(contents)</span> {
+                <br> &emsp;console.log("Your " + contents + " have been unpacked!");
+                <br> }
+                <br>
+                <br> function dump(crate) {
+                <br> &emsp;if (crate.content_type === "crate") {
+                <br> &emsp;&emsp;dump(crate.contents);
+                <br> &emsp;} else if (crate.content_type === "fruit") {
+                <br> &emsp;&emsp;<span class="v">gentlyUnpackFruit(crate.contents)</span>;
+                <br> &emsp;}
+                <br> }
+            </code>
+        </div>
+        <div class="flex-item">
+            <p>
+                &emsp;Notice how the dump function itself is called, if, the contents of the argument passed in is <q>crate</q>.
+                This will execute the remaining code in the crate function that comes <strong>after</strong> the else if().
+
+            </p>
+        </div>
+    </div>
+    <h3>Theatre row number example</h3>
+    <p tabindex="1">
+        &emsp;Recusrion is used here to detmerine the row number of the current seat. Assuming the theatre is full, we count
+        each person in front of us, until there is no one else.
+    </p>
+    <code tabindex="1">
+       <br> let determineRow = function(nextRow) {
+       <br>&emsp;if(nextRow.personIsThere){
+       <br>&emsp;&emsp;return 1 + determineRow(nextRow.personIsThere)
+       <br>&emsp;} else {
+       <br>&emsp;&emsp;return 1;
+       <br>&emsp;}
+       <br> }
+    </code>
+
+
+
+
+
+
+
+</body>
+</html>

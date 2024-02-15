@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-10_unique</title>
+<link rel="stylesheet" href="../../../../../css/newlesson.css">
+<link rel="stylesheet" href="../../../../../css/appCodeColors.css">
+<link rel="stylesheet" href="../../../../../css/optsFlex.css">
+
+<script src="../../../../../js/copycode.js" defer></script>
+</head>
+
+<body>
+    <h2>10. <code>unique()</code></h2>
+    <div  class="flex-container">
+        <div class="flex-item">
+            <p>
+                &emsp;Removes any duplicats in array
+            </p>
+        </div>
+        <div class="code-container">
+            <pre tabindex="1" class="app-academy-code copy-pre-code">
+<span class="const-color">function</span> <span class="function-color">unique</span>(arr){
+    <span class="let-color">let</span> newArr = [];
+    <span class="for-color">for</span>(<span class="let-color">let</span> i = 0; i &lt; arr.<span class="length-color">length</span>; i++){
+        <span class="for-color">if</span>(!newArr.includes(arr[i])){
+            newArr. <span class="function-color">push</span>(arr[i])
+        }
+    }
+    <span class="for-color">return</span> newArr
+}
+console.log(<span class="function-color">unique</span>([1, 1, 2, 3, 3])); <span class="g">// [1, 2, 3]</span>
+console.log(<span class="function-color">unique</span>([11, 7, 8, 10, 8, 7, 7])); <span class="g">// [11, 7, 8, 10]</span>
+console.log(<span class="function-color">unique</span>(['a', 'b', 'c', 'b'])); <span class="g">// ['a', 'b', 'c']</span>
+            </pre>
+        </div>
+    </div>
+    
+    
+</body>
+</html>

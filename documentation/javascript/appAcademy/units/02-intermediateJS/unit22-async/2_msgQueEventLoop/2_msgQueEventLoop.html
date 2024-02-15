@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2_msgQueEventLoop</title>
+    <link rel="stylesheet" href="../../../css/flex.css">
+    <link rel="stylesheet" href="../../../css/lesson.css">
+    <link rel="stylesheet" href="../../../css/colors.css">
+</head>
+<body>
+    <h2 tabindex="1">2_Message Que & Event Loop</h2>
+    <h3>Event loop</h3>
+    <div tabindex="1">
+        <p>
+            &emsp;A component of the <i>event loop</i> is the <i>callstack</i>,previously mentioned in
+            <a target="_blank" href="../../unit20-recursion/1-recursion/1-theCallStack/1-theCallStack.html">Unit 20 -
+                Recursion</a>.
+            The call stack keeps track of the current task. The <strong><i>message que</i></strong> is another part of the
+            <i>event loop</i>.
+        </p>
+        <p>
+            &emsp;The <strong><i>message que</i></strong> keeps track of the task that can <strong>not</strong>
+            be executed at the moment. It uses the <strong><i>que data structure</i></strong> which puts the 
+            new code into the <strong><i>enque</i></strong> and executed code into the <strong><i>deque</i></strong>.
+        </p>
+    </div>
+    <p tabindex="1">
+        &emsp;These two snippets of code show how <code>bar()</code> and <code>baz()</code>
+        wil be <strong>enqued</strong> and <strong>dequed</strong> before <code>somethingSlow()</code>
+        and <code>foo()</code> regardless of their placement in the code
+    </p>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <code>
+               <br> function somethingSlow() {
+               <br>&emsp;setTimeout(() => {
+               <br>&emsp;console.log("4000 ms")
+               <br>&emsp;}, 4000);
+               <br> }
+               <br> 
+               <br> function foo3000() {
+               <br> &emsp;console.log("foo 3000 ms") ;
+               <br> }
+               <br> 
+               <br> function bar2000(){
+               <br> &emsp;console.log("bar 2000 ms")
+               <br> &emsp;baz1000();
+               <br> }
+               <br> 
+               <br> function baz1000(){
+               <br> &emsp;console.log("baz 1000 ms")
+               <br> }
+               <br> 
+               <br> <span class="v">somethingSlow()</span>;
+               <br> setTimeout(<span class="v">foo3000</span>,3000);
+               <br> setTimeout(bar2000,2000);
+            </code>
+        </div>
+        <div class="flex-item">
+            <code>
+                <br> function somethingSlow() {
+                <br>&emsp;setTimeout(() => {
+                <br>&emsp;console.log("4000 ms")
+                <br>&emsp;}, 4000);
+                <br> }
+                <br>
+                <br> function foo3000() {
+                <br> &emsp;console.log("foo 3000 ms") ;
+                <br> }
+                <br>
+                <br> function bar2000(){
+                <br> &emsp;console.log("bar 2000 ms")
+                <br> &emsp;baz1000();
+                <br> }
+                <br>
+                <br> function baz1000(){
+                <br> &emsp;console.log("baz 1000 ms")
+                <br> }
+                <br>
+                <br> setTimeout(bar2000,2000);
+                <br> <span class="v">somethingSlow()</span>;
+                <br> setTimeout(<span class="v">foo3000</span>,3000);
+
+            </code>
+        </div> 
+    </div>
+    <div tabindex="1">
+        <p>
+            &emsp;Both will print;
+        </p>
+        <code>
+            <span class="g">
+                <br> bar 2000 ms
+               <br> baz 1000 ms
+               <br> foo 3000 ms
+               <br> 4000 ms
+            </span>
+        </code>
+    </div>
+    
+    
+</body>
+</html>

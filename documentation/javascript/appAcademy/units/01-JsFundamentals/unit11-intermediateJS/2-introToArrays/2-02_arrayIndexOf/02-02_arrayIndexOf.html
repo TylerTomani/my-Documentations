@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-01_arrayIndexOf</title>
+    <link rel="stylesheet" href="../../../../../css/newlesson.css">
+    <link rel="stylesheet" href="../../../../../css/optsFlex.css">
+    <link rel="stylesheet" href="../../../../../css/appCodeColors.css">
+    
+    <script src="../../../../../js/copycode.js" defer></script>
+
+</head>
+<body>
+    <h2 tabindex="1">02-01-Array <code>indexOf()</code></h2>
+    <div class="flex-col">
+        <div class="flex-item">
+            <p>
+                Return a boolean; <span class="p">true</span> if the <code class="var-color">el</code> is in the array and <span class="p">false</span> if not.
+                Use the concept of <code>-1</code>
+            </p>
+        </div>
+        <div class="flex-item">
+            <pre tabindex="1" class="app-academy-code copy-pre-code">
+<span class="const-color">function</span> <span class="function-color">arrayHasEl</span>( <span class="var-color">arr</span>, <span class="var-color">el</span> ){
+    <span class="for-color">if</span>(<span class="var-color">arr</span>.<span class="function-color">indexOf</span>(<span class="var-color">el</span>) != -1 ){
+        <span class="for-color">return</span> <span class="bool-color">true</span>
+    }
+    <span class="for-color">return</span> <span class="bool-color">false</span>
+}
+console.log(<span class="function-color">arrayHasEl</span>([1,5,20,40], 20)) <span class="g">// true</span>
+console.log(<span class="function-color">arrayHasEl</span>(["cat","mouse","dog"], "giraffe")) <span class="g">// false</span>
+            </pre>
+        </div>
+    </div>
+    
+    
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5_polymorphism</title>
+    <link rel="stylesheet" href="../../../css/lesson.css">
+    <link rel="stylesheet" href="../../../css/colors.css">
+    <link rel="stylesheet" href="../../../css/flex.css">
+</head>
+<body>
+    <h2 tabindex="1">5_polymorphism</h2>
+    <div tabindex="1">
+        <p>
+            &emsp;polymorphism refers to processing various data types and classes through a single, uniform interface. The two most
+            common types of polymorphism are:
+        </p>
+        <ul>
+            <li>"overloading" -refers to sending a different number or type of parameters to a particular function.</li>
+            <li>"overriding" -is when a child class gives its own - or a variation of - the implementation of a function from one of its ancestor
+            classes (usually the parent).</li>
+        </ul>
+    </div>
+    <h3>Overloading</h3>
+    <p style="color:red">Overloading is not explained well</p>
+    <h3>Overriding</h3>
+    <div tabindex="1">
+        <p>
+            &emsp;All objects in JavaScript share a common parent class, the Object parent class. The Object class has a method
+            named
+            toString() on it. Since all objects in JavaScript are child classes (or grandchild classes or great-grandchild
+            classes
+            or great-great-...), that means that every object in JavaScript has a toString() method
+        </p>
+    </div>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <pre>
+> [1, 2, 3].toString();
+'1,2,3'
+
+> "some text".toString();
+'some text'
+
+> new Date().toString();
+'«the current date and time»'
+
+> new Object().toString();
+[object Object]
+            </pre>
+        </div>
+        <div class="flex-item flex-col">
+            <p>You'll notice the following:</p>
+            
+            <ul>
+                <li>The <code>toString()</code> method of an array takes the values in the array and turns them into a comma-delimited string; that is,
+                it puts commas between each of the items.</li>
+                <li>The <code>toString()</code> method of a string does nothing and just returns the string object (you might remember that strings are
+                primitive types, but strings are special, and you can also call methods on them like they are objects)</li>
+                <li>The <code>toString()</code> method of a Date object returns a long textual representation of the date and time which the Date object
+                represents.</li>
+                <li>The <code>toString()</code> method of Object returns "[object Object]" because that's all it knows about itself.</li>
+            </ul>
+        </div>
+    </div>
+    <h3>Overiding a method in class</h3>
+    <div tabindex="1">
+        <p>
+            &emsp;<strong>Polymorphism</strong> is when a child class overrides a method of its parent. In the <code class="class-var">Dog</code>
+            class, we <q>override</q> the <code class="function-color">speak</code>() method.
+        </p>
+        <pre class="app-academy-code">
+<span class="class-color">class</span> <span class="class-var">Animal</span>{
+    <span class="class-color">constructor</span>(<span class="class-param">name</span>,<span class="class-param">sound</span>){
+        <span class="class-color">this</span>.<span class="class-param">name</span> = <span class="class-param">name</span>
+        <span class="class-color">this</span>.<span class="class-param">sound</span> = <span class="class-param">sound</span>
+    }
+    <span class="function-color">speak</span>(){
+        console.log(`The ${<span class="class-color">this</span>.<span class="class-param">name</span>} say ${<span class="class-color">this</span>.<span class="class-param">sound</span> }`)
+    }
+}
+
+<span class="class-color">class</span> <span class="class-var">Dog</span> <span class="class-color">extends</span> <span class="class-var">Animal</span>{
+    <span class="function-color">speak</span>(){
+        console.log("woof woof")
+    }
+}
+<span class="class-color">const</span> <span class="class-param">dog</span> = <span class="class-color">new</span> <span class="class-var">Dog</span>
+<span class="class-param">dog</span>.<span class="function-color">speak</span>()
+<span class="g">//prints
+woof woof
+</span>
+        </pre>
+    </div>
+    <div tabindex="1">
+        <p>
+            &emsp;Analyze the code below to see how each class is affected by inheritance and polymorphism,
+            <span style="color:red">The lesson doesn't explain</span>
+        </p>
+    </div>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <code class="app-academy-code md-code">
+class Charity{};
+<br>&emsp;
+<br>class Buisness {
+<br>&emsp;toString() {return "Give us money";};
+<br>}
+<br> 
+<br>class Restaurante{
+<br>&emsp;toString() {return "Eat at Joe's ";};
+<br>}
+<br> 
+<br>class AutoRepairShop extends Buisness{};
+<br> 
+<br>class Retail extends Buisness{
+<br>&emsp;toString() { return "Buy something";};
+<br>}
+<br> 
+<br>class ClothingStore extends Retail{};
+<br> 
+<br>class PhoneStore extends Retail{
+<br>&emsp;toString() { return "Upgrade phone";};
+<br>}
+            </code>
+        </div>
+        <div class="flex-item">
+            <code class="app-academy-code md-code">
+console.log(new Charity().toString());
+<br> <span class="g">// prints [object Object]</span>
+<br> console.log(new Buisness().toString());
+<br> <span class="g">// prints Give us money </span>
+<br> console.log(new Restaurante().toString());
+<br> <span class="g">// prints Eat at Joe's</span>
+<br> console.log(new AutoRepairShop().toString());
+<br> <span class="g">// prints Give us money</span>
+<br> console.log(new Retail().toString());
+<br> <span class="g">// prints Buy something</span>
+<br> console.log(new ClothingStore().toString());
+<br> <span class="g">// prints Buy something </span>
+<br> console.log(new PhoneStore().toString());
+<br> <span class="g">// prints Upgrade phone</span>
+            </code>
+        </div>
+    </div>    
+</body>
+</html>

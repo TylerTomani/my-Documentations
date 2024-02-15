@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-1_arraySplice</title>
+<link rel="stylesheet" href="../../../../../css/newlesson.css">
+<link rel="stylesheet" href="../../../../../css/appCodeColors.css">
+<link rel="stylesheet" href="../../../../../css/optsFlex.css">
+
+<script src="../../../../../js/copycode.js" defer></script>
+</head>
+
+<body>
+    <h2>1. Array <code>splice()</code> method</h2>
+    <div class="flex-col">
+        <div class="flex-item">
+            <p>
+                &emsp;<code>splice()</code> <strong>mutates</strong> the array and does <strong>not</strong> return a new array.
+                <br><code>splice()</code> is poweful because it can <strong>remove</strong> & <strong>insert</strong> 
+                elements into an array
+            </p>
+        </div>
+        <h3 class="m-t-1">Using splice to remove</h3>
+        <div class="flex-item">
+            <p>The arguments for removal are:</p>
+            <code>splice(target index, how many elemnents to remove)</code>
+        </div>
+        
+        <div class="flex-item">
+            <pre tabindex="1" class="lecture-code-full copy-pre-code">
+let colors = ["red","yellow","blue","green","orange","brown","grey"];
+let returnColors = colors.splice(2,3); 
+<span class="g">// [ 'blue', 'green', 'orange' ]</span>
+
+</pre>
+        </div>
+        <h3 class="m-t-1">Using splice to add</h3>
+        <div class="flex-item">
+            <p>The arguments for inserting are:</p>
+            <code>splice(insertion index, 0, ...elements to insert)</code>
+        </div>
+        <div class="flex-item">
+            <pre tabindex="1" class="lecture-code-full copy-pre-code">
+colors.splice(3,0,"forest green","purple")
+console.log(colors)
+<span class="g">[ 'red', 'yellow', 'brown', 'Forest Green', 'Purple', 'grey' ]</span>
+            </pre>
+        </div>
+        <h3>Inserting and removing</h3> 
+        <div class="flex-item">
+            <p>
+                &emsp;To add and remove, the second argument should be how many you wish to remove
+                from the insertion point
+            </p>
+        </div>
+        <div class="flex-item">
+            <pre tabindex="1" class="lecture-code copy-pre-code">
+colors.splice(0,3,"tomato","goldenrod","royalblue")
+console.log(colors)
+<span class="g">[
+'tomato',
+'goldenrod',
+'royalblue',
+'green',
+'orange',
+'brown',
+'grey'
+]
+</span>
+            </pre>
+        </div>
+        
+        
+        
+        
+        
+    </div>
+    
+</body>
+</html>

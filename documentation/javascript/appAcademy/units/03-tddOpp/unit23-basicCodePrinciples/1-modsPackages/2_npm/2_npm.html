@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2_npm</title>
+    <link rel="stylesheet" href="../../../../css/lesson.css">
+    <link rel="stylesheet" href="../../../../css/colors.css">
+</head>
+<body>
+    <h2 tabindex="1">2-npm</h2>
+    <p> 
+        &emsp;npm stands for <q>Node Package Manager</q>
+    </p>
+    <div tabindex="1">
+        <p>
+            &emsp;The npm CLI is available as an npm package, which allows you to use the npm CLI to update itself. If you're using macOS
+            or Linux, you can update the npm CLI to the latest version by running the following command:
+        </p>
+        <code>
+            npm install -g npm@latest
+        </code>
+        <p>
+            &emsp;If you installed Node.js using the default installer, you might need to prefix the above command with sudo like this:
+        </p>
+        <code>
+            sudo npm install -g npm@latest
+        </code>
+    </div>
+    <h2>Initializing a project to use npm</h2>
+    <div tabindex="1">
+        <p>
+            &emsp;Any Node.js project that contains a package.json file is technically an npm package, though most of these
+            projects will
+            never be published to the npm registry for consumption by the general development community. Given that, it's
+            common to
+            refer to these unpublished npm packages as just "projects".
+        </p>
+        <p>
+            &emsp; If you haven't already, create a folder for your project, then use the cd command to browse to that
+            folder. From within
+            your project folder, run the following command:
+        </p>
+        <code tabindex="1">
+            npm init
+        </code>
+    </div>
+    <div>
+        <p tabindex="1">  
+            &emsp;npm will prompt you to supply the following field values, one at a time:
+        </p>
+        
+        <ul>
+            <li tabindex="1"><h3>package name (or simply name)</h3> - If you're going to publish your package, setting your package name to something useful
+            is very important. For typical development projects, it's okay to just accept the default value, which will be the name
+            of the current folder.</li>
+            <li tabindex="1"><h3>version</h3> - Node uses the semver (semantic versioning) package to manage your package/project's versioning. The default is
+            1.0.0, but the recommended standard is 0.1.0, indicating the first minor version. See here for an introduction to
+            SemVer.</li>
+            <li tabindex="1"><h3>description</h3> - A description is really only necessary if you're going to publish your package, as it's displayed to users
+            when they're searching the npm registry.</li>
+            <li tabindex="1"><h3>entry point (or main)</h3> - The file to use as the entry point to your application (typically index.js or app.js).</li>
+            <li tabindex="1"><h3>test command</h3>- If you're going to write tests for your package, you can provide the command to run those tests. For now,
+            just press enter without providing a value to accept the default value.</li>
+            <li tabindex="1"><h3>git repository</h3> - If you want other developers to be able to find the Git repository for your package, you can provide
+            the URL to the repo here. For now, it's okay to skip it by pressing enter.</li>
+            <li tabindex="1"><h3>keywords</h3> - Keywords are used to help people find your package in the npm registry. For now, just leave this field blank.</li>
+            <li tabindex="1"><h3>author</h3> - If you're the author of the package and you want your name (and contact information) associated with the
+            package, you can provide that information here. For now, let's just leave this field blank.</li>
+            <li tabindex="1"><h3>license</h3> - This is the license for your package. It's only important to provide if you're going to publish your package.
+            This defaults to the ISC License, which for our purposes, will work just fine (since we're not going to publish our
+            package).</li>
+        </ul>
+
+        <p>
+            &emsp;At this point in the process, npm will display a preview of the package.json file and confirm if you want to continue:
+        </p>
+    </div>
+    <img tabindex="1" src="images/01-npm1.png">
+    <img tabindex="1" src="images/02-npm2.png">
+    <p tabindex="1">
+        &emsp;Go ahead and answer with "y" or "yes". You'll now have a package.json file in the root of your project. If you want, you
+        can open the package.json file in a code editor and make additional edits to it.
+    </p>
+    <p tabindex="1">
+        &emsp;Pro tip: If you're like the majority of developers, you'll get tired of stepping through the above prompts time and time
+        again when initializing a project to use npm. To save valuable time, you can pass the --y flag to the npm init command
+        to generate a package.json file with all of the default values like this: npm init --y.
+    </p>
+    
+    <hr>
+    <h3>Installing a dependency</h3>
+    <p tabindex="1">
+        &emsp;Let's use the npm registry to search for a package that'll allow you to add color to the messages logged to the console.
+        Open the <a target="_blank" tabindex="1" href="https://www.npmjs.com/">npm website</a>  into a browser tab. At the top of the page, use the "search packages" field to search for the
+        keywords "console colors".
+        
+        npm-registry-search
+    </p>
+    <img tabindex="1" src="images/03-consoleColor.png">
+    <p tabindex="1">
+        &emsp;Now that you've initialized your project using npm init (which generated a package.json file), you can use npm install
+        to install an npm package locally into your project.
+    </p>
+    <div tabindex="1">
+        <p>
+            &emsp;To install the colors npm package, run the following command:
+        </p>
+        <code>npm install colors</code>
+    </div>
+    <img tabindex="1" src="images/04-installColors.png">
+    <p tabindex="1"> 
+        &emsp;To open the colors json from terminal, navigate to the directory where you installed the packages and use the following command
+    </p>
+    <img tabindex="1" src="images/05-codePackageJson.png">
+    <hr>
+    <div tabindex="1">
+        <p>
+            dependencies (npm packages often depend upon other npm packages), npm will automatically download those dependencies
+            into the node_modules folder. This process recursively continues until all of the required dependencies are
+            accounted
+            for. Because of this, the node_modules folder tends to be very large, containing many folders and files.
+        </p>
+        <p>
+            If you're using Git for source control, you'll need to add a .gitignore file to the root of your project and add the
+            entry node_modules/ so that the node_modules folder won't be tracked by Git. Later in this lesson you'll see that
+            you
+            only need to commit the package.json and package-lock.json files to your repository as that's all that npm needs to
+            download and install your project's dependencies.
+        </p>
+        <p>
+            Pro Tip: While configuring Git to not track the node_modules folder is important to do, it's not necessarily the
+            only
+            thing you want to configure Git not to track. For a more comprehensive .gitignore file for Node.js projects, you can
+            use
+            GitHub's .gitignore file for Node.js projects.
+        </p>
+    </div>
+    <hr>
+    <div tabindex="1">
+        <p>
+            dependencies (npm packages often depend upon other npm packages), npm will automatically download those dependencies
+            into the node_modules folder. This process recursively continues until all of the required dependencies are
+            accounted
+            for. Because of this, the node_modules folder tends to be very large, containing many folders and files.
+        </p>
+        <p>
+            If you're using Git for source control, you'll need to add a .gitignore file to the root of your project and add the
+            entry node_modules/ so that the node_modules folder won't be tracked by Git. Later in this lesson you'll see that
+            you
+            only need to commit the package.json and package-lock.json files to your repository as that's all that npm needs to
+            download and install your project's dependencies.
+        </p>
+        <p>
+            Pro Tip: While configuring Git to not track the node_modules folder is important to do, it's not necessarily the
+            only
+            thing you want to configure Git not to track. For a more comprehensive .gitignore file for Node.js projects, you can
+            use
+            GitHub's .gitignore file for Node.js projects.
+        </p>
+    </div>
+    <hr>
+
+    <h3>Using a dependency in code</h3>
+    <div tabindex="1">
+        <p>
+            &emsp;After installing an npm package, you can import it into a Node.js module using the require function.
+        </p>
+        <p>
+            &emsp;Go ahead and add a file named index.js to your project. Then use the require function to import the colors module:
+        </p>
+        <code tabindex="1">const colors = require('colors');</code>
+    </div>
+    <div tabindex="1">
+        <p>
+            After importing the module, you can use it to add color to your console.log() method calls like this:
+        </p>
+        <pre>
+            console.log('hello'.green); // outputs green text
+            console.log('i like cake and pies'.underline.red) // outputs red underlined text
+            console.log('inverse the color'.inverse); // inverses the color
+            console.log('OMG Rainbows!'.rainbow); // rainbow
+            console.log('Run the trap'.trap); // Drops the bass
+        </pre>
+    </div>
+    <hr>
+
+    <div tabindex="1">
+        <p>
+            &emsp;npm tracks two types of dependencies in the package.json file:
+        </p>
+        <ul>
+            <li>Development dependencies (devDependencies) - These are the packages that are needed locally when doing
+                development work
+                on the project. Development dependencies often include one or more tools that are used to build and test your
+                application.</li>
+            <li>
+                Dependencies (dependencies) - These are the packages that your project needs in order to successfully run when
+                in
+                production (i.e. your application has been deployed or published to a server that can be accessed by your
+                users).
+            </li>
+        </ul>
+    </div>
+
+    <hr>
+    <h3>Installing a development dependency</h3>
+    <p>
+        &emsp;To install a development dependency, you simply add the --save-dev flag:
+    </p>
+    <code>npm install mocha --save-dev</code>
+    <p>
+        &emsp;The --save-dev flag causes npm will add the package to the devDependencies field in the package.json file:
+    </p>
+    <pre>
+        {
+        "dependencies": {
+        "colors": "^1.4.0"
+        },
+        "devDependencies": {
+        "mocha": "^7.0.1"
+        }
+        }
+    </pre>
+    
+</body>
+</html>

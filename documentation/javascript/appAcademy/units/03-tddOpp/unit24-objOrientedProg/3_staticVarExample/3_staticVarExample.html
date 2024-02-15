@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3_staticVarExample</title>
+    <link rel="stylesheet" href="../../../css/lesson.css">
+    <link rel="stylesheet" href="../../../css/flex.css">
+    <link rel="stylesheet" href="../../../css/colors.css">
+</head>
+<body>
+    <h2 tabindex="1">3_Static Variable Example</h2>
+    <h3>Slow Loris cuteness</h3>
+    <p>
+        &emsp;This class has a <span class="v">static variable</span> <code class="o">cutest</code>, known only to the class. The
+        if statements checks if a newly created <span class="class-color">instance</span> of the class has a cuteness value greater than
+        the <code>cutest</code>. If so, that value becomes the cutest. 
+        <br>
+    </p>
+    <div tabindex="1" class="flex-container">
+
+            <code class="app-academy-code">
+<span class="class-color">class</span> <span class="class-var">SlowLoris</span> {
+<br>&emsp;  <span class="class-color">constructor</span>(<span class="class-param">cuteness</span>){
+<br>&emsp;&emsp;<span class="class-color">this</span>.<span class="class-param">cuteness</span> = <span class="class-param">cuteness</span>;
+<br>
+<br>&emsp;if(!<span class="class-var">SlowLoris</span>.<span class="o">cutest</span> || <span class="class-var">SlowLoris</span>.<span class="o">cutest</span>.<span class="class-param">cuteness</span> &lt; <span class="class-color">this</span>.<span class="o">cutest</span>){
+<br>&emsp;&emsp;&emsp;<span class="class-var">SlowLoris</span>.<span class="o">cutest</span> = <span class="class-color">this</span>
+<br>&emsp;&emsp;}
+<br>&emsp;}
+<br>&emsp;<span class="v">static</span> <span class="o">cutest</span> = <span class="class-color">null</span>;
+<br>
+<br>}
+<br>console.log(<span class="class-var">SlowLoris</span>.<span class="o">cutest</span>)
+<br><span class="g">// prints null</span>
+            </code>
+
+    </div>
+    <div tabindex="1">
+        <p>
+            &emsp;At first, <code><span class="class-var">SlowLoris</span>.<span class="o">cutest</span></code> it is  null.
+            If we create new instances of <code><span class="class-var">SlowLoris</span></code>, we can fill this static variable within the class with
+            the instace of that class that has the higest cuteness
+        </p>
+        <pre class="app-academy-code">
+<span class="class-color">const</span> <span class="class-param">slowLoris1</span> = <span class="class-color">new</span> <span class="class-var">SlowLoris</span>(10)
+<span class="class-color">const</span> <span class="class-param">slowLoris2</span> = <span class="class-color">new</span> <span class="class-var">SlowLoris</span>s(5)
+console.log(<span class="class-var">SlowLoris</span>.<span class="o">cutest</span>)
+<span class="g">//prints
+SlowLoris { cuteness: 10 }</span>     
+        </pre>
+
+    </div>
+    
+    
+    
+</body>
+</html>

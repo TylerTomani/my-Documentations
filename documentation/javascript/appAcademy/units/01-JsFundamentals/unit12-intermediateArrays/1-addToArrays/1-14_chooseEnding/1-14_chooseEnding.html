@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-14_chooseEnding</title>
+<link rel="stylesheet" href="../../../../../css/newlesson.css">
+<link rel="stylesheet" href="../../../../../css/appCodeColors.css">
+<link rel="stylesheet" href="../../../../../css/optsFlex.css">
+
+<script src="../../../../../js/copycode.js" defer></script>
+</head>
+
+<body>
+    <h2>14. <code>chooseEnding()</code></h2>
+    <div  class="flex-col">
+        <div class="flex-item">
+            <p>
+                &emsp;The functions accepts an array of words and a suffix, then
+                returns an array of the words that End with that suffix
+            </p>
+            <p>
+                &emsp;The built in funcion <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith#:~:text=The%20endsWith()%20method%20determines,true%20or%20false%20as%20appropriate."
+                ><code class="v">endWith()</code></a> will return the element if it ends with the provided characters
+            </p>
+        </div>
+        <div class="code-container">
+            <pre tabindex="1" class="app-academy-code copy-pre-code">
+<span class="const-color">function</span> <span class="function-color">chooseEnding</span>(arr, suffix){
+    <span class="let-color">let</span> newArr =[];
+    <span class="for-color">for</span>(<span class="let-color">let</span> i = 0; i &lt; arr.<span class="length-color">length</span>; i++){
+        <span class="let-color">let</span> el  = arr[i];
+        <span class="for-color">if</span>(el.<span class="v">endsWith</span>(suffix)){
+            newArr.<span class="function-color">push</span>(el)
+        }
+    }
+    <span class="for-color">return</span> newArr;
+}
+console.log(<span class="function-color">chooseEnding</span>(['family', 'hound', 'catalyst','fly', 'timidly', 'bond'], 'ly'));
+<span class="g">// [ 'family', 'fly', 'timidly' ]</span>
+
+console.log(<span class="function-color">chooseEnding</span>(['family', 'hound', 'catalyst','fly', 'timidly', 'bond'], 'nd'));
+<span class="g">// [ 'hound', 'bond' ]</span>
+
+console.log(<span class="function-color">chooseEnding</span>(['simplicity', 'computer', 'felicity'], 'icity'));
+<span class="g">// [ 'simplicity', 'felicity' ]</span>
+
+console.log(<span class="function-color">chooseEnding</span>(['simplicity', 'computer', 'felicity'], 'ily'));
+<span class="g">// [ ]</span>
+            </pre>
+        </div>
+    </div>
+    
+    
+</body>
+</html>

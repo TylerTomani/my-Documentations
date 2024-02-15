@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-05_pigLatinSlice</title>
+    <link rel="stylesheet" href="../../../../../css/newlesson.css">
+    <link rel="stylesheet" href="../../../../../css/appCodeColors.css">
+    <link rel="stylesheet" href="../../../../../css/optsFlex.css">
+    <script src="../../../../../js/copycode.js" defer></script>
+
+</head>
+<body>
+    <h2 tabindex="1">5. Pig Latin Slice</h2>    
+    <div class="flex-container ">
+        <div class=" flex-item flex-col align-center justify-center justify-around">
+            <div class="flex-item flex-col ">
+                <div class="flex-item ">
+                    <p>
+                        &emsp;Write a function <code>pigLatinWord</code>, that translates the words to pig latin.
+                    </p>
+                </div>
+                <div class="flex-item ">                    
+                    <p>
+                        &emsp;use the <code>String.slice()</code> method. The <code>slice()</code> method extracts a section of a
+                        string
+                        and returns it as a new string.
+                    </p>
+                </div>
+                <div class="flex-item flex-col align-center justify-center p-tb-1">
+                    <p>
+                        &emsp;The two rules for our version of Pig Latin are:
+                    </p>
+                    <ul class="">
+                        <li>1. For words that start with a vowel, add 'yay' to the end of the word.</li>
+                        <li>2. For words that start with a non-vowel, move all letters that come 
+                            before the first vowel** to the **end of the word** then add 'ay'
+                        </li>
+                    </div>
+                </ul>
+            </div>
+        </div>
+        <div class="code-container ">
+            <pre tabindex="1" class="app-academy-code copy-pre-code">
+<span class="const-color">function</span> <span class="function-color">pigLatinWord</span>(<span class="var-color">word</span>){
+    <span class="let-color">let</span> newSTr = '';
+    <span class="const-color">const</span> vowels = 'aeiou';
+    <span class="for-color">if</span>(vowels.includes(<span class="var-color">word</span> [<span class="index">0</span>])){
+        newStr = word + "yay"
+    } <span class="for-color">else</span> {
+        <span class="for-color">for</span>(<span class="let-color">let</span> i = <span class="index">0</span>; i &lt; <span class="var-color">word</span>.<span class="lsg">length</span>; i++){ 
+            <span class="let-color">let</span> prefix = <span class="var-color">word</span>.<span class="function-color">slice</span>(i,<span class="var-color">word</span>.<span class="lsg">length</span>); 
+            <span class="let-color">let</span> suffix = <span class="var-color">word</span>.<span class="function-color">slice</span>(<span class="index">0</span> , i); 
+            newStr = prefix + suffix + "yay"
+        }
+    }
+    <span class="for-color">return</span> newStr;
+}
+console.log(pigLatinWord("eat")); <span class="g">//=> "eatyay"</span>
+console.log(pigLatinWord("trash")); <span class="g">//=> "ashtray"</span>
+
+            </pre>
+        </div>
+    </div>
+    
+    
+    
+    
+</body>
+</html>

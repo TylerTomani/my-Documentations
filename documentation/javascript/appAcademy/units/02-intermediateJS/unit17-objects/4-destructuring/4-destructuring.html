@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-destructuring</title>
+    <link rel="stylesheet" href="../../../../css/colors.css">
+    <link rel="stylesheet" href="../../../../css/lesson.css">
+</head>
+<body>
+    <h2>Destructuring</h2>
+    <p>This lesson has a ton of examples, here is a link to the lesson to see</p>
+    <a tabindex="1" target="_blank" href="https://my.appacademy.io/lessons/destructuring/8e0aecd7/practices/destructuring/7fee5e7b">
+        link to app academy</a>
+    <!-- //prints blue red -->
+    <div tabindex="1">
+        <h3>Array destructuring</h3>
+        <p>
+            &emsp;We can access certain index values with destructuring by doing the following
+        </p>
+        <pre>
+        let colors = ['blue','red','yellow','green','orange'];
+        let [<span class="v">firstColor</span> , <span class="v">secondColor</span> ] = colors;
+    
+        console.log(<span class="v">firstColor</span> )
+        console.log(<span class="v">secondColor</span>)
+        <span class="g">/// returns blue
+            red</span>
+        </pre>
+    </div>
+    <!-- Object destructuring -->
+    <div tabindex="1">
+        <h3>Object destructuring</h3>
+        <pre>
+            let obj1 = { name: "Tony", instruments: ['guitar','banjo']};
+        
+            let {<span class="o">name</span>, <span class="o">instruments</span> } = obj1
+            console.log(<span class="o">name</span>);
+            console.log(<span class="o">instruments</span>);
+            <span class="g">// reutrns Tony
+                ['guitar','banjo']</span>
+        </pre>
+    </div>
+    <!-- Alias destructuring -->
+    <div tabindex="1">
+        <h3 >Alias destructuring</h3>
+        <p>
+            &emsp;We can assign the destructured values to a variable with a new name
+        </p>
+        <pre>
+            let obj1 = { name: "Tony", instruments: ['guitar','banjo']};
+
+            let {name: birthname, <span class="o">instruments</span>: <span class="b">music</span>} = obj1
+            console.log(birthname)
+            console.log(<span class="b">music</span>)
+            <span class="g">// reutrns Tony
+                ['guitar','banjo']</span>
+        </pre>
+    </div>
+    <!-- Destructuring Nested Objects -->
+    <div tabindex="1">
+        <h3>Destructuring Nested Objects</h3>
+        <pre>
+        let zooAnimals = {
+            animalID: 32,
+            species: "hippo",
+            favoriteFood: "watermelon",
+            <span class="o">fullName</span>: {
+                <span class="b">fname</span>: "Fiona",
+                <span class="b">lname</span>: "Applebalm"
+            }
+        };
+        </pre>
+    </div>
+    <div tabindex="1">
+        <p>
+            to retrieve just the <code>fname</code> nested inside, do the following
+        </p>
+        <pre>
+            let { <span class="o">fullName</span>: { <span class="b">fname</span> } } = zooAnimals;
+            console.log(fname)
+        </pre>
+    </div>
+    <div tabindex="1">
+        <p>
+            To get both first and last name do the following
+        </p>
+        <pre>
+            let { <span class="o">fullName</span> : { <span class="b">fname</span> ,<span class="b">lname</span>} } = zooAnimals;
+        
+        </pre>
+    </div>
+    <div tabindex="1">
+        <h3>Parameter destructuring</h3>
+        <p>
+            &emsp;This is cool, you can destructure within a functions parameters
+        </p>
+        <pre>
+        let dog = { <span class="o">name</span> : "brooklyn", age: 5, color: "brown"};
+            
+        function sayHi( { <span class="o">name</span> } ){
+            console.log("Hi " + name)
+        }
+    
+        sayHi(dog)
+        </pre>
+    </div>
+    <div>
+        <p>
+            &emsp;This is great for using the <code>keydown</code> event listner with <code>keyCode</code>
+        </p>
+        <pre>
+            el.addEventListner("keydown",({ <span class="o">keyCode</span> }) => {
+                console.log(keyCode)
+            })
+        </pre>
+    </div>
+    <div tabindex="1">
+        <h3>Asigning to a nested object from object</h3>
+        <pre>
+            let <span class="r">object</span> = { <span class="o">animal</span>: { name: "Fiona", <span class="b">species</span>: "Hippo" } };
+        
+            // here we are specifying that within the animal object we want to assign the
+            // *species* variable to the value held by the *species* key
+            let {
+                animal: { <span class="b">species</span> }
+            } = <span class="r">object</span>;
+        
+            console.log(species); // => 'Hippo'
+        </pre>
+    </div>
+    <script>
+        window.addEventListener("keydown",({keyCode}) => {
+            console.log(keyCode)
+        })
+    </script>
+    <footer tabindex="1"></footer>
+<script>
+    let colors = ['blue', 'red', 'yellow', 'green', 'orange'];
+    let [firstColor, secondColor] = colors;
+
+    console.log(firstColor);
+    console.log(secondColor);
+
+    let obj1 = { name: "Tony", instruments: ['guitar', 'banjo'] };
+
+    let {name,instruments} = obj1;
+    let {name : birthname , instruments: music} = obj1
+    console.log(name);
+    console.log(instruments)
+    console.log(birthname)
+    console.log(music)
+
+    let zooAnimals = {
+        animalID: 32,
+        species: "hippo",
+        favoriteFood: "watermelon",
+        fullName: {
+            fname: "Fiona",
+            lname: "Applebalm"
+        }
+    };
+
+    let { fullName: {fname, lname} } = zooAnimals;
+    console.log(fname);
+    console.log(lname);
+
+    let dog = { name: "brooklyn", age: 5, color: "brown"}
+
+    function sayHi( {name} ){
+        console.log("Hi " + name);
+    }
+    sayHi(dog)
+</script>
+
+</body>
+</html>

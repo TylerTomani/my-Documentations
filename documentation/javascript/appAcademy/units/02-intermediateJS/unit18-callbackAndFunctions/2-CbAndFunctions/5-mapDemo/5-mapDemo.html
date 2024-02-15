@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5-mapDemo</title>
+    <link rel="stylesheet" href="../../../../css/colors.css">
+    <link rel="stylesheet" href="../../../../css/lesson.css">
+</head>
+<body>
+    <h2 tabindex="1">5-myMap()</h2>
+    <div tabindex="1" class="sm-text">
+        <p>
+            &emsp;Just like<code>forEach()</code>The <span class="v">callback function</span> in
+            the<code>map()</code>method
+            has <span class="o">three arguments</span> by default
+        </p>
+        <pre class="text-center">
+            array1.map(<span class="v">function</span>(<span class="o">elements</span>, <span class="o">index</span>, <span
+                class="o">array</span> )){
+            })
+        </pre>
+    </div>
+    <hr>
+    <div tabindex="1">
+        <p>
+            &emsp;The <ecode>map()</code> method allows us to perform an action on each element of an array and then puts each element
+            into a new array
+        </p>
+        <pre>
+            let animals = ["dog", "cat", "monkey", "giraffe"];
+            let newArray = animals.map(funtion(el){
+                return el.toUpperCase();
+            })
+            console.log(newArray);
+            <span class="g">// prints [ 'DOG', 'CAT', 'MONKEY', 'GIRAFFE' ]</span>
+
+        </pre>
+    </div>
+    <h3>myMap()</h3>
+    <div tabindex="1">
+        <p>
+            &emsp;The following code makes the map method using a <span class="v">callback</span>;
+        </p>
+        <pre tabindex="1">
+            let people = ['aaron', 'bobby', 'joe', 'tony'];
+
+            let myMap = function(array, <span class="v">cb</span>){
+                let newArray = [];
+                for( let i = 0; i &lt; array.length; i++){
+                    let el = array[i];
+                    let capitalPerson = <span class="v">cb</span>(el);
+                    newArray.push(capitalPerson);
+                }
+                return newArray;
+            }
+            let <span class="v">capitalize</span> = function(el){
+                return el.toUpperCase();
+            }
+            let capitalizedPeople = myMap(people,<span class="v">capitalize</span>)
+            console.log(capitalizedPeople)
+        </pre>
+    </div>
+
+    <p tabindex="1">
+        &emsp;Now we can pass in any array and any callback function to perform an action on the array
+    </p>
+    <pre  tabindex="1">
+        let myMap = function(array,cb){
+            let newArr = [];
+            for(let i = 0; i &lt;array.length; i++){
+                let el = array[i];
+                let result = cb(el);
+                newArr.push(result);
+            }
+            return newArr;
+        }
+        let doubler = myMap([1,4,7,10],function(num){
+            return num * 2;
+        })
+        console.log(doubler)
+
+        let sRoot = myMap([36,81,100,4], Math.sqrt)
+        console.log(sRoot)
+
+        // prints  ['AARON', 'BOBBY', 'JOE', 'TONY']
+                   [6, 9, 10, 2]
+    </pre>
+<script>
+    let people = ['aaron', 'bobby', 'joe', 'tony'];
+
+    // let newArr = people.map(function(el){
+    //     return el.toUpperCase();
+    // })
+    // console.log(newArr)
+
+
+
+        let myMap = function (array, cb) {
+            let newArray = [];
+            for (let i = 0; i < array.length; i++) {
+                let el = array[i];
+                let result = cb(el);
+                newArray.push(result);
+            }
+            return newArray;
+        }
+        let capitalize = function (el) {
+            return el.toUpperCase();
+        }
+        let capitalizedPeople = myMap(people, capitalize)
+        console.log(capitalizedPeople)
+
+
+
+        let doubler = myMap([1, 4, 7, 10], function (num) {
+            return num * 2;
+        })
+        let sRoot = myMap([36,81,100,4], Math.sqrt)
+        console.log(sRoot)
+</script>
+
+</body>
+</html>

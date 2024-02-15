@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1_threadingLecture</title>
+    <link rel="stylesheet" href="../../../css/flex.css">
+    <link rel="stylesheet" href="../../../css/lesson.css">
+    <link rel="stylesheet" href="../../../css/colors.css">
+</head>
+<body>
+    <h2 tabindex="1">1_threadingLecture</h2>
+    <div tabindex="1">
+        <p>
+            &emsp;The execution of a program is refered to as <q>runtime</q> or <q>lifetime</q>.
+        </p>
+        <h3><i>single</i>-thread vs <i>multi</i>-thread </h3>
+        <p>
+            &emsp;Javascript is a <i>single</i>-threaded language meaning it can only execute on line of code at a time.
+            We can see this in action with the functions.
+        </p>
+        <ul>
+            <li><code>setInterval()</code></li>
+            <li><code>setTimeout()</code></li>
+        </ul>
+    </div>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <p>
+                <code>setInterval()</code> and <code>setTimeout()</code> are <i>Asynchronous</i>. So when
+                they are initialized they run simultaneously with the program. Even though <code>setTimeout</code>'s
+                timeout time is set to 0, the <code>blockThread()</code> function will execute first
+            </p>
+            <code><span class="g">// prints 
+            <br> blockThread is done
+            <br> secondTimeout takes 1 second</span> 
+            </code>
+        </div>
+        <div class="flex-item">
+            <code>
+function blockThread(){
+<br>&emsp;let count = 0;
+<br>&emsp;if(count &lt; 60000000){
+<br>&emsp;&emsp;count++;
+<br>&emsp;}
+<br>}
+<br>setTimeout( () => {
+<br>&emsp;console.log("setTime out comes second")
+<br>})
+<br> blockThread()
+
+    
+            </code>
+        </div>
+        
+    </div>
+    
+    
+</body>
+</html>

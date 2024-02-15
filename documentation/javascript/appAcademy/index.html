@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>appAcademyOpen-units 17 and up</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/colors.css">
+
+    <script src="js/unitDropDown.js" defer></script>
+    <script src="js/loadLesson.js" defer></script>
+    <script src="js/dropmenu.js" defer></script>
+    <script src="js/nightmode.js" defer></script>
+    <script src="../../../js/letterFocus-lesson-template.js" defer></script>
+</head>
+<body>
+    <a tabindex="1" id="homeLink" href="../javascript.htm">home</a>
+    <button tabindex="1" id="night-mode">night mode</button>
+    <header>                
+        <img id="appLogo" tabindex="1" src="https://my.appacademy.io/images/logos/logo-emblem-white.svg">
+        <ul>
+            <li>
+                <p style="font-size: .5=8rem;color:red; padding: 0 1rem">Go back with sed and awk to replace &lt;pre with &lt;code
+                and colors </p>
+            </li>
+            <li>
+                <p style="font-size: .5=8rem;color:red; padding: 0 1rem">Fix side bar, so when lesson is loaded, lesson only has
+                focus if you hit enter again, other wise, tab should cycle through lessons</p>
+            </li>
+            <li>
+                <p style="font-size: .5=8rem;color:red; padding: 0 1rem">Make so shift tab from iframe lesson focus h2, 
+                goes directly back to selected lesson </p>
+            </li>
+            <li>
+                If code on the right side of scrrent is clicked, active or focus,
+            scroll window to position of the code, so you don't have to scroll over manually </p>
+            </li>
+        </ul>
+        <!-- Other Topics -->
+        <ul>
+            <li><a tabindex="1" href="#" class="unit">Other Topics</a>
+                <ul id="">
+                    <li><a tabindex="1" href="otherTopics/gitHubPushPull/gitHubPushPull.html">github</a></li>
+                    <li><a tabindex="1" href="otherTopics/3-nodeJs/nodeJs.html">3. node js</a></li>
+                    <li><a tabindex="1" href="otherTopics/1-envSetup/envSetup.html">1. Enviroment Setup</a></li>
+                    <li><a tabindex="1" href="otherTopics/2-homebrew/homebrew.html">2. homebrew</a></li>
+                    <li><a tabindex="1" href="otherTopics/4-mocha/mocha.html">4. mocha</a></li>
+                    <li><a tabindex="1" href="otherTopics/5-vsCodeDebugger/5-vsCodeDebugger.html">5. Vs code Debugger</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div>
+            <a tabindex="2" href="interviewQuestions/interviewQuestions.html">important interview questions</a>
+            <br>
+            <a tabindex="2" href="terminology.html">good terminology</a>
+            <br>
+            <a tabindex="2" href="QUESTIONS/questions.html">questions</a>
+        </div>
+    </header>
+    <div tabindex="1" class="units-list-drop-triangle drop-triangle">
+        <div  class="">
+            &#9660;
+        </div>
+        <span class="unit-display">Units &nbsp;</span><span class="lesson-display"></span>
+    </div>
+    <section class="main-section">
+        <aside class="side-menu">
+            <ul>
+                <li>
+                    <!-- Javascript Fundamentals -->
+                    <a  tabindex="1" id="javascriptFundamentals" href="#" class="unit-title-link"><h2 class="unit-title">Javascript Fundamentals</h2></a>
+                    <!--  -->
+                    <section class="units-section">
+                        <ul >
+                            <!-- Unit 10 - Control Flow -->
+                            <li><a  tabindex="1" href="#" class="unit">
+                                <h3>Unit 10<span class="unit-name"> Control Flow</span></h3></a>
+                                <ul id="">
+                                    <!-- <h4>Control Flow Decisions</h4> -->
+                                    <h4>Basic Loops</h4>
+                                    <li><a tabindex="1"  href="units/01-JsFundamentals/unit10-controlFlow/2-basicLoops/2-02_printFives/2-02_printFives.html">3. <code>printFives()</code></a></li>
+                                    <h4>String Loops </h4>
+                                    <li><a tabindex="1"
+                                        href="units/01-JsFundamentals/unit10-controlFlow/3-stringLoops/3-05_pigLatinSlice/3-05_pigLatinSlice.html">
+                                        5. Pig Latin Slice</a></li>
+                                </ul>
+                            </li>
+                            <!-- Unit 11 - Intermediate JavaScript -->
+                            <li><a  tabindex="1" href="#" class="unit">
+                                <h3>Unit 11<span class="unit-name"> Intermediate JavaScript</span>
+                                    <br> <span class="sm-txt">helper function()</span> </h3></a>
+                                <ul id="">
+                                    <h4>Problem Solving II</h4>
+                                    <li><a tabindex="1"
+                                        href="units/01-JsFundamentals/unit11-intermediateJS/1-problemSolving2/1-05_longestName/1-05_longestName.html">
+                                        5. longestName</a></li>
+                                    <h4>Intro to Arrays</h4>
+                                    <li><a  tabindex="1"
+                                        href="units/01-JsFundamentals/unit11-intermediateJS/2-introToArrays/2-01_arrayLecture/2-01_arrayLecture.html">
+                                        1. Array Lecture </a></li>
+                                    <li><a tabindex="1"
+                                        href="units/01-JsFundamentals/unit11-intermediateJS/2-introToArrays/2-02_arrayIndexOf/02-02_arrayIndexOf.html">
+                                        2. Array <code>indexOf()</code> </a></li>
+                                    <li><a  tabindex="1"
+                                        href="units/01-JsFundamentals/unit11-intermediateJS/2-introToArrays/2-03_firstLastArrEl/02-03_firstLastArrEl.html">
+                                        3. first & last array element </a></li>
+                                    <h4>Intermediate Functions</h4>
+                                    <li><a  tabindex="1"
+                                            href="units/01-JsFundamentals/unit11-intermediateJS/3-intermediateFunctions/3-01_functionExpressions/3-01_functionExpressions.html">
+                                            1. Functions Expressions </a></li>
+                                    <li><a  tabindex="1"
+                                            href="units/01-JsFundamentals/unit11-intermediateJS/3-intermediateFunctions/3-02_helperFunctions/3-02_helperFunctions.html">
+                                            2. Helper Functions </a></li>
+
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                </li>
+                <!-- Intermediate Javascript -->
+                <li>
+                    <a tabindex="1" id="intermediate" href="#" class="unit-title-link"><h2 class="unit-title">Intermediate Javascript</h2></a>
+                        <!-- //////////////////////////////////// Current Section -->
+                    <section class="units-section ">
+                        <ul class="">
+                            <!-- Unit 17 - Objects -->
+                            <li><a tabindex="1" href="#" class="unit">
+                                <h3>Unit 17 - <span class="unit-name">Objects</span></h3></a>
+                                <ul class="">
+                                    <h4>POJO</h4>
+                                    <li><a  tabindex="1"
+                                            href="units/02-intermediateJS//unit17-objects/1-POJO/1_iterateThroughObjects/1-iterateThroughObjects.html">
+                                            1. iterate through objects</a></li>
+                                    <li><a tabindex="1"
+                                            href="units/02-intermediateJS//unit17-objects/1-POJO/2-catObjectBuilder/2-catObjectBuilder.html">
+                                            2. cat builder object</a></li>
+                                    <li><a tabindex="1"
+                                            href="units/02-intermediateJS//unit17-objects/1-POJO/3-objectPOJOlecture/3-objectPOJOlecture.html">
+                                            3. object POJO lecture</a></li>
+                                    <li><a tabindex="1"
+                                            href="units/02-intermediateJS//unit17-objects/1-POJO/4_difficultProblems/4_difficultProblems.html">
+                                            4. Difficult Problems</a></li>
+                                    <h4>Refrences vs Primitives</h4>
+                                    <li><a tabindex="1"
+                                            href="units/02-intermediateJS//unit17-objects/2-primitiveReference/2-primitiveReference.html">
+                                            5. Primitive Reference</a></li>
+                                    <h4>Rest and Spread</h4>
+                                    <li><a tabindex="1" href="units/02-intermediateJS//unit17-objects/3-restSpread/3-restSpread.html">
+                                        6. rest and spread</a></li>
+                                    <h4>Destructuring</h4>
+                                    <li><a  tabindex="1"
+                                            href="units/02-intermediateJS//unit17-objects/4-destructuring/4-destructuring.html">
+                                            7.destructuring</a></li>
+                    
+                                </ul>
+                            </li>
+                            <!-- Unit 18 - Callback Functions -->
+                            <li><a tabindex="1" href="#" class="unit ">
+                                <h3>Unit 18 - <span class="unit-name">Callback Functions</span></h3></a>
+                                <ul id="">
+                                    <h4>Callbacks</h4>
+                                    <li><a tabindex="1"
+                                            href="units/02-intermediateJS//unit18-callbackAndFunctions/1-callbacks/1-callbackReading/1-callbackReading.html">
+                                            1. Callback reading</a>
+                                    </li>
+                                    <li><a   tabindex="1"
+                                            href="units/02-intermediateJS//unit18-callbackAndFunctions/1-callbacks/2-higherOrderCallback/2-higherOrderCallback.html">
+                                            2. Higher Order vs callbacks</a>
+                                    </li>
+                                    <h4>Callbacks as Functions</h4>
+                                    <li><a tabindex="1"
+                                            href="units/02-intermediateJS//unit18-callbackAndFunctions/2-CbAndFunctions/1-usingCbFunctionsDemo1/1-usingCbFunctionsDemo1.html">
+                                            1. Using Call back functions</a>
+                                    </li>
+                                    <li><a tabindex="1"
+                                            href="units/02-intermediateJS//unit18-callbackAndFunctions/2-CbAndFunctions/3-multipleCbsDemo/3-multipleCbsDemo.html">2.
+                                            Multiple callbacks</a></li>
+                                    <li><a tabindex="1"
+                                            href="units/02-intermediateJS//unit18-callbackAndFunctions/2-CbAndFunctions/4-forEachDemo/4-forEachDemo.html">3.
+                                            my forEach()</a></li>
+                                    <li><a tabindex="1"
+                                            href="units/02-intermediateJS//unit18-callbackAndFunctions/2-CbAndFunctions/5-mapDemo/5-mapDemo.html">4. my
+                                            myMap()</a></li>
+                                    <li><a tabindex="1"
+                                            href="units/02-intermediateJS//unit18-callbackAndFunctions/2-CbAndFunctions/6-myFilterDemo/6-myFilterDemo.html">5.
+                                            my myFilter()</a></li>
+                                    <li><a tabindex="1"
+                                            href="units/02-intermediateJS//unit18-callbackAndFunctions/2-CbAndFunctions/7-myEveryDemo/7-myEveryDemo.html">6.
+                                            my myEvery()</a></li>
+                                </ul>
+                            </li>
+                            <!-- Unit 19 - Scopes and Closures -->
+                            <li><a tabindex="1" href="#" class="unit ">
+                                    <h3>Unit 19 - <span class="unit-name">Scopes and Closures <span class="sub-unit-name">(arrow&nbsp;functions)</span></span></h3></a>
+                                <ul>
+                                    <h4>Scope</h4>
+                                    <li><a tabindex="1"
+                                            href="units/02-intermediateJS//unit19-scopesClosures/1-scopeArrowFunctions/1-1-scope/1-1-01_scopeLecture/1-1-01_scopeLecture.html">1.
+                                            Scope Lecture</a></li>
+                                    <h4>Variables</h4>
+                                    <li>maybe go back and do</li>
+                                    <h4>Arrow Functions</h4>
+                                    <li>maybe go back and do</li>
+                                    <h4>Closures</h4>
+                                    <li><a tabindex="1"
+                                            href="units/02-intermediateJS//unit19-scopesClosures/2-closures/1-closureLecture/1-closureLecture.html">1.
+                                            Closure
+                                            Lectures</a></li>
+                                </ul>
+                            </li>
+                            <!-- Unit 20 - Recursion -->
+                            <li><a tabindex="1" href="#" class="unit ">
+                                <h3>Unit 20- <span class="unit-name">Recursion</span></h3></a>
+                                <ul>
+                                    <li><a tabindex="1" href="units/02-intermediateJS//unit20-recursion/1-recursion/1-theCallStack/1-theCallStack.html">1.
+                                            the
+                                            Callstack</a></li>
+                                    <li><a tabindex="1"
+                                            href="units/02-intermediateJS//unit20-recursion/1-recursion/2-recursionBasics/2-recursionBasics.html">2.
+                                            Recusion
+                                            basics</a></li>
+                                    <li><a tabindex="1"
+                                            href="units/02-intermediateJS//unit20-recursion/1-recursion/3-defaultParameter/3-defaultParameter.html">2.
+                                            default
+                                            parameters</a></li>
+                                </ul>
+                            </li>
+                            <!-- Unit 21 - IIFEs and Recalls -->
+                            <li><a tabindex="1" href="#" class="unit ">
+                                <h3>Unit 21- <span class="unit-name">IIFEs & Recalls</span></h3></a>
+                                <ul>
+                                    <h4>Hoisting (IIFEs)</h4>
+                                    <li><span class="v">maybe go back and do</span></li>
+                                    <!-- <li><a tabindex="1" href="units/02-intermediateJS//unit20-recursion/1-recursion/2-recursionBasics/2-recursionBasics.html">1. IIFEs lectures</a></li> -->
+                                    <h4>Recalls</h4>
+                                    <li><a tabindex="1"
+                                            href="units/02-intermediateJS//unit21-IIFEsRecalls/2-recalls/2-1_primitiveInDepth/2-1_primitiveInDepth.html">1.
+                                            primitives in depth</a></li>
+                                </ul>
+                            </li>
+                            <!-- Unit 22 - Asynchronicity -->
+                            <li><a tabindex="1" href="#" class="unit ">
+                                <h3>Unit 22- <span class="unit-name">Asynchronicity</span></h3></a>
+                                <ul>
+                                    <li><a tabindex="1" href="units/02-intermediateJS//unit22-async/1_threadingLecture/1_threadingLecture.html">1.
+                                            Threading
+                                            Lecture</a></li>
+                                    <li><a tabindex="1" href="units/02-intermediateJS//unit22-async/2_msgQueEventLoop/2_msgQueEventLoop.html">2. Message
+                                            ques
+                                            & event Loop</a></li>
+                                    <!-- <li><a tabindex="1" href="#">3. <code>setTimeout()</code></a></li> -->
+                                    <li><a tabindex="1" href="units/02-intermediateJS//unit22-async/4_setInterval/4_setInterval.html">3.
+                                            <code>setInterval()</code></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                </li>
+                <!-- TDD and OPP -->
+                <li>
+                    <a tabindex="1" href="#" id="tdd" class="unit-title-link">
+                        <h2 class="unit-title">TDD and OPP</h2></a>
+                    <section id="" class="units-section">
+                        <ul>
+                            <!-- Unit 23 - Basic Coding Principle -->
+                            <li><a tabindex="1" href="#" class="unit ">
+                                <h3>Unit 23- <span class="unit-name">Basic Coding Principle</span></h3></a>
+                                <ul id="">
+                                    <h4>Modules and Packages</h4>
+                                    <li>1.<a tabindex="1" href="units/03-tddOpp//unit23-basicCodePrinciples/1-modsPackages/1_oop/1_oop.html">OOP</a></li>
+                                    <li>2.<a tabindex="1" href="units/03-tddOpp//unit23-basicCodePrinciples/1-modsPackages/2_npm/2_npm.html">npm</a></li>
+                                    <li>3.<a tabindex="1" href="units/03-tddOpp//unit23-basicCodePrinciples/1-modsPackages/3_npm2/3_npm2.html">npm2</a></li>
+                                    <li>4.<a tabindex="1" href="units/03-tddOpp//unit23-basicCodePrinciples/1-modsPackages/4_commonJsModules/4_commonJsModules.html">Common Js Modules</a>
+                                    <li>5.<a  tabindex="1" href="units/03-tddOpp//unit23-basicCodePrinciples/1-modsPackages/5_usingModules/5_usingModules.html">Using Js Modules
+                                        <br><span>(intro to classes)</span></a>
+                                    </li>
+                                    <h4>Clean Maintainable Code</h4>
+                                    <li><a tabindex="1" href="units/03-tddOpp//unit23-basicCodePrinciples/2-SRPandDRY/1_srpAndDryNotes.html">1.(SRP) & (DRY) Notes </a>
+
+                                </ul>
+                            </li>
+                            <!-- Unit 24 - Object Oriented Programming-->
+                            <li><a tabindex="1" href="#" class="unit">
+                                    <h3>Unit 24- <span class="unit-name">- Object Oriented Programming</span></h3></a>
+                                <ul id="">
+                                    <h4>OPP Basics</h4>
+                                    <li><a tabindex="1" href="units/03-tddOpp//unit23-basicCodePrinciples/1-modsPackages/1_oop/1_oop.html">1. OOP</a></li>
+                                    <li><a tabindex="1" href="units/03-tddOpp//unit24-objOrientedProg/2_staticMethodsVars/2_staticMethodsVars.html">2. Static Methods and Variables</a></li>
+                                    <li><a tabindex="1" href="units/03-tddOpp//unit24-objOrientedProg/3_staticVarExample/3_staticVarExample.html">3. Static Variable Example</a></li>
+                                    <li><a tabindex="1" href="units/03-tddOpp//unit24-objOrientedProg/4_inheritance/4_inheritance.html">4. Inheritance</a></li>
+                                    <li><a tabindex="1" href="units/03-tddOpp//unit24-objOrientedProg/5_polymorphism/5_polymorphism.html">5. polymorphism</a></li>
+                                    <li><a tabindex="1" href="units/03-tddOpp//unit24-objOrientedProg/6_methodInSuper/6_methodInSuper.html">6. call Parent method with super</a></li>
+
+                                </ul>
+                            </li>
+                            <!-- Unit 25 - Context in Javascript-->
+                            <li><a tabindex="1" href="#" class="unit">
+                                    <h3>Unit 25- <span class="unit-name"> Context in Javascript</span></h3></a>
+                                    
+                                <ul id="">
+                                    <h4>Context in Regular Functions</h4>
+                                    <li><a tabindex="1" href="units/03-tddOpp//unit25-contextInJS/1-contextInRegularFunctions/1_context/1_context.html">1. context</a></li>
+                                    <li><a tabindex="1" href="units/03-tddOpp//unit25-contextInJS/1-contextInRegularFunctions/2_bind/2_bind.html">2. bind() </a></li>
+                                    <li><a tabindex="1" href="units/03-tddOpp//unit25-contextInJS/1-contextInRegularFunctions/3_callApply/3_callApply.html">3. call and apply </a></li>
+                                    <h4>Context in Arrow Functions</h4>
+                                    <li>Really Important and useful things in here
+                                        <br>go back and do first two lessons
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <!-- Unit 26 - TDD-->
+                            <li><a tabindex="1" href="#" class="unit">
+                                    <h3>Unit 26- <span class="unit-name">TDD</span><span class="sub-unit-name"> (test driven development)</span>
+                                    <br><span class="sub-unit-name">(Errors and Test)</span></h3></a>
+                                <ul id="">
+                                    <h4>Error Handling</h4>
+                                    <li><a tabindex="1" href="units/03-tddOpp//unit26-TDD/1-errorHandling/1_jsErrorTypes/1_jsErrorTypes.html">1. JS error types</a></li>
+                                    <li><a tabindex="1" href="units/03-tddOpp//unit26-TDD/1-errorHandling/2_errorHandling/2_errorHandling.html">2. Error Handling</a></li>
+                                    <h4>Testing</h4>
+                                    <li><a tabindex="1" href="units/03-tddOpp//unit26-TDD/2-testing/1_testingBasics/1_testingBasics.html">1. Testing Basics</a></li>
+                                    <li><a  tabindex="1" href="units/03-tddOpp//unit26-TDD/2-testing/2_unitTestingMocha/2_unitTestingMocha.html">2. Unit Testing with Mocha and Chai</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                </li>
+                
+            </ul>
+
+            
+
+        </aside>
+        
+        
+        <iframe id="iframe" tabindex="1" src=""frameborder="0"></iframe>
+    </section>
+    <footer>
+        
+    </footer>
+</body>
+</html>

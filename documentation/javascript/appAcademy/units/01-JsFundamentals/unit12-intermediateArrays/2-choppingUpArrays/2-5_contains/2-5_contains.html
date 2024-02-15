@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-5_contains</title>
+    <link rel="stylesheet" href="../../../../../css/newlesson.css">
+    <link rel="stylesheet" href="../../../../../css/appCodeColors.css">
+    <link rel="stylesheet" href="../../../../../css/optsFlex.css">
+    
+    <script src="../../../../../js/copycode.js" defer></script>
+</head>
+<body>
+    <h2>5. <code>contains()</code></h2>
+    <div  class="flex-container">
+        <div class="flex-item">
+            <p>
+                &emsp;The function should returns a boolean indicating whether the targetWord is found inside of the sentence.
+            </p>
+            <p>
+                Solved without using String's indexOf() or includes() methods.
+            </p>
+            <p class="r">
+                Important Note: convert strings to arrays to use for and forEach loops on them.
+                && For Some Reason, a <code>forEach()</code> does <strong>NOT</strong> work on this example
+            </p>
+        </div>
+        <div class="flex-item">
+            <pre tabindex="1" class="app-academy-code copy-pre-code">
+<span class="const-color">function</span> <span class="function-color">containsWord</span>(str,target){
+    <span class="let-color">let</span> strArr = str.<span class="function-color">split</span> (" ");
+    <span class="for-color">for</span>(<span class="let-color">let</span> i = 0; i &lt; strArr.<span class="length-color">length</span> ; i++){
+        <span class="let-color">let</span> wrd = strArr[i];
+        <span class="for-color">if</span>( wrd.<span class="length-color">toLowerCase()</span> === target.<span class="length-color">toLowerCase()</span>){
+            <span class="for-color">return</span> <span class="bool-color">true</span>
+        }
+    }
+    <span class="for-color">return</span> <span class="bool-color">false</span>
+}
+
+console.log(<span class="function-color">containsWord</span>('sounds like a plan', 'like')); 
+<span class="g">// true</span>
+console.log(<span class="function-color">containsWord</span>('They are great', 'they')); 
+<span class="g">// true</span>
+console.log(<span class="function-color">containsWord</span>('caterpillars are great animals', 'cat')); 
+<span class="g">// false</span>
+console.log(<span class="function-color">containsWord</span>('Cast the net', 'internet')); 
+<span class="g">// false</span>
+            </pre>
+        </div>
+        
+    </div>
+    
+    
+</body>
+</html>

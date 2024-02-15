@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2_unitTestingMocha.html</title>
+    <link rel="stylesheet" href="../../../../css/lesson.css">
+    <link rel="stylesheet" href="../../../../css/flex.css">
+    <link rel="stylesheet" href="../../../../css/colors.css">
+</head>
+<body>
+    <h2 tabindex="1">2_Unit Testing with Mocha and Chai</h2>
+    <h3>Part 1 Set up Test Enviroment</h3>
+    <div tabindex="1">
+        <p>
+            &emsp;Make directory and initialize npm
+        </p>
+        <code>npm init</code>
+        <p>
+            &emsp;For the test command option type: <code>mocha</code>
+        </p>
+    </div>
+    <img tabindex="1" class="md-img" src="images/01-initMocha.png">
+    <div tabindex="1">
+        <p>
+            &emsp;You can see <code>test: mocha</code> in the package.json after you initilize the package
+        </p>
+    </div>
+    <img tabindex="1" class="md-img"  src="images/02-jsonMocha.png">
+    <div tabindex="1">
+        <p>
+            &emsp; next run the commands <code>npm install mocha</code> and <code>npm install chai</code>.
+            This will create a <code>node_modules</code> directory. Download the latest version of Mocha and Chai
+        </p>
+        <p style="color:red">You might need to review how to download latest version, add it Unit 23 npm2, or make a new lesson for it</p>
+    </div>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <img class="md-img"  src="images/03-nmpInstallMocha.png">
+        </div>
+        <div class="flex-item">
+            <img  src="images/04-npmInstallChai.png">
+        </div>
+    </div>
+    <hr>
+    <h3>Part 2 Setting up test files</h3>
+    <div tabindex="1">
+        <p>
+            &emsp;Create a user.js page and place in a folder named class within the direcotry. BE AWARE, mocha
+            will expect this to be in a folder called <q>test</q>
+        </p>
+    </div>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <pre class="app-academy-code md-code">
+<span class="g">class/user.js</span>
+<span class="class-color">class</span> <span class="class-var">User</span> {
+
+}
+<span class="class-var">module</span>.<span class="var-color">exports</span> = <span class="class-var">User</span></pre>
+        </div>
+        <div class="flex-item">
+            <img  src="images/05-user-class.png">
+        </div> 
+    </div>
+    <div tabindex="1">
+        <p>
+            In user-spec.js, load Chai and the User class being tested. Note the relative loading path in require
+        </p>
+    </div>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <pre class="app-academy-code">
+<span class="g">test/user-spec.js</span>
+const { expect } = require("chai");
+
+const User = require("../class/user")
+            </pre>
+        </div>
+        <div class="flex-item">
+            <img src="images/06-user-specSet1.png">
+        </div>
+    </div>
+    <div tabindex="1">
+        <p>
+            If you type mocha in your terminal, you should see a 0 passing (1ms) message. If you are getting errors, make sure
+            your
+            file structure is set up correctly and you are running mocha from the testing-demo directory.
+        </p>
+        <img class="sm-img"  src="images/07-mocha.png">
+    </div>
+    <hr>
+    <h3>Part 3 Writing Mocha and Chai</h3>
+    <div tabindex="1">
+        <ul>
+            <li><strong>Mocha</strong> is a test framework that specializes in running tests and presenting them in an organized user friendly way.</li>
+            <li><strong>Chai</strong> is an assertion library that performs the actual test comparisons.</li>
+        </ul>
+    </div>
+    <div tabindex="1">
+        <p>
+            &emsp;Set up the test functionality in the <code>user-spec.js</code> file below the
+            <code>require chai</code> and <code>require ../class/usr</code>
+        </p>
+    </div>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <pre class="app-academy-code md-code">
+const { expect } = require("chai");
+const User = require("../class/user")
+
+<span class="function-color">describe</span>("User Class", function(){
+    <span class="function-color">it</span>("should create successfully", function(){&nbsp;
+        let user = new User();
+        <span class="function-color">expect</span>(user).to.exist;
+    })
+})
+            </pre>
+        </div>
+        <div class="flex-item">
+            <img class=""  src="images/08-user-specSet2.png">
+        </div>
+    </div>
+    <div tabindex="1">
+        <p>
+            &emsp;<code><span class="function-color">describe</span></code> is a group of test for the user class.
+            <code><span class="function-color">it</span></code> is a single spec to test if the user can be created,
+            if it can <code><span class="function-color">expect</span></code> checks if the new user exist
+        </p>
+        <p>
+            <span class="function-color">describe</span> and <span class="function-color">it</span> comes from the
+            the testing frameword <i>Mocha</i> while <span class="function-color">expect</span> comes from 
+            assertion library <i>Chai</i>
+        </p>
+    </div>
+    <div tabindex="1" >
+        <p>
+            &emsp;run mocha and you should see the <code><span class="function-color">it</span></code> message
+        </p>
+    
+        <img class="sm-img" src="images/09-itMessage.png">
+    </div>
+    <hr>
+    <h4>Specify functionality with test</h4>
+    <div tabindex="1">
+        <p>
+            &emsp;Specify a test to require all users to have a username upon creation
+        </p>
+        <p class="r">The below code will produce an error because the class doesn't not have 
+            a property <code>username</code>
+        </p>
+    </div>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <pre class="app-academy-code md-code">
+<span class="function-color">it</span>.("should set username on creation", <span class="function-color">function</span>(){&nbsp;
+    let user = new User("john-doe");
+    <span class="function-color">expect</span>(user.username).<span class="function-color">to</span>.<span class="function-color">equal</span>("john-doe");
+})
+            </pre>
+        </div>
+        <div class="flex-item">
+            <img class="md-img"  src="images/10-itStatement.png">
+        </div>
+    </div>
+    <div tabindex="1">
+        <p class="r">
+            &emsp;If we run mocha the error produced will look like this
+        </p>
+        <img class="sm-img" src="images/11-noUsername.png">
+    </div>
+    <div tabindex="1">
+        <p class="r">
+            &emsp;To fix this, add a username property to the User class in user.js
+        </p>
+        <img src="images/12-addUsername.png">
+    </div>
+    <div tabindex="1">
+        <p>
+            &emsp;Now it is successful and should look like this when running mocha 
+        </p>
+        <img class="md-img"  src="images/13-usernameSuccess.png">
+    </div>
+    <hr>
+    <h3>Part 5 DRYing test with Mocha hooks</h3>
+    <div tabindex="1">
+        <p>
+            &emsp;When creating of tests for a user class, you will likely need to create a new user before each test runs. You
+            can clean up the repetition using the Mocha Hooks, <code><span class="v">before</span></code> or <code><span class="v">beforeEach</span></code>.
+        </p>
+        <p>
+            The <code class="v">beforeEach</code> hook will set up code that runs before each test in the describe block while <code class="v">before</code> runs once at the
+            beginning of the block.
+        </p>
+    </div>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <pre class="app-academy-code md-code">
+describe("user class", function(){
+    let user;
+    <span class="v">beforeEach</span>(() => {
+        user = new User("john-doe")
+    })
+    it("should create successfully",function(){
+        expect(user).to.exist;
+    })
+    it("should set username on creation",function(){
+        expect(user.username).to.equal("john-doe")
+    })
+})
+            </pre>
+        </div>
+        <div class="flex-item">
+            <img class="sm-img" src="images/14-beforeEach.png">
+        </div> 
+    </div>
+    <div tabindex="1">
+        <p>
+            &emsp;Similarly, there are <code class="v">afterEach</code> and <code class="v">after</code> hooks which can be used to clean up after each test, or after the test block
+            runs.
+        </p>
+
+    </div>
+    
+
+    
+
+    
+
+    
+    
+    
+    
+</body>
+</html>

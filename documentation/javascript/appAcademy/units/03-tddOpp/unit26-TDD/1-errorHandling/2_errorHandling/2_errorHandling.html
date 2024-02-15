@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2_errorHandling</title>
+    <link rel="stylesheet" href="../../../../css/lesson.css">
+    <link rel="stylesheet" href="../../../../css/colors.css">
+    <link rel="stylesheet" href="../../../../css/flex.css">
+</head>
+<body>
+    <h2 tabindex="1">2_errorHandling</h2>
+    <div tabindex="1">
+        <p>
+            &emsp;Errors use a <code>Error</code> constructor function to prints errors. You can make your own and also
+            <code>catch</code> errors so the program won't crash.
+        </p>
+        <p>
+            &emsp;The error constructor function has the following syntax
+        </p>
+    </div>
+    <pre tabindex="1">
+        <span class="class-color">new</span> Error([message[, fileName[, lineNumber]]])
+    </pre>
+    <div tabindex="1">
+        <p>
+            &emsp;You can call it with or without the <code><span class="class-color">new</span></code> keyword
+        </p>
+        <pre>
+            const first = new Error("I am an error")
+            const second = Error("I too am also an error")
+            console.log(first)
+            console.log(second)
+        </pre>
+    </div>
+    <hr>
+    <h3><code>throw</code></h3>
+    <div tabindex="1">
+        <p>
+            &emsp;To make an error message occur, use the <code class="v">throw</code> keyword
+        </p>
+    </div>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <pre>
+function enterANumber(num){
+    if(typeof num !== "number"){
+        <span class="v">throw</span> new Error("Please enter a number")
+    } else {
+        return "Yes, number was entered"
+    }
+}
+console.log(enterANumber(2))
+console.log(enterANumber("Apple"))
+<span class="o">console.log(enterANumber(3))</span></pre>
+        </div>
+        <div class="flex-item">
+            <p>
+                &emsp;The line <code class="o">console.log(enterANumber(3))</code> at the bottom, will not run, because of 
+                the error.
+            </p>
+            <p>
+                To change this bevior we can use the <code class="b">catch</code> keyword
+            </p>
+        </div> 
+    </div>
+    <h3>catch</h3>
+    <div tabindex="1">
+        <p>
+            &emsp;Normally <code>try</code> and <code>catch</code> are used with functions that might produce an error.
+            We can use <code class="v">console.error</code> to produce the error with out crashing the program.
+            Look at the second code below to see what happens when we try to divide by 0
+        </p>
+    </div>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <pre class="app-academy-code md-code">
+function safeDivide(a,b){
+    if( b == 0){
+        throw new Error("Can't divide by zero")
+    } else {
+        return a / b
+    }
+}
+
+try {
+    console.log(safeDivide(10,2));
+} catch (error){
+    console.error(error.name + ": " + error.message);
+}
+
+console.log("Hey")
+<span class="g">// prints 
+    5
+    Hey
+</span></pre>
+        </div>
+        <div class="flex-item">
+            <pre class="app-academy-code md-code">
+function safeDivide(a,b){
+    if(b == 0){
+        throw new Error("Can't divide by zero")
+    } else {
+        return a / b;
+    }
+}
+try {
+    console.log(safeDivide(10,0))
+} catch (error){
+    console.error(error.name + ": " + error.message)
+}
+console.log("Hey")
+<span class="g">// prints
+    Error: Can't divide by zero
+    Hey
+</span>
+            </pre>
+        </div> 
+    </div>
+    <hr>
+    <h3>Identify error type</h3>
+    <p tabindex="1">
+        &emsp;Use <code>(error instanceof</code> (enter type of error here..) <code>)</code> to retrieve error type
+    </p>
+    <pre tabindex="1">
+function callTheArg(arg){
+    arg();
+}
+try {
+    callTheArg(40);
+    console.log("Call successful")
+} catch (error){
+    if( error instanceof TypeError){
+        console.error(`Wrong type ${error.message}`)
+    } else {
+        console.error(`${error.message}`)
+    }
+}
+console.log("Done")
+<span class="g">// prints
+    Wrong type arg is not a function
+    done
+</span>
+
+    </pre>
+    <hr>
+    <h3><code>SyntaxError</code></h3>
+    <p>
+        &emsp;These are tricky. The missing parenthesis after true will throw a SyntaxError but can't be caught by the catch block.
+        
+        This is because this kind of SyntaxError happens at compile time not run time. Any errors that happen at compile time
+        can't be caught using try catch blocks.
+    </p>
+    <pre>
+    try {
+if (true { // throws "SyntaxError: Unexpected token '{'"
+    console.log("SyntaxErrors are the worst!");
+}
+} catch (e) {
+    console.log(e);
+}
+    </pre>
+    <hr><code>finally</code>
+    <p>
+        &emsp;The <code>finally</code> code will run whether or not an error occurs
+    </p>
+    <pre>
+<span class="g">//safeDivide function is on top of this page</span>
+try {
+    console.log(safeDivide(8,0));
+} catch (error){
+    console.error(`${error.name} : ${error.message}`)
+    return;
+} finally {
+    console.log("Always runs")
+}
+<span class="g">// prints
+    Error : Can't divide by zero
+    Always runs
+</span>
+    </pre>
+    <footer tabindex="1"></footer>    
+</body>
+</html>

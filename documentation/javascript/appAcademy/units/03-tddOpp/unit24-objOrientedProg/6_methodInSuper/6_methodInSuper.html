@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6_methodInSuper</title>
+    <link rel="stylesheet" href="../../../css/lesson.css">
+    <link rel="stylesheet" href="../../../css/colors.css">
+    <link rel="stylesheet" href="../../../css/flex.css">
+
+</head>
+<body>
+    <h2 tabindex="1">6_Use Parent Methods with <code>super</code></h2>
+    <p>
+        &emsp;Inside a child class we can build on top of a parent's method.
+    </p>
+    <code tabindex="1" class="app-academy-code">
+<span class="class-color">class</span> <span class="class-var">ExampleParent</span>{
+<br>&emsp;<span class="function-color">print</span>(arg){
+<br>&emsp;&emsp;console.log(arg);
+<br>&emsp;}
+<br>
+}
+<br>
+<br><span class="class-color">class</span> <span class="class-var">ExampleChild</span> <span class="class-color">extends</span> <span class="class-var">ExampleParent</span> {
+<br>&emsp;<span class="function-color">print</span>(args){
+<br>&emsp;&emsp;args.<span class="function-color">forEach</span>(arg => <span class="class-color">super</span>.<span class="function-color">print</span>(arg))
+<br>&emsp;}
+<br>}
+<br>const numArray = [1,2,3,4];
+<br>const <span class="class-param">newChild</span> = new <span class="class-var">ExampleChild</span>
+<br><span class="class-param">newChild</span>.<span class="function-color">print</span>(numArray)
+<br><span class="g">// prints
+<br>1
+<br>2
+<br>3
+<br>4
+</span>
+</code>
+
+<footer tabindex="1"></footer>
+</body>
+</html>

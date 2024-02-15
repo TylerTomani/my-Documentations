@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-09_allElseEqual</title>
+    <link rel="stylesheet" href="../../../../../css/newlesson.css">
+    <link rel="stylesheet" href="../../../../../css/appCodeColors.css">
+    <link rel="stylesheet" href="../../../../../css/optsFlex.css">
+    
+    <script src="../../../../../js/copycode.js" defer></script>
+</head>
+<body>
+    <h2>9. <code>allElseEqual()</code></h2>
+    <div class="flex-container">
+        <div class="flex-item">
+            <p>
+                Takes in an array of numbers, returns the element of the array that is equal to half of the sum of all
+                elements. If there is no such element, the method returns null.
+            </p>
+        </div>
+        <div class="flex-item">
+            <pre tabindex="1" class="app-academy-code copy-pre-code">
+<span class="const-color">function</span> <span class="function-color">sum</span>(arr){
+    let total = 0;
+    arr.<span class="function-color">forEach</span>( el => {
+        total += el;
+    })
+    <span class="for-color">return</span> total;
+}
+<span class="const-color">function</span> <span class="function-color">allElseEqual</span>(arr){
+    <span class="let-color">let</span> total = <span class="function-color">sum</span>(arr);
+    if(arr.<span class="function-color">includes</span>(total * .5)){
+        <span class="for-color">return</span> total * .5
+    }
+    <span class="for-color">return</span> null
+}
+console.log(<span class="function-color">allElseEqual</span>([2, 4, 3, 10, 1])); <span class="g">// 10</span>
+console.log(<span class="function-color">allElseEqual</span>([6, 3, 5, -9, 1])); <span class="g">// 3</span>
+console.log(<span class="function-color">allElseEqual</span>([1, 2, 3, 4])); <span class="g">// null</span>
+            </pre>
+        </div>
+        
+    </div>
+</body>
+</html>

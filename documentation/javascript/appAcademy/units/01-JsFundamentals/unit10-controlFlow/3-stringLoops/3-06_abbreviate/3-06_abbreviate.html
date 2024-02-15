@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-06_abbreviate</title>
+    <link rel="stylesheet" href="../../../../../css/newlesson.css">
+    <link rel="stylesheet" href="../../../../../css/appCodeColors.css">
+    <link rel="stylesheet" href="../../../../../css/optsFlex.css">
+    
+    <script src="../../../../../js/copycode.js" defer></script>
+</head>    
+<body>
+    <h2>6. <code>abbreviate()</code></h2>
+    <div  class="flex-container">
+        <div class="flex-item">
+            <p>
+                &emsp;Remove all the vowels from the given string
+            </p>
+        </div>
+        <div class="code-container">
+            <pre tabindex="1" class="app-academy-code copy-pre-code">
+<span class="const-color">const</span> vowels = 'aeiou';
+<span class="const-color">function</span> <span class="function-color">abbreviate</span>(str){
+    <span class="let-color">let</span> newStr = '';
+    <span class="for-color">for</span>(<span class="let-color">let</span> i = 0; i &lt;str.<span class="length-color">length</span>; i++){
+        <span class="for-color">if</span>(!(vowels.<span class="function-color">includes</span>(str[i]))){
+            newStr += str[i];
+        }
+    }
+    <span class="for-color">return</span> newStr;
+}
+console.log(<span class="function-color">abbreviate</span>("wonderful")) <span class="g">// "wndrfl"</span>
+console.log(<span class="function-color">abbreviate</span>("accordian")) <span class="g">// "ccrdn"</span>
+            </pre>
+        </div>
+    </div>
+    
+    
+</body>
+</html>

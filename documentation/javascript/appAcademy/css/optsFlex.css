@@ -1,0 +1,39 @@
+/******************** Flex Positions  */
+/************************ align items  */
+.align-start {align-items: flex-start;}
+.align-center {align-items: center;}
+.align-end {align-items: flex-end;}
+.align-self-start {align-self: flex-start;}
+.align-self-center {align-self: center;}
+.align-self-end {align-self: flex-end;}
+/************************ justify content  */
+.justify-start {justify-content: flex-end;}
+.justify-center {justify-content: center;}
+.justify-end {justify-content: flex-end;}
+.justify-self-start {justify-self: flex-end;}
+.justify-self-center {justify-self: center;}
+.justify-self-end {justify-self: flex-end;}
+.justify-between{justify-content: space-between;}
+.justify-around{justify-content: space-around;}
+.justify-equal{justify-content: space-evenly;}
+/******************** Margin Padding  */
+.m-1 {margin: 1.5% 0;}
+.m-t-1 {margin-top: 1%;}
+.m-l-1 {margin-left: 1%;}
+.m-b-1 {margin-bottom: 1%;}
+
+.p-1 {padding: 1.5% 0;}
+.p-l-1 {padding-left: 1%;}
+.p-r-1 {padding-right: 6px;}
+.p-t-1 {padding-top: 1%;}
+.p-b-1 {padding-bottom: 1%;}
+
+.p-tb-1 {padding: 1% 0;}
+.p-tb-2 {padding: 2% 0;}
+.p-s-1 {padding: 0 1%;}
+.p-s-2 {padding: 0 2%;}
+
+
+
+
+

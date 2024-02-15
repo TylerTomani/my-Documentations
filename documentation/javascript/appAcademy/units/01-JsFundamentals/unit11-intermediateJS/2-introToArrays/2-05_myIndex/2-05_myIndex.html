@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-05_myIndex</title>
+    <link rel="stylesheet" href="../../../../../css/newlesson.css">
+    <link rel="stylesheet" href="../../../../../css/appCodeColors.css">
+    <link rel="stylesheet" href="../../../../../css/optsFlex.css">
+
+    <script src="../../../../../js/copycode.js" defer></script>
+</head>
+<body>
+    <h2>5. <code>myIndex()</code></h2>
+    <div  class="flex-col">
+        <div class="flex-item">
+            <p>
+                If target is within the array, the index is returned, -1 will be returned if it is not
+            </p>
+        </div>
+        <div class="flex-item">
+            <pre tabindex="1" class="app-academy-code copy-pre-code">
+<span class="const-color">function</span> <span class="function-color">myIndexOf</span>(arr, target){
+    <span class="for-color">for</span>(let i = 0; i &lt; arr.length; i++){
+        if(arr[i] === target){
+            <span class="for-color">return</span> i;
+        }
+    }
+    <span class="for-color">return</span> -1;
+}
+
+console.log(<span class="function-color">myIndexOf</span>(['a', 'b', 'c', 'e'], 'c')); <span class="g">// 2</span>
+console.log(<span class="function-color">myIndexOf</span>(['a', 'b', 'c', 'e'], 'e')); <span class="g">// 3</span>
+console.log(<span class="function-color">myIndexOf</span>(['a', 'b', 'c', 'e'], 'z')); <span class="g">// -1</span>
+console.log(<span class="function-color">myIndexOf</span>([43, -7, 11, 13, 43], 43)); <span class="g">// 0</span>
+            </pre>
+        </div>        
+    </div>
+    
+    
+</body>
+</html>

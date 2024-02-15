@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>node js</title>
+    <link rel="stylesheet" href="../../css/otherTopics.css">
+    <link rel="stylesheet" href="../../css/flex.css">
+</head>
+<body>
+    <header class="flex-container">
+        <div class="flex-item">
+            <h1 tabindex="1">node Js</h1>
+            <h2>Unit - 8 Intermediate JavaScript</h2>
+            <h3>Local JavaScript</h3>
+            <h4>Getting started with Node JS</h4>
+        </div>
+        <div class="flex-item">
+            <p>
+                shortcut to run node in vs code is 
+                <br>^ + alt + n
+            </p>
+        </div>
+        
+    </header>
+    <p>
+        &emsp;The node installation is covered in <a tabindex="1" target="_blank"
+            href="../1-envSetup/envSetup.html">Unit 3 - Enviroment Setup
+        </a> click the following link to go to the gihub setup page, it will go directly to the nodeJS section
+        <a tabindex="1" target="_blank"
+            href="https://github.com/appacademy/practice-for-SETUP-unified-setup/blob/main/07-nodejs-setup.md">nodeJS</a>
+    </p>
+    <p>
+        &emsp;Below is a summarized version of the gihub setup page
+    </p>
+
+    <hr>
+        <h2>Node Version Manager (nvm)</h2>
+    <p>
+        &emsp;Install the open sourced software <q>Node Version Manager</q> <code>nvm</code>
+        <br>
+        <a tabindex="1" target="_blank" href="https://github.com/nvm-sh/nvm">nvm github page</a>
+    </p>
+    <p>
+        &emsp;At the bottom of the gihub page there is a read me with instructions on installing. Enter
+        the following in the terminal
+    </p>
+
+    <code tabindex="1">
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+        <br>
+        <sub>(Put in zsh if using zsh)</sub>
+    </code>
+    <p>
+        &emsp;If installing for the first time you should something like this
+    </p>
+    <pre tabindex="1">
+% Total % Received % Xferd Average Speed Time Time Time Current
+Dload Upload Total Spent Left Speed
+100 13527 100 13527 0 0 49731 0 --:--:-- --:--:-- --:--:-- 49915
+=> Downloading nvm from git to '/home/your-user/.nvm'
+=> Cloning into '/home/your-user/.nvm'...
+remote: Enumerating objects: 333, done.
+remote: Counting objects: 100% (333/333), done.
+remote: Compressing objects: 100% (283/283), done.
+remote: Total 333 (delta 38), reused 150 (delta 25), pack-reused 0
+Receiving objects: 100% (333/333), 177.16 KiB | 1.46 MiB/s, done.
+Resolving deltas: 100% (38/38), done.
+=> Compressing and cleaning up git repository
+
+=> Appending nvm source string to /home/your-user/.bashrc
+=> Appending bash_completion source string to /home/your-user/.bashrc
+=> Close and reopen your terminal to start using nvm or run the following to use it now:
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+    </pre>
+    <p tabindex="1">
+        &emsp;The lines to pay attention to are the last three. These are the shell commands necessary to initialize nvm. But we don't
+        want to have to run these commands everytime we open a terminal, so we should put these into our shell startup file
+    </p>
+    <p>
+        The general rule on this is:
+        <br>
+        If your shell is zsh, use ~/.zshrc If your shell is bash, use ~/.bashrc
+    </p>
+    <p tabindex="1">
+        You'll notice, in the example above, the nvm installer automatically added the lines to the ~/.bashrc even though the
+        example runs zsh. You need to verify that the lines were correctly added to your startup file. Don't trust the installer
+        to always do the right thing in this case. Everyone's system is different.
+    </p>
+    <p tabindex="1">
+        To verify it, open up your startup file in vscode with the code command. Use the appropriate startup filename depending
+        on which shell you have (~/.zshrc or ~/.bashrc).
+    </p>
+    <p style="color:red;">
+        &emsp;Should I replace /bash_completion with zsh something???
+    </p>
+    <img tabindex="1" src="images/01-zshrcNVM.png">
+    <hr>
+    <h2 tabindex="1">Installing Node.JS</h2>
+    <p>
+        &emsp;The odd-numbered releases such as 15 are experimental releases
+        <br>Install:
+    </p>
+    <code tabindex="1">
+        nvm install 16
+    </code>
+    <p>
+        &emsp;You should see something like this
+    </p>
+    <pre tabindex="1">
+        Downloading and installing node v16.14.0...
+        Downloading https://nodejs.org/dist/v16.14.0/node-v16.14.0-darwin-arm64.tar.xz...
+        ######################################################################### 100.0%
+        Computing checksum with shasum -a 256
+        Checksums matched!
+        Now using node v16.14.0 (npm v8.3.1)
+        Creating default alias: default -> 16 (-> v16.14.0)
+    </pre>
+    <p tabindex="1">
+        &emsp;Once completed you should be able to type
+    </p>
+    <code tabindex="1">
+        node --version
+    </code>
+    <p>
+        &emsp;If it prints out a path with .nvm in it, then you've done it correctly!
+    </p>
+    <code tabindex="1">
+        /home/&lt;&lt;your username>>/.nvm/versions/node/v16.14.0/bin/node
+    </code>
+
+
+</body>
+</html>

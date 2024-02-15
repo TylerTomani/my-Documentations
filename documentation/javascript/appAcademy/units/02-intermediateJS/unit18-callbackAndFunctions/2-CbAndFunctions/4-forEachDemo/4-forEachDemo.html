@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4-forEachDemo</title>
+    <link rel="stylesheet" href="../../../../css/lesson.css">
+    <link rel="stylesheet" href="../../../../css/colors.css">
+</head>
+<body>
+    <h2 tabindex="1">4-myForEach()</h2>
+    <div tabindex="1">
+        <p>
+            &emsp;The <span class="v">function</span> in a <code>forEach()</code> is a <span class="v">callback function</span>
+            which by default has <span class="o">three arguments</span>
+        </p>
+        <pre >
+            array1.forEach(<span class="v">function</span>(<span class="o">elements</span>, <span class="o">index</span>, <span class="o">array</span> )){
+            })
+        </pre>
+
+    </div>
+
+    <div tabindex="1">
+        <p>
+            &emsp;This example displays those three arguments,
+        </p>
+        <pre>
+            let animals = ["dog", "cat", "monkey", "giraffe"];
+            animals.forEach(function(<span class="o">el</span>, <span class="o">el</span>, <span class="o">array</span>){
+                console.log(`array[${i}] = ${el} );
+                if(i >= array.length - 1){
+                   console.log(array)
+                }
+            })
+            <span class="g">// prints array[0] = dog
+                array[1] = cat
+                array[2] = mouse
+                array[3] = giraffe
+                [ 'dog', 'cat', 'mouse', 'giraffe' ]</span>
+
+        </pre>
+    </div>
+    <hr>
+    <h2>Create a forEach with a for loop</h2>
+    <div tabindex="1">
+        <p tabindex="1">
+            &emsp;The code below shows how to create the same forLoop using an anonymous function.
+            Remember, we don't need to use all of the arguments.This code only uses
+            <code class="o">el</code> and <code class="o">i</code>
+        </p>
+        <pre>
+        let animals = ["dog", "cat", "monkey", "giraffe"];
+
+        let myForLoop = function(<span class="b">array</span>, cb){
+            for( let i = 0; i &lt; array.length; i++){
+                cb(<span class="b">array[<span class="o">i</span>]</span>,<span class="o">i</span>);
+            }
+        }
+        myForLoop(animals,function(<span class="o">el</span>, <span class="o">i</span>, array){
+            console.log(`array[$span.<span class="o">i</span>] = ${<span class="o">el</span>}`)
+        })
+        <span class="g">//prints
+        array[0] = dog
+        array[1] = cat
+        array[2] = monkey
+        array[3] = giraffe</span>
+        </pre>
+    </div>
+<script>
+let food = ["carrot", "cucumber", "pineapple", "banana"];
+
+// array.forEach(function(el, i, arr){
+//     console.log("element: " + el + " index: " + i );
+//     if( i >= arr.length - 1){
+//         console.log(arr)
+//     }
+// })
+
+// let myForLoop = function(arr,cb){
+//     for( let i = 0 ; i < arr.length; i++){
+//         let el = arr[i]
+//         cb(el,i);
+
+//     }
+// }
+// myForLoop( food, function(el,i) {
+//     console.log("Element: " + el + " Index: " + i);
+//     // console.log(i)
+//     if (i >= food.length - 1) {
+//         console.log(food);
+//     }
+// })
+
+
+    let myForLoop = function (arr, cb) {
+        for (let i = 0; i < arr.length; i++) {
+            let el = arr[i];
+            cb(el, i);
+        }
+    }
+    myForLoop(food, function (el, i) {
+        console.log("Element: " + el + " Index: " + i);
+        if (i >= food.length - 1) {
+            console.log(food)
+        }
+    })
+
+
+</script>
+
+</body>
+</html>

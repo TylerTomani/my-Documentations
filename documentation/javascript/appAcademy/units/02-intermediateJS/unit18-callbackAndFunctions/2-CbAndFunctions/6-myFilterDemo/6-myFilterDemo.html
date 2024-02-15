@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6-myFilterDemo</title>
+    <link rel="stylesheet" href="../../../../css/colors.css">
+    <link rel="stylesheet" href="../../../../css/lesson.css">
+</head>
+<body>
+    <h2 tabindex="1">6-myFilter()</h2>
+    <div tabindex="1" class="sm-text">
+        <p>
+            &emsp;Just like<code>forEach()</code>and<code>map()</code>The <span class="v">callback function</span> in<code>filter()</code>
+            has <span class="o">three arguments</span> by default
+        </p>
+        <pre class="text-center">
+            array1.map(<span class="v">function</span>(<span class="o">elements</span>, <span class="o">index</span>, <span
+                class="o">array</span> )){
+            })
+        </pre>
+    </div>
+    <hr>
+
+    <div tabindex="1">
+        <p>
+            &emsp;<code>fllter()</code> fills a new array with items from another array based on a boolean condition.
+            <br>
+            This example takes every word from the original array that contains the letter <q>a</q> and puts them
+            into a new array.
+        </p>
+        <pre>
+            let food = ['lettuce', 'celery', 'watermellon', 'pineapple'];
+            let result = food.filter(function(el){
+                return el.includes('a');
+            })
+            console.log(result)
+            <span class="g">// prints Array(2)
+            0:"watermellon"
+            1:"pineapple"</span>
+        </pre>
+    </div>
+    <div tabindex="1" >
+        <p>
+            &emsp;You can also write it out this way
+        </p>
+        <pre>
+            let result = food.filter(function(el){
+            // return el.includes('a')
+                if(el.includes('a')){
+                    return el
+            }
+            })
+            console.log(result)
+        </pre>
+    </div>
+    <p tabindex="1">
+        This will produce the same result.
+    </p>
+    <h2>myFilter()</h2>
+    <p tabindex="1">
+         The <span class="v">callback</span> is used as a boolean. If the elemenet is true based on the condition within
+         the <span class="o">anonymous function</span>, it will be pushed into the <span class="b">newArray</span>
+    </p>
+    <pre tabindex="1">
+        1   let food = [lettuce, celery, watermellon, pineapple];
+
+        2   let myFilter = function(array,cb){
+        3       let <span class="b">newArray</span> = [];
+        4       for(let i = 0; i &lt; array.length; i++){
+        5           let el=array[i];
+        6           if(<span class="v">cb(el)</span>){
+        7               <span class="b">newArray</span>.push(el);
+        8           }
+        9       }
+        10      return <span class="b">newArray</span>;
+        11  }
+        12 let result = myFilter(food,<span class="o">function(el)</span>{
+        13      return el.includes("a")
+        14  })
+        15 console.log(result)
+        <span class="g">// prints Array(2)
+        0:"watermellon"
+        1:"pineapple"</span>
+    </pre>
+    <p>Same thing as above but using a<code>forEach()</code>within<code>myFilter()</code></p>
+    <pre tabindex="1">
+        let food = ['lettuce', 'celery', 'watermellon', 'pineapple'];
+
+        let myFilter = function(array,cb){
+            let newArray = [];
+            array.forEach(function(el){
+                if(cb(el)){
+                    newArray.push(el);
+                }
+            })
+            return newArray;
+        }
+        let result = myFilter(food,function(el){
+                return el.includes('c')
+            })
+        console.log(result);
+    <span class="g">//prints (2) ['lettuce', 'celery']
+    </span>
+
+    </pre>
+<script>
+    let food = ['lettuce', 'celery', 'watermellon', 'pineapple'];
+    let result = food.filter(function(el){
+        // return  el.includes('a')
+        if(el.includes('a')){
+            return el
+        }
+    })
+    console.log(result)
+
+
+        let myFilter = function (array, cb) {
+            let filteredItems = [];
+            for (let i = 0; i < array.length; i++) {
+                let el = array[i];
+                if (cb(el)) {
+                    filteredItems.push(el);
+                }
+            }
+            return filteredItems;
+        }
+
+        let result2 = myFilter(food, function (el) {
+            return el.includes('a')
+        })
+        console.log(result2)
+
+
+
+                let myFiltered3 = function (array, cb) {
+                    let filteredItems = [];
+                    array.forEach(function (el) {
+                        if (cb(el)) {
+                            filteredItems.push(el);
+                        }
+                    })
+                    return filteredItems;
+                }
+                let result3 = myFiltered3(food, function (el) {
+                    return el.includes('c')
+                })
+                console.log(result3);
+</script>
+
+</body>
+</html>

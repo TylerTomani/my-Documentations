@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1_jsErrorTypes</title>
+    <link rel="stylesheet" href="../../../../css/lesson.css">
+    <link rel="stylesheet" href="../../../../css/colors.css">
+    <link rel="stylesheet" href="../../../../css/flex.css">
+
+</head>
+<body>
+    <h2 tabindex="1">1_Js Error Types</h2>
+    <div tabindex="1">
+        <p>
+            &emsp;There are 7 core Error Types:
+        </p>
+        <ul>
+            <li><code>SyntaxError</code> - error in code wording</li>
+            <li><code>ReferenceError</code> - invalid reference made</li>
+            <li><code>TypeError</code> - Variable or Parameter is not a valid type</li>
+            <li><code>RangeError</code> - numerical value outside of a valid range</li>
+            <li><code>InternalError</code> - problem with the internal Javascript engine</li>
+            <li><code>EvalError</code> - error in the global <code>eval</code> function</li>
+            <li><code>URIError</code> - occurs when invalid parameters are passed to <code>encodeURI()</code> or <code>decodURI()</code></li>
+        </ul>
+    </div>
+    <p tabindex="1">
+        &emsp;This lesson focus on <code>SyntaxError</code>, <code>ReferenceError</code> and <code>TypeError</code>
+    </p>
+    <hr>
+    <h3><code>SyntaxError</code></h3>
+    <div tabindex="1">
+        <p>
+            &emsp;This occurs with misspelling
+        </p>
+        <pre>
+<span class="r r-border">funtion</span> broken () { <span class="g">// Uncaught SyntaxError: Unexpected identifier</span>
+    console.log("I'm broke");
+}
+        </pre>
+        <p>
+            Or misplaced symbols and/or characters
+        </p>
+        <pre>
+function broken () { // Uncaught SyntaxError: Unexpected identifier
+  console.log("I'm broke");
+}<span class="r r-border">}</span> <span class="g">// Uncaught SyntaxError: Unexpected token '}'</span>
+        </pre>
+    </div>
+    <h3><code>ReferenceError</code></h3>
+    <div tabindex="1">
+        <p>
+            &emsp;This occurs when a non-existent varaible is referenced or not within the available scope.
+        </p>
+    </div>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <pre>
+function callPuppy() {
+  const puppy = "puppy";
+  console.log(<span class="r r-border">pupy</span>);
+}
+
+callPuppy(); <span class="g">// ReferenceError: pupy is not defined</span>
+        </pre>
+        </div>
+        <div class="flex-item">
+            <pre>
+function callPuppy() {
+  const <span class="r r-border">puppy</span> = "puppy";
+}
+console.log(puppy); <span class="g">// ReferenceError: puppy is not defined</span>
+            </pre>
+        </div> 
+    </div>
+    <h3><code>TypeError</code></h3>
+    <div tabindex="1">
+        <p>
+            A TypeError is commonly thrown for a couple of reasons:
+        </p>
+        <ul>
+            <li>When an operation cannot be performed because the operand is a value of the wrong type.</li>
+            <li>When you are attempting to modify a value that cannot be changed.</li>
+        </ul>
+        
+    </div>
+    
+    
+</body>
+</html>

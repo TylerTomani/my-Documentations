@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-primitiveReference</title>
+    <link rel="stylesheet" href="../../../../css/flex.css">
+    <link rel="stylesheet" href="../../../../css/lesson.css">
+    <link rel="stylesheet" href="../../../../css/colors.css">
+</head>
+<body>
+    <h2 tabindex="1">Primitive vs Reference</h2>
+    <h3>Primitive</h3>
+    <p>
+        Primitive type variables are <i>inmutable</i>
+    </p>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <p>
+                boolenas,null, undefinedstrings, and numbers are primitive types meaning you cannot change their values in memory
+            </p>
+        </div>
+        <div class="flex-item">
+            <ul>
+                <li>booleans</li>
+                <li>null</li>
+                <li>undefined</li>
+                <li>strings</li>
+                <li>numbers</li>
+            </ul>
+        </div>
+        
+    </div>
+    <h3>Reference</h3>
+    <p>
+        Reference type variables are <i>mutable</i>
+    </p>
+    <p>
+        Objects are reference type variables, meaning if you assign a variable to another object
+        and change a property, the original object's property will also change
+    </p>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <code>
+                <br>1 const obj1 = {
+                <br>2 &emsp; name: "Tom",
+                <br>3 &emsp;age: 30
+                <br>4 }
+                <br>5 function printObj(obj){
+                <br>6 &emsp;for(let key in obj){
+                <br>7 &emsp;&emsp;console.log(key + " " + obj[key]);
+                <br>8 &emsp;}
+                <br>9 }
+                <br>10 let obj2 = obj1;
+                <br>11 obj2.name = "Billy Joe"
+                <br><span class="g">12 printObj(obj1)</span>
+                <br><span class="g">13 printObj(obj2)</span>
+            </code>
+        </div>
+        <div class="flex-item">
+            <p>
+                Changing <code>obj2</code>'s name will also change <code>obj1</code> s name
+            </p>
+            <p class="g">
+                // prints
+                <br> name Frank
+                <br> age 30
+                <br> name Frank
+                <br> age 30
+            </p>
+        </div>
+        
+    </div>
+    
+    
+    
+</body>
+</html>

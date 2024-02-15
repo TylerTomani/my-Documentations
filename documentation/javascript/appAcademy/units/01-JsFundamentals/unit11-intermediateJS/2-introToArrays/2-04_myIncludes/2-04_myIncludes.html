@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-04_myIncludes</title>
+    <link rel="stylesheet" href="../../../../../css/newlesson.css">
+    <link rel="stylesheet" href="../../../../../css/appCodeColors.css">
+    <link rel="stylesheet" href="../../../../../css/optsFlex.css">
+
+    <script src="../../../../../js/copycode.js" defer></script>
+</head>
+<body>
+    <h2>4. <code>myIncludes()</code></h2>
+    <div  class="flex-col">
+        <div class="flex-item">
+            <p>
+                Finds the target within the array. <span class="r">Important Note, </span>
+                There is no way to stop or break a forEach() loop other than by throwing an exception. If you need such behavior, the
+                forEach() method is the wrong tool.
+                
+                So the forEach is a great method to use, but my old friend the for loop is not going anywhere for a long time.
+            </p>
+        </div>
+        <div  class="flex-container">
+            <div class="flex-item">
+                <pre tabindex="1" class="app-academy-code copy-pre-code">
+<span class="const-color">function</span> <span class="function-color">myIncludes</span>(arr, target){
+    <span class="for-color">for</span>(<span class="let-color">let</span> i = 0; i &lt; arr.length; i++){
+        <span class="for-color">if</span>(arr[i] === target){
+            <span class="for-color">return</span> true;
+        }
+    }
+    <span class="for-color">return</span> <span class="bool-color">false</span>
+}
+                </pre>
+            </div>
+            <div class="flex-item p-s-1 r-border">
+                <pre>
+function myIncludes(arr,target){
+    arr.forEach(el => {
+        if(el === target){
+            <span class="r line-through">return true;</span>
+        }
+    })
+    return false;
+}
+                </pre>
+            </div>
+            
+        </div>
+        
+
+        <div class="flex-item">
+            <pre tabindex="" class="app-academy-code copy-pre-code">
+console.log(<span class="function-color">myIncludes</span>(['a', 'b', 'c', 'e'], 'c')); <span class="g">// true</span>
+console.log(<span class="function-color">myIncludes</span>(['a', 'b', 'c', 'e'], 'a')); <span class="g">// true</span>
+console.log(<span class="function-color">myIncludes</span>(['a', 'b', 'c', 'e'], 'z')); <span class="g">// false</span>
+console.log(<span class="function-color">myIncludes</span>([43, -7, 11, 13], 11)); <span class="g"> // true</span>
+console.log(<span class="function-color">myIncludes</span>([43, -7, 11, 13], 1));  <span class="g">// false</span>
+            </pre>
+        </div>
+        
+    </div>
+    
+    
+</body>
+</html>

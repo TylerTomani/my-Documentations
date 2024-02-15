@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-1_primitiveInDepth</title>
+    <link rel="stylesheet" href="../../../../css/flex.css">
+    <link rel="stylesheet" href="../../../../css/lesson.css">
+    <link rel="stylesheet" href="../../../../css/colors.css">
+</head>
+<body>
+    <h2 tabindex="1">1-Primitive In Depth</h2>
+    <div tabindex="1">
+        <p>
+            &emsp;As of the JavaScript ECMAScript 2015 release, there are now eight different data types in JavaScript.
+        </p>
+        
+    </div>
+    <h3>Primitive</h3>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <ul>
+                <li>1. Boolean</li>
+                <li>2. Null</li>
+                <li>3. undefined</li>
+                <li>4. Number</li>
+            </ul>
+        </div>
+        <div class="flex-item">
+            <ul>
+                <li>5. String</li>
+                <li>6. Symbol</li>
+                <li>7. BigInt</li>
+            </ul>
+        </div>
+    </div>    
+    <h3>Other Reference Type</h3>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">        
+            <ul>
+                <li>8. object</li>
+                <li>(An array is a type of object</li>
+            </ul>
+        </div>
+            <div class="flex-item">
+                <p>
+                    &emsp;Remember,the definition of a method is a function that belongs to an object.
+                </p>
+                <p>Primitive data types do not have methods that can be performed on them</p>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div tabindex="1">
+       <pre>
+        const corgi = {
+            name: "Ein",
+            func: function() {
+                console.log("This is a method!");
+            }
+        };
+        
+        corgi.func(); // prints "This is a method!"
+       </pre> 
+    </div>
+    <div tabindex="1">
+        <p>
+            &emsp;We can pass primitive data types into functions but we can <strong>NOT</strong>
+            declare methods on them
+        </p>
+        <pre>
+            // This works because we are calling the Math object's method sqrt
+            let num = Math.sqrt(25); // 5
+            
+            // This will NOT work because the Number primitive has NO METHODS
+            let num = 25.sqrt; // SyntaxError: Invalid or unexpected token
+        </pre>
+    </div>
+    <h3>The string exception</h3>
+    <div tabindex="1">
+        <p>
+            &emsp;A string is a primitive data type, but Javascript wraps strings into object which then allow us 
+            to perform methods on them.
+        </p>
+
+        <p>
+            &emsp;To clarify the String object wraps the String primitive type, and we perform the method <code>toUpperCase()</code>
+            method on the String Object, <strong>NOT</strong> the primitive strings. JavaScript does this automatically.
+        </p>
+    </div>        
+    <div tabindex="1">
+        <pre>
+            let str1 = "apple";
+            
+            str1.toUpperCase(); // returns APPLE
+            
+            let str2 = str1.toUpperCase();
+            
+            console.log(str1); //prints apple
+            console.log(str2); //prints APPLE
+        </pre>
+        
+        <p>
+            &emsp;So in the above example when we call str1.toUpperCase() we are calling that on the String object that wraps around the
+            String primitive type.
+        </p>
+    </div>
+</body>
+</html>

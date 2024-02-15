@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-07_uncompress</title>
+    <link rel="stylesheet" href="../../../../../css/newlesson.css">
+    <link rel="stylesheet" href="../../../../../css/appCodeColors.css">
+    <link rel="stylesheet" href="../../../../../css/optsFlex.css">
+    
+    <script src="../../../../../js/copycode.js" defer></script>
+</head>    
+<body>
+    <h2>7. <code>uncompress()</code></h2>
+    <div  class="flex-container">
+        <div class="flex-item">
+            <p>
+                &emsp;Compressed strings are those that have letters followed by a number.
+                Repeat the letter by the number that follows.
+            </p>
+            <p>
+                x3b2
+                <br>"xxxbb"
+            </p>
+            <p>
+                &emsp;Use the built-in <code>Number()</code> function which converts a str
+                into a number.
+                <br> <code><span class="class-var">Number</span>("4") = 4</code>
+            </p>
+        </div>
+        <div class="code-container">
+            <pre tabindex="1" class="app-academy-code copy-pre-code">
+<span class="const-color">function</span> <span class="function-color">uncompress</span>(str){
+    <span class="let-color">let</span> newStr = '';
+    <span class="for-color">for</span>(<span class="let-color">let</span> i = 0; i &lt; str.<span class="length-color">length</span>; i++){
+        <span class="let-color">let</span> letter = str[i];
+        <span class="let-color">let</span> times = <span class="class-var">Number</span>(str[i + 1]);
+        <span class="for-color">for</span>(<span class="let-color">let</span> j = 0; j &lt; times; j++){
+            newStr += letter;
+        }
+    }
+    <span class="for-color">return</span> newStr;
+}
+console.log(<span class="function-color">uncompress</span> ('x3y4z2')); <span class="g">// 'xxxyyyyzz'</span>
+console.log(<span class="function-color">uncompress</span> ('a5b2c4z1')); <span class="g">// 'aaaaabbccccz'</span>
+console.log(<span class="function-color">uncompress</span> ('b1o2t1')); <span class="g">// 'boot'</span>
+            </pre>
+        </div>
+    </div>
+    
+    
+</body>
+</html>

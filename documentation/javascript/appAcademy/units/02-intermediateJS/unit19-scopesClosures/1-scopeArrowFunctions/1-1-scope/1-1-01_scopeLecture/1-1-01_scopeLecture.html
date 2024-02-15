@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-1-01_scopeLecture</title>
+    <link rel="stylesheet" href="../../../../../css/lesson.css">
+</head>
+<body>
+    <h2 tabindex="1">1-ScopeLecture</h2>
+    <div tabindex="1">
+        <p>
+            &emsp;A huge advantage for using scope is <strong>Security</strong>
+        </p>
+        <p>
+            - Scope adds security to our code by ensuring that variables can only be accessed by pre-defined parts of our
+            programs.
+        </p>
+    </div>
+    <h3>Lexical Scope</h3>
+    <div tabindex="1">
+        <p>
+            &emsp;Before code runs, it is parsed. This is known as <q>Lexing time</q>. n the lexing time your parser
+            resolves variable names to their values when functions are nested.
+        </p>
+        <p>
+            &emsp;The main take away is that lexical scope is determined at lexing time so we can determine the values of variables
+            without having to run any code. JavaScript is a language without dynamic scoping. This means that by looking at a piece
+            of code we can determine the values of variables just by looking at the different scopes involved.
+        </p>
+    </div>
+    <div tabindex="1">
+        <pre>
+            function outer() {
+            let x = 5;
+
+            function inner() {
+            // here we know the value of x because scope chaining will
+            // go into the scope above this one looking for variable named x.
+            // We do not need to run this code in order to determine the value of x!
+            console.log(x);
+            }
+            inner();
+            }
+        </pre>
+        <p>
+
+            In the inner function above we don't need to run the outer function to know what the value of x will be because of
+            lexical scoping.
+        </p>
+    </div>
+
+</body>
+</html>

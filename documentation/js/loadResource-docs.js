@@ -1,0 +1,1 @@
+// const resources = document.querySelectorAll('.resource ')

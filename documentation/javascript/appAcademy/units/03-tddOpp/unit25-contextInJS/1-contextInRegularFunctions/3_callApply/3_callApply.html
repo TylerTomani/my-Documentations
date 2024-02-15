@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3_callApply</title>
+    <link rel="stylesheet" href="../../../../css/lesson.css">
+    <link rel="stylesheet" href="../../../../css/flex.css">
+    <link rel="stylesheet" href="../../../../css/colors.css">
+</head>
+<body>
+    <h2 tabindex="1">3_callApply</h2>
+    <p>
+        &emsp;This lesson explains very little, but <code>call</code> and <code>apply</code> do pretty much 
+        the same thing. They both invoke the function, and parameter is how many times, I don't fully get it
+    </p>
+    <pre tabindex="1" class="app-academy-code">
+<span class="class-color">class</span> <span class="class-var">Dog</span> {
+    <span class="class-color">constructor</span>(<span class="var-color">name</span>){
+        <span class="class-color">this</span>.<span class="var-color">name</span> = <span class="var-color">name</span>
+    }
+}
+<span class="class-color">class</span> <span class="class-var">Cat</span> {
+    <span class="class-color">constructor</span>(<span class="var-color">name</span>){
+        <span class="class-color">this</span>.<span class="var-color">name</span> = <span class="var-color">name</span>
+    }
+    <span class="function-color">purrNTimes(n)</span>{
+        for(let i = 0; i &lt;n ; i++){
+            console.log(`{this.name} say: "meow");
+        }
+    }
+}
+<span class="let-color">let</span> <span class="var-color">cat</span> = <span class="class-color">new</span> <span class="class-var">Cat</span>("Daisy");
+<span class="let-color">let</span> <span class="var-color">dog</span> = <span class="class-color">new</span> <span class="class-var">Dog</span>("Buba")
+<span class="var-color">cat</span>.<span class="function-color">purrNTimes</span>(<span class="var-color">dog</span>, 2);
+<span class="var-color">cat</span>.<span class="function-color">purrNTimes</span>(<span class="var-color">cat</span>, [3]);
+<span class="g">// prints
+Buba says: meow
+Buba says: meow
+Daisy says: meow
+Daisy says: meow
+Daisy says: meow
+</span>
+    </pre>
+    <footer tabindex="1"></footer>
+</body>
+</html>

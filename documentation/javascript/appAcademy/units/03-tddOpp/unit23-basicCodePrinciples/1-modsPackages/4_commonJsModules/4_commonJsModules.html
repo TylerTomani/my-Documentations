@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4_commonJsModules</title>
+    <link rel="stylesheet" href="../../../../css/lesson.css">
+    <link rel="stylesheet" href="../../../../css/colors.css">
+    <link rel="stylesheet" href="../../../../css/flex.css">
+</head>
+<body>
+    <h2 tabindex="1">4-Common Js Modules</h2>
+    <p tabindex="1">
+        &emsp;In Node.js, each JavaScript file defines a <strong>module</strong>. Each module has access to a 
+        <strong><i>module object</i></strong> which has the property <code>module.exports</code> which is used to 
+        export modules  
+    </p>
+    <h3>Exporting multiple items from a module</h3>
+    <p>
+        &emsp;Create some functions then define them in the module.exports object
+    </p>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            
+            <code>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<sub>calculator.js</sub>
+                <br>
+                let add = function(num1, num2){
+                <br>&emsp;return num1 + num2;
+                <br>}
+                <br>
+                <br>let negate = function(n){
+                <br>&emsp;return n * -1;
+                <br>}
+                <br>
+                <br>module.exports = {
+                <br>&emsp;add,
+                <br>&emsp;negate
+                <br>};
+            </code>
+        </div>
+        <div class="flex-item">
+            <code>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<sub>calculator.js</sub>
+                <br>let add = function(num1, num2){
+               <br>&emsp;return num1 + num2;
+               <br>}
+               <br> 
+               <br>let negate = function(n){
+               <br>&emsp;return n * -1;
+               <br>}
+               <br> 
+               <br>module.exports = {
+               <br>&emsp;add: add,
+               <br>&emsp;negate: negate
+               <br>}
+            </code>
+        </div>
+        
+    </div>
+    <p tabindex="1">
+        The above code on the left is the short hand way to the code on the right.
+        Or you can use the <code>.</code> notation 
+    </p>
+    <pre tabindex="1">
+        module.exports.add = add
+        module.exports.negate = negate
+    </pre>
+    <hr>
+    <h3>Importing using <code>require</code></h3>
+
+    <p>
+        To use the above module in another, <strong>Destructure</strong> what you want from the exported module.
+    </p>
+    <code>
+        const {negate} = require("./calculator");
+      <br>  
+      <br>  let neg = negate(4);
+      <br>  console.log(neg)
+    </code>
+
+    <div tabindex="1">
+        <p>
+            &emsp;When a module needs something from another module, it is said to be dependent on that module. 
+        </p>
+        <p>
+            &emsp;You to to navigate to the correct directory when importing. If you are trying to import the students.js module
+            into the physics.js module
+            do this. <strong>Notice</strong> you do <strong>NOT</strong> need <code>.js</code> with require
+        </p>
+    </div>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            
+            <img tabindex="1" src="images/01-treeDependents.png">
+        </div>
+        <div class="flex-item">
+            <code>const students = require("../people/students");</code>
+        </div>
+        
+    </div>
+    
+</body>
+</html>

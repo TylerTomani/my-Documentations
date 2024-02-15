@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2_staticMethodsVars</title>
+    <link rel="stylesheet" href="../../../css/lesson.css">
+    <link rel="stylesheet" href="../../../css/flex.css">
+    <link rel="stylesheet" href="../../../css/colors.css">
+</head>
+<body>
+    <h2 tabindex="1">2_Static Methods and Variables</h2>
+    <h3>Instance vs Static/Class method</h3>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item flex-col">
+            <h4>Instance</h4>
+            <code class="app-academy-code">
+                <span class="const-color">const</span> <span class="var-color">example1</span> = <span class="const-color">new</span> <span class="class-var">ExampleClass</span>()
+                <br><span class="var-color">example1</span>.<span class="function-color">instanceMethod</span>()
+                <br><span class="g">//returns "I am an instance method"</span>
+            </code>
+        </div>
+        <div class="flex-item">
+            <h4>Static/Class Method</h4>
+            <code class="app-academy-code">
+                <span class="class-var">ExampleClass</span>.<span class="function-color">classMethod</span>()
+                <br><span class="g">//returns "I am a class method"</span>
+            </code>
+        </div>
+        
+    </div>
+    
+    <p>
+        &emsp;<i class="v">Static</i> methods are invoked directly on a class, the are also known as
+        <i>class methods</i>. These are different from <i class="b">instance</i> methods and instance methods do 
+        <strong>not</strong> have access to class methods
+    </p>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <code>
+                <span class="class-color">class</span> Book {
+                <br> &emsp;constructor(title, series, author){
+                <br> &emsp;&emsp;this.title = title;
+                <br> &emsp;&emsp;this.series = series;
+                <br> &emsp;&emsp;this.author = author;
+                <br> &emsp; }
+                <br> <span class="g">// This is an instance method</span>
+                <br> &emsp;<span class="b">getInfo()</span>{
+                <br> &emsp;&emsp;return `${this.title} by ${this.author}`
+                <br> &emsp; }
+                <br> <span class="g">// This is a static method which accepts a variable number of Book instances</span>
+                <br> &emsp;<span class="v">static  getTitles</span>(<span class="o">...books</span>){
+                <br> &emsp;&emsp;return books.map((book) => book.title)
+                <br> &emsp;}
+                <br>}
+            </code>
+        </div>
+        <div class="flex-item">
+            <code>
+<span class="class-color">const</span> fellowshipOfTheRings = new Book (
+<br>    &emsp;'Fellowship of the Rings',
+<br>    &emsp;'Lord of the Rings',
+<br>    &emsp;"J.R.R. Token");
+<br>
+<span class="class-color">const</span> theTwoTowers = new Book (
+<br>    &emsp;'The Two Towers',
+<br>    &emsp;'Lord of the Rings',
+<br>    &emsp;"J.R.R. Token");
+<br>
+<br>const bookTitles = Book.<span class="v">getTitles</span>(fellowshipOfTheRings,theTwoTowers)
+<br>console.log(bookTitles.join(', '))
+<br><span class="g">// prints
+    <br> Fellowship of the Rings, The Two Towers</span>
+            </code>
+        </div>
+    </div>
+    <div tabindex="1">
+        <p>&emsp;The <code>getTitles()</code> <span class="v">static</span> method accepts any number of Book instances and returns an array of their titles.</p>
+        <p>
+             <span class="b">static</span> methods aren't invoked on an instance, they can't use the <code>this</code> keyword to access an instance. You can
+            pass one or more instances into a static method via a method parameter, as we did with the <code class="o">...rest</code> 
+            operator in the getTitles() static method
+            method does. This allows static methods to perform actions across groups of instances.
+        </p>
+    </div>
+    <h3>Common Uses of Static Methods</h3>
+    <div tabindex="1">
+        <p>
+            &emsp;As you may recall, the Math functions are called starting with the class name. That is because the Math object actually
+            consists only of static methods.
+        </p>
+        <code>
+console.log(Math.<span class="v">random</span>());
+<br> console.log(Math.<span class="v">max</span>(511, 115));
+        </code>
+        <p>
+            Notice how the methods random and max are called directly on the Math class object, not an instance.
+        </p>
+    </div>
+    <h3>Static Variables</h3>
+    <div tabindex="1">
+        <p>
+            &emsp;Similar to static methods, static variables, or properties, are not accessible via class instances
+        </p>
+        <p>
+            they are declared like static methods using the static keyword, followed by the variable name and value assignment.
+        </p>
+        <p>
+            Static variables are useful in caching information about the class, configurations associated with the class, or just
+            any data you don't need replicated across instances.
+        </p>
+    </div>
+    <div>
+        <p tabindex="1">
+            &emsp;Here's an example of a static variable, numBooks, that tracks the number of Book instances that are created:
+        </p>
+    </div>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <code>
+<span class="class-color">class</span> Book {
+    <br>&emsp;constructor(title, series, author){
+<br>&emsp;&emsp;this.title = title;
+<br>&emsp;&emsp;this.series = series;
+<br>&emsp;&emsp;this.author = author;
+<br>&emsp;&emsp;Book.<span class="v">numBooks</span> += 1
+<br>&emsp;}
+<br>&emsp;<span class="v">static</span> numBooks = 0;
+<br>
+}
+            </code>
+        </div>
+        <div class="flex-item">
+                   <code>
+<span class="class-color">const</span> fellowshipOfTheRings = new Book (
+<br>    &emsp;'Fellowship of the Rings',
+<br>    &emsp;'Lord of the Rings',
+<br>    &emsp;"J.R.R. Token");
+<br>
+<span class="class-color">const</span> theTwoTowers = new Book (
+<br>    &emsp;'The Two Towers',
+<br>    &emsp;'Lord of the Rings',
+<br>    &emsp;"J.R.R. Token");
+<br>
+<br>console.log(Book.numBooks)
+<br><span class="g">// prints 2
+
+            </code>     
+        </div> 
+    </div>
+    <div tabindex="1">
+        <p>
+            &emsp;In the above example, numBooks should be incremented each time the constructor method is run, or in other words,
+            whenever a new Book instance is created.
+        </p>
+    </div>
+    
+    
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4_inheritance</title>
+    <link rel="stylesheet" href="../../../css/lesson.css">
+    <link rel="stylesheet" href="../../../css/colors.css">
+    <link rel="stylesheet" href="../../../css/flex.css">
+</head>
+<body>
+    <h2 tabindex="1">4_inheritance</h2>
+    <div tabindex="1">
+        <p>
+            &emsp;All Javascript is derived from the root being an object within itself. The starting window is an object.
+            So when you declare a class with no explicit parent class, then JavaScript will make it a child of Object.
+        </p>
+        <code>
+class MyClass {}
+<br><span class="g">// Is the same as </span>
+<br>Class MyClass <span class="o">extends</span> Object {}
+        </code>
+    </div>
+    <div tabindex="1">
+        <p>
+            &emsp;We use <code class="o">extends</code> to inherit all the properties from a parent class.
+            It inherits the methods of the parent class.
+        </p>
+        <p>
+            &emsp;For example, if a class <code class="class-var">Animal</code> is defined with <code>constructor</code> and <code>speak</code> instance methods and
+            a <code>pet</code> static method, then any class, like a <code class="class-var">Dog</code>, that extends it will be able to use those methods.
+        </p>
+    </div>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <code class="app-academy-code md-code">
+class Animal {
+<br>&emsp;constructor(name,sound){
+<br>&emsp;&emsp;this.name = name;
+<br>&emsp;&emsp;this.sound = sound;
+<br>&emsp;}
+<br>
+<br>&emsp;speak(){
+<br>&emsp;&emsp;console.log(`${this.name} says "${this.sound}"`)
+<br>}
+<br>&emsp;static pet(animal){
+<br>&emsp;&emsp;console.log(`You attempted to pet ${animal.name}`);
+<br>&emsp;}
+<br>
+}                
+            </code>
+        </div>
+        <div class="flex-item">
+            <code class="app-academy-code md-code">
+class Dog <span class="o">extends</span> Animal{};
+<br>const fluffy = new Dog("fluffy","woof");
+<br>fluffy.speak();
+<br>Dog.pet(fluffy);
+<br><span class="g">//prints
+<br>fluffy says "woof"
+<br> You attempted to pet fluffy
+</span>
+            </code>
+        </div>    
+    </div>
+    <div tabindex="1">
+        <p>
+            &emsp;If you want to define a new constructor method in the child class but still use 
+            the code in the constructor method of the parent class, you can use the <code class="o">super</code>
+        </p>
+        <p>
+            &emsp;From the example above, if we make a <code>Dog</code> class from the parent class <code>Animal</code> and want
+            to make the default <code>sound</code> value for all instances of <code>Dog</code> to "woof", use <code class="o">super</code>
+            inside of the <code>Dog</code> constructor
+            and insert <code class="v">"Woof"</code> as the second parameter
+        </p>
+    </div>
+    <div >
+        <pre tabindex="1" class="app-academy-code">
+class Dog <span class="o">extends</span> Animal{
+    constructor(name){
+        <span class="o">super</span>(name,<span class="v">"woof"</span>);
+    }
+};
+ const skip = new Dog("skip");
+ skip.speak();
+ Dog.pet(skip);
+<span class="g">// prints
+skip says "woof"
+You attempted to pet skip
+</span>
+
+        </pre>
+    </div>
+    <h3>Get name of the object</h3>    
+    <div tabindex="1">
+        <p>
+            &emsp;To get the name of the object use, <code><span class="o">constructor</span>.<span class="o">name</span></code>
+        </p>
+    </div>
+    <div tabindex="1">
+        <pre class="app-academy-code">
+class Fruit {
+    constructor(color,taste){
+        this.color = color;
+        this.taste = taste;
+    }
+    eating(){
+        console.log(`The ${this.<span class="o">constructor</span>.<span class="o">name</span>} taste ${this.taste}`);
+    }
+}
+class Apple extends Fruit{};
+const apple = new Apple("red","bitter")
+apple.eating()
+        </pre>
+    </div>
+</body>
+</html>

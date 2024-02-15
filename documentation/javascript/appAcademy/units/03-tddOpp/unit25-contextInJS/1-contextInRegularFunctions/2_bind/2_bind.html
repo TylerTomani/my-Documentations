@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2_bind</title>
+    <link rel="stylesheet" href="../../../../css/lesson.css">
+    <link rel="stylesheet" href="../../../../css/colors.css">
+    <link rel="stylesheet" href="../../../../css/flex.css">
+</head>
+<body>
+    <h2 tabindex="1">2_bind</h2>
+    <h3>Supplmented</h3>
+    <a tabindex="1" target="_blank" href="https://www.youtube.com/watch?v=g2WcckBB_q0">good video</a>
+    <div tabindex="1">
+        <p>
+            &emsp;<code><span class="v">bind</span>()</code> allows us to use <code class="b">this</code> outside of classes and objects.
+        </p>
+    </div>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <code class="app-academy-code md-code">
+<span class="let-color">let</span> <span class="var-color">c1</span> = {
+<br>&emsp;x: 20,
+<br>&emsp;y: 68
+<br> }
+<br><span class="let-color">let</span> c2 = {
+<br>&emsp;x: 7,
+<br>&emsp;y: 102
+<br> }
+            </code>
+        </div>
+        <div class="flex-item">
+            <code class="app-academy-code md-code">
+<span class="const-color">function</span> <span class="function-color">printPosition</span>(){
+<br>&emsp;console.log("x:",<span class="class-color">this</span>.x,"y:",<span class="class-color">this</span>.y)
+<br>}
+<br>
+<br><span class="let-color">let</span> <span class="var-color">c1Func</span> = <span class="function-color">printPosition</span>.<span class="v">bind</span>(<span class="var-color">c1</span>)
+<br><span class="var-color">c1Func</span>();
+<br><span class="g">// prints
+<br>x: 20 y: 68</span>
+</code>
+        </div>
+        
+    </div>
+    <hr>
+    <div tabindex="1">
+        <p>
+            &emsp;From the <code>Function.prototype.bind()</code>, "The simplest use of <code><span class="v">bind</span>()</code> is to make a function that, no matter how it is called,
+            is called with a particular this value".
+        </p>
+        <p>
+            &emsp;When <code class="v">bind()</code> is called it returns a <q><i>exotic funcion</i></q>, meaning the function
+            invoked contains it's own <class class="b">this</class> no matter where it is invoked.
+        </p>
+    </div>
+    <div tabindex="1">
+        <p>
+            &emsp;In the example below we <i>bind</i> the cat object to the <code class="o">boundCat()</code> function outside of
+            the <code class="class-var">Cat</code> class. The <code class="r">sayMeow()</code> funciton doesn't work on its own
+             because it doesn't have access to the context of <code class="b">this</code> within the <code class="class-var">Cat</code> class. 
+            We need to <code><span class="v">bind</span>()</code> it to the instance <code class="let-color">cat</code> of the <code class="class-var">Cat</code> object to access the <code class="b">this</code> within the class.
+        </p>
+    </div>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <code class="app-academy-code md-code">
+<span class="class-color">class</span> <span class="class-var">Cat</span>{
+<br>&emsp;<span class="function-color">purr</span>(){
+<br>&emsp;&emsp;console.log("Meow");
+<br>&emsp;}
+<br>&emsp;<span class="function-color">purrMore</span>(){
+<br>&emsp;&emsp;<span class="class-color">this</span>.purr();
+<br>&emsp;}
+<br>}
+            </code>
+        </div>
+        <div class="flex-item">
+            <code class="app-academy-code md-code">
+<span class="let-color">const</span> <span class="var-color">cat</span> = <span class="class-color">new</span> <span class="class-var">Cat</span>();
+<br><span class="let-color">let</span> <span class="var-color">sayMeow</span> = <span class="var-color">cat</span>.<span class="function-color">purrMore</span>
+<br><span class="error">sayMeow</span>()
+<br><span class="g">// this will produce a TypeError: properties of purrMore() are undefined</span>
+<br><span class="let-color">let</span> <span class="o">boundCat</span> = <span class="var-color">sayMeow</span>.<span class="v">bind</span>(<span class="var-color">cat</span>)
+<br><span class="o">boundCat</span>()
+<br><span class="g">// prints Meow</span>
+            </code>
+        </div>
+    </div>
+    <hr>
+    <div tabindex="1">
+        <p>
+            &emsp;You can bind class to functions wihtin other class
+        </p>
+    </div>
+    <div tabindex="1" class="flex-container ">
+        <div class="flex-item">
+            <code class="app-academy-code md-code">
+<span class="class-color">class</span> <span class="class-var">Cat</span> {
+<br>&emsp;<span class="class-color">constructor</span>(<span class="var-color">name</span>){
+<br>&emsp;&emsp;<span class="class-color">this</span>.<span class="var-color">name</span> = <span class="var-color">name</span>
+<br>&emsp;}
+<br>&emsp;<span class="function-color">sayName</span>(){
+<br>&emsp;&emsp;console.log(`${<span class="class-color">this</span>.<span class="class-color">constructor</span>.<span class="var-color">name</span>}'s is ${<span class="class-color">this</span>.<span class="var-color">name</span>}`)
+<br>&emsp;}
+<br>}
+<br>
+<br><span class="class-color">class</span> <span class="class-var">Dog</span> {
+<br>&emsp;<span class="class-color">constructor</span>(<span class="var-color">name</span>){
+<br>&emsp;&emsp;<span class="var-color">this</span>.<span class="var-color">name</span> = <span class="var-color">name</span>
+<br>&emsp; }
+<br> }
+
+            </code>
+        </div>
+        <div class="flex-item">
+            <code class="app-academy-code md-code">
+<span class="const-color">const</span> <span class="var-color">cat</span> = <span class="class-color">new</span> <span class="class-var">Cat</span>("Betty")
+<br><span class="const-color">const</span> <span class="var-color">dog</span> = <span class="class-color">new</span> <span class="class-var">Dog</span>("Skippy")
+<br><span><span class="let-color">let</span> <span class="function-color">nameFunc</span> = <span class="var-color">cat</span>.<span class="function-color">sayName</span>
+<br><span class="let-color">let</span> <span class="function-color">sayDog</span> = <span class="function-color">nameFunc</span>.<span class="v">bind</span>(<span class="var-color">dog</span>)
+<br><span class="let-color">let</span> <span class="function-color">sayCat</span> = <span class="function-color">nameFunc</span>.<span class="v">bind</span>(<span class="var-color">cat</span>)
+<br><span class="function-color">sayDog</span>()
+<br><span class="function-color">sayCat</span>()
+            </code>
+            <p>
+                We are binding the dog class to within the Cat class through the instance of cat
+            </p>
+        </div> 
+    </div>
+    <hr>
+    <h3>Use <code>global.setTimeout()</code> with class context</h3>
+    <p tabindex="1">
+        &emsp;This is how we would use a function with <code class="b">this</code> outside the class in the gloal scope. 
+        You can type it all on One line.
+    </p>
+    <pre tabindex="1" class="app-academy-code">
+<span class="class-color">class</span> <span class="class-var">Cat</span>{
+    <span class="function-color">purr</span>(){
+        console.log("Meow");
+    }
+    <span class="function-color">purrMore</span>(){
+        <span class="class-color">this</span>.<span class="function-color">purr</span>()
+    }
+}
+<span class="let-color">let</span> cat = <span class="var-color">new</span> <span class="class-var">Cat</span>()
+<span class="let-color">let</span> <span class="var-color">boundPurr</span> = <span class="var-color">cat</span>.<span class="function-color">purrMore</span>.<span class="v">bind</span>(<span class="var-color">cat</span>)
+global.setTimeout(boundPurr,1200);
+<span class="g">// prints Meow after 1.2 seconds</span>
+        
+    </pre>
+    <hr>
+    <p tabindex="1">Here is a interesting example from the quiz<0/p>
+    <pre tabindex="1">
+        function hello() {
+        return `Hello ${this.firstName}`;
+        }
+        
+        const derek = {
+        firstName: 'Derek'
+        };
+        
+        console.log(hello.bind(derek)());
+    </pre>
+
+</body>
+</html>

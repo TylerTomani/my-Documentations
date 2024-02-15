@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    padding: 0 2.5%;
+}
+img {
+    width: 100%;
+    min-width: 420px;
+}
+.question-container {
+    width: 100%;
+    display: flex;
+    /* justify-content: center; */
+    align-items:flex-start;
+    gap: 2.5%;
+}
+
+.question {
+    flex-basis: 40%;
+    display: flex;
+    flex-direction: column;
+}

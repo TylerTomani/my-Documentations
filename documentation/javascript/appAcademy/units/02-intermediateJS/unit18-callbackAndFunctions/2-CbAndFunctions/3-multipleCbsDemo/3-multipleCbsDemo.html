@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-multipleCbsDemo</title>
+    <link rel="stylesheet" href="../../../../css/colors.css">
+    <link rel="stylesheet" href="../../../../css/lesson.css">
+</head>
+<body>
+    <h2>3-Multiple callbacks</h2>
+    <p>
+        &emsp;Below is an example of using two call backs in a function.
+        <br> The functions returns the callback that produces the larger value.
+    </p>
+    <pre tabindex="1">
+    let greaterResult = function(num , cb1, cb2){
+        let dbl= cb1(num)
+        let squared= cb2(num)
+        if( dbl > squared){
+            return "double: " + dbl;
+        }
+        return "squared:" + squared;
+    }
+    let doubler = function(n){
+        return n * 2;
+    }
+    let squarer = function(n){
+        return n * n;
+    }
+    console.log(greaterResult(2,doubler,squarer))
+    console.log(greaterResult(1,doubler,squarer))
+    // prints squared:4
+              double: 2
+    </pre>
+<script>
+    let greaterResult = function(num , cb1, cb2){
+        let dbl= cb1(num)
+        let squared= cb2(num)
+        if( dbl > squared){
+            return "double: " + dbl;
+        }
+        return "squared:" + squared;
+    }
+    let doubler = function(n){
+        return n * 2;
+    }
+    let squarer = function(n){
+        return n * n;
+    }
+    console.log(greaterResult(2,doubler,squarer))
+    console.log(greaterResult(1,doubler,squarer))
+</script>
+
+</body>
+</html>

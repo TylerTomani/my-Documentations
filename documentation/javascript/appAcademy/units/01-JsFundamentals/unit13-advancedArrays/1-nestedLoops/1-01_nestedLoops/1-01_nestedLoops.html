@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-01_nestedLoops</title>
+    <link rel="stylesheet" href="../../../../../css/newlesson.css">
+    <link rel="stylesheet" href="../../../../../css/appCodeColors.css">
+    <link rel="stylesheet" href="../../../../../css/optsFlex.css">
+
+    <script src="../../../../../js/copycode.js" defer></script>
+</head>
+<body>
+    <h2>1. <code>nestedLoop()</code></h2>
+    <div  class="flex-container">
+        <div class="flex-item">
+            <p>
+                A basic nested loop, the j loop will loop entirely for every iteration of i
+            </p>
+        </div>
+        <div class="flex-item">
+            <pre tabindex="1" class="app-academy-code copy-pre-code">
+<span class="for-color">for</span>(<span class="let-color">let</span> i = 0; i &lt;2 ; i++){
+    console.log("i:",i);
+    <span class="for-color">for</span>(<span class="let-color">let</span> j = 0; j &lt;3; j++){
+        console.log("j:     ", j);
+    }
+}</pre>
+            <pre class="app-academy-code"><span class="g">//
+i: 0
+j:      0
+j:      1
+j:      2
+i: 1
+j:      0
+j:      1
+j:      2
+</span>
+
+            </pre>
+        </div>
+        
+    </div>
+    
+    
+</body>
+</html>

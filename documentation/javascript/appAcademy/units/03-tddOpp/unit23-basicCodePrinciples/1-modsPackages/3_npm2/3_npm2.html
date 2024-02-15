@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3_npm2</title>
+    <link rel="stylesheet" href="../../../../css/lesson.css">
+    <link rel="stylesheet" href="../../../../css/colors.css">
+</head>
+<body>
+    <h2 tabindex="1">3-npm2</h2>
+    <p class="r">
+        &emsp;Go back and do this lesson. This lesson covers updating packaging and vulnerbilities. The main take away
+    </p>
+    <p>
+        &emsp;To uninstall a node_module dependency, for example, <code>lodash</code>, type:
+    </p>
+    <code tabindex="1"> npm uninstall lodash</code>
+    <hr>
+    <p tabindex="1">
+        &emsp;Remember, dependencies are located in the <code>package.json</code> file in the parent directory of
+        the <code>node_module</code> file where you installed the package
+    </p>
+    <img tabindex="1" src="images/01-nodeDependicies.png">
+    <p tabindex="">
+        Imagine that you added the lodash package as a dependency to a project awhile ago; back when the latest version of
+        lodash was 3.0.0. You can simulate this situation by installing a specific version of lodash:
+    </p>
+    <code tabindex="1"> npm install lodash@3.0.0</code>
+    <p tabindex="1">
+        Instead of updating your project's dependencies one by one, you can update all of your dependencies with a single
+        command: 
+    </p>
+    <code tabindex="1">npm update</code>
+    <hr>
+    <p tabindex="1">If any issues are found, npm will display a warning.</p>
+    <div tabindex="1">
+        <code>
+            npm install lodash@3.0.0
+        </code>
+        <p>Which results in the following output:</p>
+        <code>+ lodash@3.0.0
+            <br> added 1 package from 5 contributors and audited 1 package in 0.314s
+            <br> found 3 vulnerabilities (1 low, 2 high)
+            <br> run `npm audit fix` to fix them, or `npm audit` for details
+        </code>
+    </div>
+    <p tabindex="1">In the above output, you can see that three vulnerabilities were found. To see additional details about the
+        vulnerabilities, you can run the following command:
+    </p>
+    <code tabindex="1">npm audit</code>
+
+</body>
+</html>
