@@ -60,72 +60,75 @@ body>header>nav>ul>li>sup{
 main {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
     margin: 0 5%;
+    margin-top: 1.25%;
     background-size: 100%;
     background-position-y: 0%;
     background-repeat: no-repeat;
     background-position-x: center;
     background-position-y: center;
     transition: background-image 1500ms ease-in-out;
-    padding-top: 1%;
-    padding-bottom: 5.5%;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
     border: 1px solid blue;
+    height: 90vh;
+    background-image: url('../images/airplanSpaceSun.jpg');
 }
-.flex-2-2 {
-    display: flex ;
-}
-
-
 /*///////////////////////////// Pages */
-.page > .topics-container{
+.page {
     display: flex;
+    flex-direction: column;
+}
+.page > h2{
+    margin-top: 1%;
+    margin-left: 1%;
+    margin-bottom: 2%;
+    color:aliceblue
 }
 .topics-container {
+    margin-left: 2.5%;
+    margin-top: .5%;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    padding: 2% 0
 }
-.page> .topics-container > .topic-container,
-.topics-container > .topic-container {
+.topics-container > .topic {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 15%;
+    /* Grow, shrink, basis */
+    /* flex: 0 1 15%;  */
+    padding: 0 2%;
+    justify-content: flex-end;
     border-radius: 20px;
-    display: flex;
-    max-height: var(--max-topic-h);
-    max-width: var(--max-topic-w);
-}
-.page >.topics-container>.topic-container>.topic,
-.topics-container>.topic-container>.topic {
-    text-decoration: none;
-    color: black;
-    text-shadow: 1p 2px white;
-    /* margin: 0 4.5%; */
-    display: flex;
     background-color: lavenderblush;
-    flex-direction: column-reverse;
-    opacity: .85;
+    white-space: nowrap;
     border-radius: 20px;
-    justify-content: space-around;
-    align-items: center;
+    text-decoration: none;
+    color:rgb(26, 25, 25);
+    text-shadow: 1p 2px white;
+    opacity: .75;
+}
 
-    
+
+.topics-container>.topic > h3 {
+    font-size: 1rem;
+    /* border: 1px solid blue; */
+    justify-self: flex-end;
 }
-.page > .topics-container>.topic-container>.topic,
-.topics-container>.topic-container>.topic{
-    font-size: .8rem !important;
-}
-.page > .topics-container>.topic-container>.topic>img,
-.topics-container>.topic-container>.topic>img {
-    min-height: 80px;
-    min-width: 80px;
-    width: 80%;
+
+.topics-container>.topic>img {
+    /* border: 1px solid red; */
+    width: 100%;
     border-radius: 20px;
-    height: 50%;
     max-height: 120px;
-    max-width: 120px;
+    align-self:center ;
+    margin-bottom: 2.5%;
 }
+
+
+
 .topic:active,
 .topic:focus {
     background-color: white;
@@ -135,30 +138,6 @@ main {
     transform: scale(1.12);
     transition: all 250ms;
     border: 2px solid blue;
-}
-
-
-
-#websitesAndApps {
-    display: flex; 
-    flex-direction: column;
-    padding: 2% 5%;
-}
-
-.page > h2{
-    /* color: white; */
-}
-.page > h2 > a{
-    color: white !important;
-    font-weight: 1000;
-    text-decoration: none;
-    text-shadow: 0 0 1px black;
-}
-#templates>.topics-container > .topic-container > .topic{
-    padding: 2% 8%;
-}
-#sql {
-    /* display: flex; */
 }
 
 footer {
@@ -171,7 +150,6 @@ footer {
     padding: 0;
     background-image: url('images/DimLitMoutainSun.jpg');
 }
-
 #contactDetails {
     margin-top: 15%;
     padding-top: 25%;
@@ -182,75 +160,22 @@ footer {
     align-items: center;
     text-shadow: 0 0 5px orange;
 }
-@media screen and (max-width: 1000px) {
-.shortcuts-ul>li:last-child {
-        white-space: wrap;
-    }
-}
 
 @media screen and (max-width: 909px) {
     .topic,
     .topic-container{
         border-radius: 20px ;
-        /* background-color: yellowgreen; */
-        /* width: 50%; */
+        
     }
     .topic>img {
         min-width: 80px;
         max-width: 80px;
-        /* min-height: 100px; */
         max-height: 20px;
         border: 2px dashe magenta
     }
-    
-    .shortcuts-ul>li:last-child {
-            white-space: nowrap;
-        }
     main {
         background-position-y: 0;
         padding-bottom: 2.5%;
-    }
-    .flex-2-2
-    #websitesAndApps>h2 {
-        font-size: 1.2rem
-    }
-
-    #websitesAndApps {
-        display: flex;
-        flex-direction: column;
-        padding: 0% 0%;
-    }
-    .description-txt {
-        /* font-size: 1.2rem; */
-        /* width: 100% !important;  */
-        display: flex;
-        justify-content: center;
-        padding-top: 2%;
-        display: flex;
-        flex-direction: column;
-        font-size: .5rem !important;
-    }
-    .description-txt > ul{
-        font-size: 1rem;
-        /* align-self: center; */
-    }
-    .description-txt > ul> li{
-        font-size: 1rem;
-    }
-        #websitesAndApps {
-            order: 2 ;
-            /* padding-left: 5%; */
-            /* margin-left: 2.5%; */
-            /* padding-left: 2.5%; */
-        }
-        #websitesAndApps > .topics-container {
-            display: flex;
-            /* background-color: white; */
-            }
-        
-    .specialty-txt{
-        order: 3;
-        /* border: 5px dashed yellowgreen; */
     }
     header>h1 {
         display: none;
@@ -258,37 +183,9 @@ footer {
     body>header>nav {
         flex-basis: 100%;
     }
-    body>header>nav>ul>li>a {
-        font-size: .8rem;
-        text-shadow: none;
-        padding: 2.5%;
-    }
-    body>header>nav>ul>li>sup{
-        display: none;
-    }
-    .specialty-txt>.shortcuts-ul {
-        font-size: .8rem;
-        margin: 1%;
-        flex-wrap: wrap;
-    }
-    .specialty-txt>.shortcuts-ul>li {
-        flex-basis: 10%;
-    }
-    
-    
-    
 }
 
 @media screen and (max-width: 731px) {
-
-    #websitesAndAppsHome {
-        font-size: .85rem;
-        white-space: wrap;
-    }
-    .page > h2 a{
-        font-size: 1rem;
-    }
-    
     body>header>h1 {
         display: none;
     }
@@ -300,88 +197,11 @@ footer {
         position: sticky;
         top: 0;
     }
-    header>nav>ul {
-        display: flex;
-        justify-content: space-evenly;
-        align-items: flex-start;
-    }
-    header>nav>ul>li {
-        display: block;
-    }
-    body>header>nav>ul>li>a {
-        font-size: .95rem;
-        display: block;
-        height: 100%;
-        width: 100%;
-        text-shadow: none;
-        padding: 2.5%;
-        padding-bottom: 5%;
-    }
-    body>header>nav>ul>li sup {
-        display: none;
-    }
     main {
         margin: 0 2.5%;
     }
 
 
-    .flex-2-2 {
-        /* flex-direction: column; */
-    };
-    
-    .specialty-txt>.shortcuts-ul>li:last-child {
-        color: var(--color-second-txt);
-        text-shadow: 0 0 10px red;
-        font-weight: bold;
-    }
-    #websitesAndApps {
-        order: 3 ;
-        /* padding-left: 5%; */
-        flex-basis: 100%;
-        /* background-color: yellow; */
-        /* border: 4px solid white; */
-    }
-    .description-txt {
-        flex-basis: 100% !important;
-        display: flex;
-        flex-direction: column;
-        font-size: .5rem !important;
-    }
-    .description-txt > p {
-        font-size: 1.5rem !important;
-        /* background-color: blue; */
-    }
-    .description-txt > ul {
-        display: flex;
-        justify-content: center !important;
-        align-content: center !important;
-        margin-bottom: 2%;
-        padding-left: 5%;
-
-    }
-    .description-txt > ul > li{
-        font-size: .8rem;
-
-    }
-    
-    .specialty-txt {
-        order: 2;
-        margin-top: 0;
-        padding-top: 0;
-    }
-    .speciality-txt>ul,
-    .description-txt > ul{
-        font-size: .66rem !important;
-    }
-    .specialty-txt > p {
-        font-size: .85rem !important;
-        line-height: 1.2;
-        /* background-color: blue; */
-    }
-    .speciality-txt > ul {
-        font-size: .5rem !important;
-        /* background-color: blue; */
-    }
     footer {
         margin: 0 2%;
         background-image: url('../images/DimLitMoutainSun.jpg');
@@ -393,59 +213,25 @@ footer {
         margin-top: 0;
         padding-top: 0;
     }
-    .topics-container>.topic-container{
+    .topics-container>.topic{
         opacity: .85;
-        display: flex;
-        /* justify-content: center; */
-        /* max-height: 50px !important; */
-        /* min-height: 50px !important; */
+        /* display: flex; */
         padding: 1.5% 0;
-        /* background-color: none !important; */
     }
-    .topics-container>.topic-container > .topic {
-        /* background-color: none !important; */
-        /* margin: 4% 0; */
+    .topics-container > .topic {
         font-size: .5rem;
     }
-    .topics-container>.topic-container > .topic > img{
-        /* opacity: .85; */
-        /* display: flex; */
-        /* justify-content: center; */
+    .topics-container .topic > img{
         border-radius: 10px;
         max-height: 50px !important;
         min-height: 50px !important;
         
     }
-    #websitesAndApps>.topics-container>.topic-container>.topic {
-        margin:  0 15%;
-        padding: 0 2.5%;
-        display: reverse;
-        display: flex;
-        flex-direction: column-reverse;
-        background-color: white;
-        font-size: .7rem;
-    }
+    
 }
 
 @media screen and (max-width:440px){
-    .specialty-txt {
-            display: none;
-        }
-    
-        .specialty-txt>.shortcuts-ul {
-            display: none;
-        }
-    #websitesAndAppsHome{
-        font-size: 38% !important;
-        
-    }
-    .flex-2-2 {
-        flex-direction: column;
-        margin-bottom: 0 !important;
-        padding-bottom: 0 !important;
-    }
-    #websitesAndApps > .topics-container > .topic-container{
-    }
+
 
     .pages-contianer,
     .page{
