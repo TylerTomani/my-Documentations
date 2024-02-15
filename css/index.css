@@ -72,6 +72,7 @@ main {
     padding-bottom: 5.5%;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
+    border: 1px solid blue;
 }
 .flex-2-2 {
     display: flex ;
