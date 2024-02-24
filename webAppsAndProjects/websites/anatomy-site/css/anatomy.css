@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+main {
+    border-top: 2px solid black;
+}
+
+.anatomy-img-container {
+    display: flex;
+    margin: 0 1.33%;
+    margin-top: 1%;
+}
+.anatomy-img-container > .anatomy-container{
+    display: flex;
+    flex-direction: column;    
+}
+.anatomy-container > header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.anatomy-container > header > ul{
+    display: flex;
+    flex-basis: 47.5%;
+    justify-content: space-between;
+}
+.anatomy-container > header > ul > li{
+    list-style: none;
+    margin: 2.5% 5%;
+}
+.anatomy-container > header > ul > li > a{
+    text-decoration: none;
+    display: inline-block;
+    padding: 2% 4.5%;
+    font-size: 150%;
+    border: 1px solid black;
+}
+.anatomy-container > header > #currentSystemH2{
+    margin-right: 5%;
+    margin-top: 1.5%;
+    align-items: flex-end;
+}
+.anatomy-img-container > .fi{
+    flex-basis: 50%;
+    
+}
+
+
+.system-container{
+    border: 1px dashed black;
+    margin: 2% 0;
+    margin-bottom: 4%;
+}
+
+.sub-system-container {
+    display: flex;
+    flex-direction: column;
+}
+.sub-system-container > h3  > a{
+    display: inline-block;
+    margin-left: 1.75%;
+    padding: 1.5% .5%;
+}
+
+.groups-container {
+    /* border: 2px solid orange; */
+    display: flex;
+    flex-wrap: wrap;
+}
+.groups-container > .group {
+    border: 2px solid blue;
+    flex-basis: 50%;
+}
+.groups-container > .group > h4 > a{
+    display: inline-block;
+    width: 100%;
+    padding: 2% 0;
+    padding-left: 1%;
+    margin-left: 3%;
+
+}
+.group > .bones {
+    margin-left: 5%;
+}
+.sub-group > h5 > a {
+    display: inline-block;
+    width: 100%;
+    padding: 2% 0;
+    padding-left: 1%;
+    margin-left: 5%;
+}
+.sub-group > .bones > ul {
+    margin-top: 2%;
+    margin-left: 15%;
+}
+a:active,a:focus,a:hover{
+    box-shadow: 0 0 10px 3px blue;
+}
+
+.anatomy-img-container>.img-container img {
+    width: 100%;
+    max-height: 550px;
+    padding: 5%;
+}
+
+.img-container>textarea {
+    margin: 0 5%;
+}
+.show {display: flex;}
+.hide {
+    display: none;
+}

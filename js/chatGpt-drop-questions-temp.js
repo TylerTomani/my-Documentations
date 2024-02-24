@@ -8,7 +8,7 @@
 
 const allCopyCodes = document.querySelectorAll(' .copy-code')
 const questionCopyCodes = document.querySelectorAll('.the-chatgpt-question > .copy-code')
-const questionsChatGpt = document.querySelectorAll('.chatgpt-question')
+const chatGptQuestions = document.querySelectorAll('.chatgpt-question')
 const answerStepTxts = document.querySelectorAll('.answer-txt > .step > .step-txt')
 const answerStepColTxts = document.querySelectorAll('.answer-txt > .step-col > .step-txt')
 const chatGptAnswers = document.querySelectorAll('.chatgpt-question-container > .answer')
@@ -65,9 +65,10 @@ function removeStepTxtTabs(){
         el.setAttribute('tabindex','-1')
     })
 }
-questionsChatGpt.forEach(question => {   
+chatGptQuestions.forEach(question => {   
     question.addEventListener('click', e => {
         e.preventDefault()
+       / 
         toggleAnswer(e)
     })
     question.addEventListener('keydown', e => {

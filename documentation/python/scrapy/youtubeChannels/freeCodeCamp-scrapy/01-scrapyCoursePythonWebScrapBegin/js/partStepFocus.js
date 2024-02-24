@@ -1,9 +1,13 @@
+import { mainTargetFocused } from "./sectionFocusLessonLoad.js"
+import { mainTargetDivContainer } from "./sectionFocusLessonLoad.js"
 export function partStepsEventListeners(){
-const dropParts = document.querySelectorAll('.dropPart')
+    
+    const dropParts = document.querySelectorAll('.dropPart')
     const stepsContainers = document.querySelectorAll('.steps-container')
     const part01 = document.getElementById('part01')
     let partsFocused = false
     let stepsFocused = false
+    
     const dropSections = document.querySelectorAll('.dropSection')
     const lessons = document.querySelectorAll('.section > ul > li a')
     const img2Containers = document.querySelectorAll('.img-2-container')
@@ -22,7 +26,8 @@ const dropParts = document.querySelectorAll('.dropPart')
     let vidEnlarged = false
     let currentVid 
     let playing = false
-
+    const enlargeFirstImages = document.querySelectorAll('.enlarge-first-img')
+    
     lessons.forEach(el => {
         el.addEventListener('focus', e => {
             partsFocused = false
@@ -94,14 +99,37 @@ const dropParts = document.querySelectorAll('.dropPart')
         })
     }
     stepTxts.forEach(el => {
-            el.addEventListener('click', e => {
-                e.preventDefault()
+        el.addEventListener('click', e => {
+            e.preventDefault()
+            let step = getStep(e.target.parentElement)
+            let img = step.querySelector('.step-img > img')
+            let as = step.querySelectorAll('.step-txt > p > a')
+            let copyCodes = step.querySelectorAll('.copy-code')
+            if(!step.classList.contains('.step-col')){
+
+                
+                addTabIndex(copyCodes)
+                addTabIndex(as)
+                toggleStepImg(img)
+            } else {
+                
+                addTabIndex(copyCodes)
+                addTabIndex(as)
+                toggleStepImg(img)
+                images = step.querySelectorAll('.img-2-container > .step-img > img')
+                images.forEach(el =>{
+                    el.setAttribute('tabindex','1')
+                } )
+            }
+        })
+        el.addEventListener('keydown', e => {
+            let key = e.keyCode
+            if(key === 13){   
                 let step = getStep(e.target.parentElement)
                 let img = step.querySelector('.step-img > img')
-                let as = step.querySelectorAll('.step-txt > a')
+                let as = step.querySelectorAll('.step-txt > p > a')
                 let copyCodes = step.querySelectorAll('.copy-code')
-                if(!step.classList.contains('.step-col')){
-
+                if(!step.classList.contains('step-col')){
                     as.forEach(a => {
                         a.addEventListener('click', e => {
                             window.open(a.href,'_blank')
@@ -110,58 +138,37 @@ const dropParts = document.querySelectorAll('.dropPart')
                     addTabIndex(copyCodes)
                     addTabIndex(as)
                     toggleStepImg(img)
-                } else {
+                } else if(step.classList.contains("step-col")){
                     addTabIndex(copyCodes)
                     addTabIndex(as)
-                    toggleStepImg(img)
-                    images = step.querySelectorAll('.img-2-container > .step-img > img')
+                    // toggleStepImg(img)
+                    let images = step.querySelectorAll('.img-2-container > .step-img > img')
                     images.forEach(el =>{
                         el.setAttribute('tabindex','1')
                     } )
                 }
-            })
-            el.addEventListener('keydown', e => {
-                let key = e.keyCode
-                if(key === 13){   
-                    let step = getStep(e.target.parentElement)
-                    let img = step.querySelector('.step-img > img')
-                    let as = step.querySelectorAll('.step-txt a')
-                    let copyCodes = step.querySelectorAll('.copy-code')
-                    if(!step.classList.contains('step-col')){
-                        as.forEach(a => {
-                            a.addEventListener('click', e => {
-                                window.open(a.href,'_blank')
-                            } );
-                        })
-                        addTabIndex(copyCodes)
-                        addTabIndex(as)
-                        toggleStepImg(img)
-                    } else if(step.classList.contains("step-col")){
-                        addTabIndex(copyCodes)
-                        addTabIndex(as)
-                        // toggleStepImg(img)
-                        let images = step.querySelectorAll('.img-2-container > .step-img > img')
-                        images.forEach(el =>{
-                            el.setAttribute('tabindex','1')
-                        } )
-                    }
-                }
-            })
-            el.addEventListener('focus', e => {
-                partsFocused =false
-                stepsFocused = true
-                denlargeAllImgVids()
-                removeAllInnerStepTxtTabIndexes()
-                // removeAllInnerStepTxtTabIndexes()
+            }
+        })
+        el.addEventListener('focus', e => {
+            partsFocused =false
+            stepsFocused = true
+            denlargeAllImgVids()
+            removeAllInnerStepTxtTabIndexes()
+            // removeAllInnerStepTxtTabIndexes()
 
-            } );
-            el.addEventListener('focusin', e => {
-                stepsFocused = true
-            } );
-        })    
+        } );
+        el.addEventListener('focusin', e => {
+            stepsFocused = true
+        } );
+    })    
     allStepTxtAs.forEach(el => {
         el.addEventListener('focus', ()=>{
             denlargeAllImgVids()
+        });
+    })
+    allStepTxtAs.forEach(el => {
+        el.addEventListener('click', e=>{
+            window.open(e.target.href,'_blank')
         });
     })
 
@@ -173,7 +180,6 @@ const dropParts = document.querySelectorAll('.dropPart')
 
     allImages.forEach(el => {
         el.addEventListener('click', e =>  {
-            console.log(e.target)
             e.preventDefault()
             toggleAllImgsSize(e.target) 
         });
@@ -301,7 +307,6 @@ const dropParts = document.querySelectorAll('.dropPart')
             if(cntrlCarray[0] === 67 && cntrlCarray[1] === 91){
                 animate(e)
 
-                console.log("cntrl + c")
             }
         })
         copycode.addEventListener('click', e => {
@@ -318,7 +323,6 @@ const dropParts = document.querySelectorAll('.dropPart')
             }
             if(cntrlCarray[0] === 67 && cntrlCarray[1] === 91){
                 animate(e)
-                console.log("cntrl + c")
             }
         })
         copycode.addEventListener('click', e => {
@@ -341,7 +345,6 @@ const dropParts = document.querySelectorAll('.dropPart')
         async function copyTextToClipboard(text) {
             try {
             await navigator.clipboard.writeText(text);
-            //   console.log("Text copied to clipboard:", text);
             } catch (err) {
             console.error("Unable to copy text to clipboard:", err);
             }
@@ -382,7 +385,6 @@ const dropParts = document.querySelectorAll('.dropPart')
             let parent = getStep(e.target)
             let vid = playVidClick.querySelector('.step-vid > video')
             currentVid = vid
-            console.log(vid)
             if(vid){
                 playVid(vid)
                 vid.play()
@@ -392,7 +394,6 @@ const dropParts = document.querySelectorAll('.dropPart')
             let key = e.keyCode
             if(key === 13){
                 let parent = getStep(e.target)
-                // console.log(e.target)
                 let vid = parent.querySelector('.step-vid > video')
                 currentVid = vid
                 if(vid){
@@ -462,6 +463,29 @@ const dropParts = document.querySelectorAll('.dropPart')
 
     addEventListener('keydown', e => {
         let key = e.key.toLowerCase()
+        let letter = e.key.toLowerCase()
+        console.log(letter)
+        const nxtLessonBtn = document.getElementById('#nxtLesson')    
+        if(letter == 'e'){
+            console.log(nxtLessonBtn)
+            
+            nxtLessonBtn.focus()
+        }
+        if(mainTargetFocused){
+            stepsFocused = true
+            if(stepTxts){
+                    stepTxts.forEach(el => {
+                        let h4 = el.querySelector('h4')
+                        if(h4){
+            
+                            if(letter == h4.innerText[1]){
+                                el.focus()
+                            }
+                        }
+                    })
+                }
+
+        }   
         if(partsFocused){
             dropParts.forEach(el => {
                 if(key == el.innerText[5]){
@@ -473,7 +497,7 @@ const dropParts = document.querySelectorAll('.dropPart')
             }
         }        
         if(stepsFocused){
-            let part = getPart(e.target)
+            let part = getPart(e.target.parentElement)
             if(part){
                 let dropPart = part.querySelector('.dropPart')
                 if(key === 'p'){
@@ -503,7 +527,6 @@ const dropParts = document.querySelectorAll('.dropPart')
                     stepTxts.forEach(el => {
                         let h4 = el.querySelector('h4')
                         if(h4){
-                            console.log(h4)
             
                             if(key == h4.innerText[1]){
                                 el.focus()
@@ -514,4 +537,23 @@ const dropParts = document.querySelectorAll('.dropPart')
             }
         }
     } );
+    
+    enlargeFirstImages.forEach(el => {
+        el.addEventListener('click', e=> {
+            e.preventDefault()
+            let stepCol = getStepColContainer(e.target.parentElement)
+            let img = stepCol.querySelector('.img-2-container > .step-img > img')
+                toggleStepImg(img)
+        });
+        el.addEventListener('keydown', e => {
+            let key = e.keyCode
+            if(key === 13){
+                let stepCol = getStepColContainer(e.target.parentElement)
+                let img = stepCol.querySelector('.img-2-container > .step-img > img')
+                toggleStepImg(img)
+            }
+        });
+    })
+
+    
 }

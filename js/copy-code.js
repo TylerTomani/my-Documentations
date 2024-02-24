@@ -40,9 +40,10 @@ stepTxtPAsCopy.forEach(copycode => {
 
 function animate(e){
     let el = e.target
-
-    el.classList.remove('decopied')
-    el.classList.add('copied')
+    if(el.classList.contains('decopied')){
+        el.classList.remove('decopied')
+        el.classList.add('copied')
+    }
     setInterval(() => {
         el.classList.remove('copied')
         el.classList.add('decopied')

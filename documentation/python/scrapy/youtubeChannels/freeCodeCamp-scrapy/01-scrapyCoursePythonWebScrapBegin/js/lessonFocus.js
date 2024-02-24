@@ -1,6 +1,7 @@
 import { asideMain } from "./sectionFocusLessonLoad.js"
 import { navMain } from "./sectionFocusLessonLoad.js"
 export function addEventListenersToInjectedContent() {
+    
     const dropParts = document.querySelectorAll('.dropPart')
     const stepsContainers = document.querySelectorAll('.steps-container')
     const part01 = document.getElementById('part01')
@@ -72,17 +73,21 @@ export function addEventListenersToInjectedContent() {
         }
     }
     addEventListener('keydown', e => {
-        let key = e.key.toLowerCase()
+        let letter = e.key.toLowerCase()
         if(partsFocused){
             dropParts.forEach(el => {
                 if(key == el.innerText[5]){
                     el.focus()
                 }
             })
-            if(key == 'p'){
+            if(letter == 'p'){
                 part01.focus()
             }
+            
+            
         }        
+        
+
     } );
 }
 

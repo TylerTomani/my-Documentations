@@ -1,5 +1,8 @@
-const homeLink = document.querySelector('#homelink')
-const tutorialLink = document.querySelector('#tutorialLink')
+(function(){
+    const tutorialLink = document.querySelector('#tutorialLink')
+    const canvas = document.querySelector('canvas') ? document.querySelector('canvas') : null;
+    const khanAcademy = document.getElementById('khanAcademy') ? document.getElementById('khanAcademy') : null;
+    const homeLink = document.getElementById('homeLink') ? document.getElementById('homeLink') : document.getElementById('homelink');
 
 addEventListener('keydown',e =>{
     let key = e.key.toLowerCase()
@@ -13,4 +16,13 @@ addEventListener('keydown',e =>{
             tutorialLink.focus()
         }
     }
+    if(key == 'k'){
+        khanAcademy.focus()
+    }
+    if(canvas){
+        if(key == 'c'){
+            canvas.focus()
+        }
+    }
 })
+}())

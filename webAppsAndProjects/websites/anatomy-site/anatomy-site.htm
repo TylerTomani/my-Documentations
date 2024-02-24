@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>anatomy-site</title>
+    <link rel="stylesheet" href="css/anatomy.css">
+    <script src="../../../js/home-link-focus-temp.js" defer></script>
+    <script src="js/loadImg.js" defer></script>
+    <!-- <script module src="js/textAreaFocus.js" defer></script> -->
+    <script src="js/dropDowns.js" defer></script>
+    <script src="js/letterFocus.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>AnatomyProject</h1>    
+        <a tabindex="1"  id="homeLink" href="../webAppsAndProjects.html">home</a>
+        <a target="_blank" href="https://training.seer.cancer.gov/anatomy/skeletal/divisions/axial.html">great site training.seer.cancer.gob</a>
+        <a target="_blank" href="https://www.youtube.com/watch?v=rMcg9YzNSEs">great lecture explaining movement terms</a>
+
+    </header>
+    <main>
+        <div class="anatomy-img-container">
+            <div class="fi anatomy-container">
+                <header class="system-select-header">
+                    <ul>
+                        <li><a autofocus  id="skeleton" class="sys-select"  href="#">Skeleton</a></li>
+                        <li><a id="muscles"  class="sys-select"  href="#">Muscles</a></li>
+                    </ul>   
+                    <h2 id="currentSystemH2">Skeleton</h2>
+                </header>
+                <div class="systems-container">
+                    <!-- Skeleton -->
+                    <div class="system-container skeletal-system show">
+                        <!-- Axial Skeleton -->
+                        <div class="sub-system-container">
+                            <h3><a id="axial" class="sub-sys-select" href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Axial_skeleton_diagram.svg/500px-Axial_skeleton_diagram.svg.png
+                                ">Axial Skeleton</a></h3>
+                            <!-- <div class="groups-container show"> -->
+                            <div class="groups-container show">
+                                <!-- Auditory Ossicles -->
+                                <div class="group">
+                                    <h4><a id="auditoryOssicles" href="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Slide1ghe.JPG/700px-Slide1ghe.JPG
+                                        ">Auditory Ossicles</a></h4>
+                                    <div class="group-items-container bones">
+                                        <ul>
+                                            <li><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Illu_auditory_ossicles-en.svg/1920px-Illu_auditory_ossicles-en.svg.png">Malleus</a></li>
+                                            <li><a href="https://upload.wikimedia.org/wikipedia/commons/d/df/Gray917.png">Incus</a></li>
+                                            <li><a href="https://upload.wikimedia.org/wikipedia/commons/c/c1/Gray918.png">Stapes</a></li>
+                                            <li>...more </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Cranial Bones -->
+                                <div class="group">
+                                    <h4><a id="cranialBones" href="#">Cranial Bones</a></h4>
+                                    <div class="group-items-container bones">
+                                        <ul>
+                                            <li><a href="https://upload.wikimedia.org/wikipedia/commons/f/ff/Gray152.png">Enthmoid
+                                                <br>have image change when clicked, cycle pics
+                                            </a></li>
+                                            <li><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Frontal_bone_lateral3.png/500px-Frontal_bone_lateral3.png">Frontal</a></li>
+                                            <li><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Occipital_bone_animation.gif/240px-Occipital_bone_animation.gif">Occipital</a></li>
+                                            <li><a href="https://upload.wikimedia.org/wikipedia/commons/c/c4/Left_parietal_boen_-_animation.gif">Parietal</a></li>
+                                            <li><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Sphenoid_bone_-_close-up_-_animation.gif/240px-Sphenoid_bone_-_close-up_-_animation.gif">Sphenoid</a></li>
+                                            <li><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Temporal_bone_lateral5.png/500px-Temporal_bone_lateral5.png">Temporal</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Facial Bones -->
+                                <div class="group">
+                                    <h4><a id="facialBones" href="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Facial_skeleton_-_en.svg/500px-Facial_skeleton_-_en.svg.png">Facial Bones</a></h4>
+                                    <div class="group-items-container bones">
+                                        <ul>
+                                            <li>Inferior nasal concha</li>
+                                            <li>Lacrimal</li>
+                                            <li>Mandible</li>
+                                            <li>Maxilla</li>
+                                            <li>Nasal</li>
+                                            <li>Platine</li>
+                                            <li>Vomer</li>
+                                            <li>Zygomatic</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Hyoid Bone -->
+                                <div class="group">
+                                    <h4><a id="hyoidBone" href="#">Hyoid Bone</a></h4>
+                                </div>
+                                <!-- Vertebral Column -->
+                                <div class="group ">
+                                    <h4><a id="vetebralColumn" href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Illu_vertebral_column.svg/500px-Illu_vertebral_column.svg.png">Vetebral Column</a></h4>
+                                    <!-- Cervical -->
+                                    <div class="sub-group ">
+                                        <h5><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Cervical_vertebrae_animation_small.gif/240px-Cervical_vertebrae_animation_small.gif
+                                            ">Cervical</a></h5>
+                                        <div class="bones">
+                                            <ul>
+                                                <li>C1</li>
+                                                <li>C2</li>
+                                                <li>C3</li>
+                                                <li>C4</li>
+                                                <li>C5</li>
+                                                <li>C6</li>
+                                                <li>C7</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- Thoracic  -->
+                                    <div class="sub-group">
+                                        <h5><a href="#">Thoracic</a></h5>
+                                        <div class="bones">
+                                            <ul>
+                                                <li>T1</li>
+                                                <li>T2</li>
+                                                <li>T3</li>
+                                                <li>T4</li>
+                                                <li>T5</li>
+                                                <li>T6</li>
+                                                <li>...</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- Lumbar -->
+                                    <div class="sub-group">
+                                        <h5><a href="#">Lumbar</a></h5>
+                                        <div class="bones">
+                                            <ul>
+                                                <li>l1</li>
+                                                <li>l2</li>
+                                                <li>..</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- Sacrum -->
+                                    <div class="sub-group">
+                                        <h5><a href="#">Sacrum</a></h5>
+                                    </div>
+                                    <!-- Coccyx -->
+                                    <div class="sub-group">
+                                        <h5><a href="#">Coccyx</a></h5>
+                                    </div>
+                                </div>
+                                <!-- Thoracic Cage -->
+                                <div class="group">
+                                    <h4><a id="thoracicCage" href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Blausen_0467_HeartLocation.png/240px-Blausen_0467_HeartLocation.png">Thoracic Cage</a></h4>
+                                    <div class="bones">
+                                        <ul>
+                                            <li>Sternum</li>
+                                            <li>Ribs
+                                                <ul>
+                                                    <li>maybe do each rib <br> and what connects</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Appendicular Skeleton -->
+                        <div class="sub-system-container">
+                            <h3><a id="appendicular" class="sub-sys-select" href="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Appendicular_skeleton_diagram.svg/500px-Appendicular_skeleton_diagram.svg.png">Appendicular Skeleton</a></h3>
+                            <div class="groups-container">
+                                <!-- Upper Extremity -->
+                                <div class="group">
+                                    <h4><a id="upperExtremity" href="#">Upper Extremity</a></h4>
+                                    <div class="bones">
+                                        <ul>
+                                            <li>Carpals</li>
+                                            <li>Humerus</li>
+                                            <li>Metacarpals</li>
+                                            <li>Phalanges</li>
+                                            <li>Radius</li>
+                                            <li>Ulna</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Pectoral Girdles -->
+                                <div class="group">
+                                    <h4><a id="pectoralGirdles" href="#">Pectoral Girdles</a></h4>
+                                    <div class="bones">
+                                        <ul>
+                                            <li>Clavicle</li>
+                                            <li>Scapula</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Pelvic Girdle -->
+                                <div class="group">
+                                    <h4><a id="pelvicGirdle" href="#">Pelvic Girdle</a></h4>
+                                    <div class="bones">
+                                        <ul>
+                                            <li>Coxal</li>
+                                            <li>Asetabulum</li>
+                                            <li>Iliac Crest</li>
+                                            <li>Ilium</li>
+                                            <li>Ischium</li>
+                                            <li>Pubis</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Lower Extremity -->
+                                <div class="group">
+                                    <h4><a id="lowerExtremity" href="#">Lower Extremity</a></h4>
+                                    <div class="bones">
+                                        <ul>
+                                            <li>Femur</li>
+                                            <li>Patella</li>
+                                            <li>Tibia</li>
+                                            <li>Fibia</li>
+                                            <li>Tarsals</li>
+                                            <li>Metatarsals</li>
+                                            <li>Phalanges</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Muscular -->
+                    <div class="system-container muscular-system">
+                        <!-- Skeletal Muscles -->
+                        <div class="sub-system-container">
+                            <h3><a id="axial" class="sub-sys-select" href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Axial_skeleton_diagram.svg/500px-Axial_skeleton_diagram.svg.png
+                                ">Skeletal Muscles</a></h3>
+                                <div class="groups-container ">
+                                <!-- Upper Body -->
+                                <!-- Head -->
+                                <div class="group">
+                                    <h4><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Slide1ghe.JPG/700px-Slide1ghe.JPG
+                                        ">Head</a></h4>
+                                    <div class="group-items-container bones">
+                                        <ul>
+                                            <li>tbd</li>
+                                            <li>tbd</li>
+                                            <li>tbd</li>
+                                            <li>more </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Neck -->
+                                <div class="group">
+                                    <h4><a href="#">Back</a></h4>
+                                    <div class="group-items-container bones">
+                                        <ul>
+                                            <li>Enthmoid</li>
+                                            <li>Frontal</li>
+                                            <li>Occipital</li>
+                                            <li>Parietal</li>
+                                            <li>Sphenoid</li>
+                                            <li>Temporal</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Facial Group-items-container bones -->
+                                <div class="group">
+                                    <h4><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Facial_skeleton_-_en.svg/500px-Facial_skeleton_-_en.svg.png">Facial Bones</a></h4>
+                                    <div class="group-items-container bones">
+                                        <ul>
+                                            <li>Inferior nasal concha</li>
+                                            <li>Lacrimal</li>
+                                            <li>Mandible</li>
+                                            <li>Maxilla</li>
+                                            <li>Nasal</li>
+                                            <li>Platine</li>
+                                            <li>Vomer</li>
+                                            <li>Zygomatic</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Hyoid Bone -->
+                                <div class="group">
+                                    <h4><a href="#">Hyoid Bone</a></h4>
+                                </div>
+                                <!-- Vertebral Column -->
+                                <div class="group ">
+                                    <h4><a   href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Illu_vertebral_column.svg/500px-Illu_vertebral_column.svg.png">Vetebral Column</a></h4>
+                                    <!-- Cervical -->
+                                    <div class="sub-group ">
+                                        <h5><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Cervical_vertebrae_animation_small.gif/240px-Cervical_vertebrae_animation_small.gif
+                                            ">Cervical</a></h5>
+                                        <div class="group-items-container ">
+                                            <ul>
+                                                <li>C1</li>
+                                                <li>C2</li>
+                                                <li>C3</li>
+                                                <li>C4</li>
+                                                <li>C5</li>
+                                                <li>C6</li>
+                                                <li>C7</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- Thoracic  -->
+                                    <div class="sub-group">
+                                        <h5><a href="#">Thoracic</a></h5>
+                                        <div class="group-items-container ">
+                                            <ul>
+                                                <li>T1</li>
+                                                <li>T2</li>
+                                                <li>T3</li>
+                                                <li>T4</li>
+                                                <li>T5</li>
+                                                <li>T6</li>
+                                                <li>...</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- Lumbar -->
+                                    <div class="sub-group">
+                                        <h5><a href="#">Lumbar</a></h5>
+                                        <div class="group-items-container ">
+                                            <ul>
+                                                <li>l1</li>
+                                                <li>l2</li>
+                                                <li>..</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- Sacrum -->
+                                    <div class="sub-group">
+                                        <h5><a href="#">Sacrum</a></h5>
+                                    </div>
+                                    <!-- Coccyx -->
+                                    <div class="sub-group">
+                                        <h5><a href="#">Coccyx</a></h5>
+                                    </div>
+                                </div>
+                                <!-- Thoracic Cage -->
+                                <div class="group">
+                                    <h4><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Blausen_0467_HeartLocation.png/240px-Blausen_0467_HeartLocation.png">Thoracic Cage</a></h4>
+                                    <div class="group-items-container bones">
+                                        <ul>
+                                            <li>Sternum</li>
+                                            <li>Ribs
+                                                <ul>
+                                                    <li>maybe do each rib <br> and what connects</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Involuntary -->
+                        <div class="sub-system-container">
+                            <h3><a id="involuntary" class="sub-sys-select" href="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Appendicular_skeleton_diagram.svg/500px-Appendicular_skeleton_diagram.svg.png">
+                                Involuntary</a></h3>
+                            <div class="groups-container">
+                                <!-- Upper Extremity -->
+                                <div class="group">
+                                    <h4><a href="#">Heart</a></h4>
+                                    <div class="group-items-container muscles">
+                                        <ul>
+                                            <li>tbd</li>
+                                            <li>tbd</li>
+                                            <li>tbd</li>
+                                            <li>tbd</li>
+                                            <li>tbd</li>
+                                            <li>tbd</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="fi img-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Maxilla_-_animation_02.gif/120px-Maxilla_-_animation_02.gif">
+                <textarea name="" id="textarea" cols="30" rows="10">
+&uparrow;;(Make it so img is interactive and image changes when clicked &uarr;)
+                    Notes can be made here for each user and saved for doctor visits
+                </textarea>
+            </div>
+        </div>
+        <div class="notes-section">
+            <p>img and notes area, add more note space in foooter</p>
+        </div>
+        
+
+    </main>
+
+</body>
+</html>

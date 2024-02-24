@@ -2,6 +2,8 @@
 import { partStepsEventListeners } from "./partStepFocus.js"
 import { chatGptDropTopics } from "./chatGpt-drop-topics.js"
 const homelink = document.getElementById('homelink')
+const documentationLink = document.getElementById('documentationLink')
+const mainHomeLink = document.getElementById('mainHomeLink')
 const jupyterlink = document.getElementById('jupyterLink')
 const tutoriallink = document.getElementById('tutorialLink')
 const dropSections = document.querySelectorAll('.dropSection')
@@ -10,19 +12,21 @@ const sectionUls = document.querySelectorAll('.section > ul')
 const section01 = document.getElementById('section01')
 const lessons = document.querySelectorAll('.section > ul > li a')
 
-
 // Main Elements 
 export const navMain = document.querySelector('.main > #navMain')
 export const asideMain = document.querySelector('.main > .main-container #asideMain')
-const mainTargetDivContainer = document.getElementById('mainTargetDivContainer')
+export const mainTargetDivContainer = document.getElementById('mainTargetDivContainer')
 let shiftTab = []
 let sectionsFocused = true
 let lessonsFocused = false
-let mainTargetFocused = false
+export let mainTargetFocused = false
 
 let lessonClicked = false
 let loadFocusedSection
-let currentLesson
+const displayCurrentSection = document.getElementById('displayCurrentSection')
+const displayCurrentLesson = document.getElementById('displayCurrentLesson')
+let currentSection
+export let currentLesson
 
 const allElements = document.querySelectorAll('body  *')
 
@@ -36,8 +40,11 @@ function fetchLessonHref(href){
         document.getElementById('mainTargetDivContainer').innerHTML = html;
 
 ////////////// This function is located in lessonsFocus.js ////////////////////////////////////////////////////////////////////////////////////
-        partStepsEventListeners()
-        chatGptDropTopics()
+        
+            partStepsEventListeners()
+            chatGptDropTopics()
+
+
 
     })
     .catch(error => console.error('Error fetching content.html:', error));
@@ -51,9 +58,11 @@ allElements.forEach(el => {
         let lessons = section.querySelectorAll('ul li a')
         lessons.forEach(el => {
             el.setAttribute('tabindex','1')
+
         })
     }
     if(el.hasAttribute('autofocus')){
+        console.log(el)
         fetchLessonHref(el.href)
     }
 })
@@ -89,6 +98,7 @@ dropSections.forEach(el => {
         toggleSectionUl(e.target)
         addLessonTabIndexes(e)
         fetchLessonHref(e.target.href)
+        displayCurrentSection.innerText = e.target.innerText
         if(loadFocusedSection){
             mainTargetDivContainer.focus()
             scrollTo(0,0)
@@ -100,7 +110,8 @@ dropSections.forEach(el => {
         loadFocusedSection = false
     });
     el.addEventListener('focusin', e  => {
-        currentSectionDropSection = ''
+        currentLesson = ''
+        
     });
 
 })
@@ -119,6 +130,7 @@ lessons.forEach(el => {
             mainTargetDivContainer.focus()
             window.scrollTo(0,0)
         }
+        displayCurrentLesson.innerText = e.target.innerText
         currentLesson = e.target
     });
 })
@@ -176,11 +188,11 @@ mainTargetDivContainer.addEventListener('focus', e => {
         sectionsFocused = false
         lessonsFocused = false
     } else {
-        sectionsFocused = true
+        // sectionsFocused = true
     }
     
    mainTargetFocused = true
-   console.log('focus')
+//    console.log('focus')
 });
 mainTargetDivContainer.addEventListener('keydown', e => {
     let key = e.keyCode
@@ -190,14 +202,20 @@ mainTargetDivContainer.addEventListener('keydown', e => {
             shiftTab.shift()
         }
         if(shiftTab[0] == 16 && shiftTab[1] == 9){
-            console.log('go')
+            // console.log('go')
             // currentLesson.focus()
         }
     }
-    console.log(shiftTab)
+    
+
 })
 addEventListener('keydown', e => {    
     let key = e.key.toLocaleLowerCase()
+    if(key == 'd'){
+        documentationLink.focus()
+        sectionsFocused = true
+        window.scrollTo(0,0)
+    }
     if(key == 'h'){
         homelink.focus()
         sectionsFocused = true
@@ -227,11 +245,11 @@ addEventListener('keydown', e => {
     }
     if(sectionsFocused){
         dropSections.forEach(el => {
-            if(key == el.innerText[8]){
+            if(key == el.innerText[5]){
                 el.focus()
             }
         })
-        if(key == 's'){
+        if(key == 'p'){
             section01.focus()
             window.scrollTo(0,0)
         }
