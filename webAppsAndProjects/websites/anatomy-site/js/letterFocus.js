@@ -1,5 +1,6 @@
 const myMris = document.getElementById('myMris')
 const allEls = document.querySelectorAll('.anatomy-container *')
+
 const allElsArray = []
 let currentLetterArray = []
 let currentElement
@@ -252,9 +253,6 @@ function getAnatomyContainer(parent){
 addEventListener('keydown' , e => {
     let letter = e.key.toLowerCase()
     shiftM.unshift(letter)
-    
-    
-    
     if(sysSelectFocus || subSysSelectFocus){
         getIdElements(e)        
     }    
@@ -317,13 +315,4 @@ addEventListener('keydown' , e => {
     if(shiftM[0] === 'm' && shiftM[1] == 'shift'){
         myMris.focus()
     }   
-    if(e.target == currentElement){
-        let noteImg = document.querySelector('.note-img')      
-        noteImg.setAttribute('tabindex','1')
-        noteImg.focus()
-        noteImg.setAttribute('tabindex','-1')
-        console.log(noteImg)
-    }
-    console.log(currentElement)
-    currentElement = e.target
 })

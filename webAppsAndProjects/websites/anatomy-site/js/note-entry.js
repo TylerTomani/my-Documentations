@@ -7,13 +7,15 @@ const noteImg = document.querySelector('.note-img')
 allElements.forEach(el => {
     el.addEventListener('click', e => {
         e.preventDefault()
+        currentSelection = e.target.innerText
+            fillTextArea()
     })
     el.addEventListener('keydown', e => {
         let key = e.keyCode
         if(key === 13){
             currentSelection = e.target.innerText
-            console.log(currentSelection.toLowerCase())
             fillTextArea()
+            console.log(currentSelection.toLowerCase())
         }
         
     });
