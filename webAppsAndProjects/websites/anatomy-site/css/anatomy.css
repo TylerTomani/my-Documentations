@@ -16,6 +16,13 @@ main {
     display: flex;
     flex-direction: column;    
 }
+
+.note-images-container{
+    /* display: flex; */
+}
+.anatomy-container > .note-images-container > .note-img{
+    width: 90%;
+}
 .anatomy-container > header {
     display: flex;
     justify-content: space-between;

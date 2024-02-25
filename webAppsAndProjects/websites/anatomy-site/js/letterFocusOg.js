@@ -1,3 +1,4 @@
+const myMris = document.getElementById('myMris')
 const allEls = document.querySelectorAll('.anatomy-container *')
 const allElsArray = []
 let currentLetterArray = []
@@ -14,6 +15,7 @@ let groupItemsFocused = false
 
 const subGroupLinks = document.querySelectorAll('.sub-group > h5 > a')
 const subGroupItemsContainers = document.querySelectorAll('.sub-group > .group-items-container > ul > li a')
+let subGroupLinksFocused = false
 let subGroupItemsFocused = false
 const currentSystemH2 = document.getElementById('currentSystemH2')
 let currentSys
@@ -66,11 +68,9 @@ sysSelects.forEach(el => {
         const systemContainer = anatomyContainer.querySelector(`.${systemName}-system`)
         if(e.target == currentSys ){
             removeHide(systemContainer)
-            // console.log('=')
             const subSysSelect1 = systemContainer.querySelector('.sub-sys-select')
             subSysSelect1.focus()
         } else {
-            // console.log('!=')
             toggleSystemContainer(systemContainer)
         }
         
@@ -91,6 +91,7 @@ groupLinks.forEach(el =>{
         sysSelectFocus = true
         subSysSelectFocus = true
         groupItemsFocused= false
+        subGroupLinksFocused = false
         subGroupItemsFocused = false
     });
 })
@@ -99,6 +100,7 @@ groupItemsContainers.forEach(el => {
         sysSelectFocus =false
         subSysSelectFocus =false
         groupItemsFocused = true 
+        subGroupLinksFocused = false
         subGroupItemsFocused = false
     });
 })
@@ -107,15 +109,16 @@ subGroupLinks.forEach(el =>{
         sysSelectFocus = false
         subSysSelectFocus = false
         groupItemsFocused= true
-        subGroupItemsFocused = true
-        console.log('focus')
+        subGroupLinksFocused = true
+        subGroupItemsFocused = false
     });
 })
 subGroupItemsContainers.forEach(el => {
     el.addEventListener('focus', e  => {
         sysSelectFocus =false
         subSysSelectFocus =false
-        groupItemsFocused = true 
+        groupItemsFocused = false
+        subGroupLinksFocused = false
         subGroupItemsFocused = true 
     });
 })
@@ -146,45 +149,7 @@ function toggleSystemContainer(el){
 
 let letterGroupClicked = false
 let letterSubGroupClicked = false
-addEventListener('keydown' , e => {
-    let letter = e.key.toLowerCase()
-    if(sysSelectFocus || subSysSelectFocus){
-        getIdElements(e)        
-    }    
-    if(groupItemsFocused){
-        // console.log('groupItemFocused',groupItemsFocused)
-        let group = getGroup(e.target.parentElement)
-        let groupLink = group.querySelector('h4 > a')
-        let groupItems = group.querySelectorAll('.group-items-container > ul > li > a')
-        groupItems.forEach(el =>{
-            if(letter == el.innerText[0].toLowerCase()){
-                el.focus()
-                console.log(el.innerText)
-            }
-        })
-        if(letter == groupLink.id[0] && letterGroupClicked){
-            groupLink.focus()
-            console.log(groupLink.id)
-            letterGroupClicked = false
-        } else {
-
-            letterGroupClicked = true
-        }
-    }
-     if(subGroupItemsFocused){
-        let group = getGroup(e.target.parentElement)
-        let subGroupLinks = group.querySelectorAll('.sub-group > h5 > a')
-        subGroupLinks.forEach(subGroupLink =>{
-            if(letter == subGroupLink.innerText[0].toLowerCase()){
-                subGroupLink.focus()
-                // console.log(groupLink.id)
-                letterSubGroupClicked = false
-            } else {
-                letterSubGroupClicked = true
-            }
-        })
-    }
-})
+let letterSubGroupItemClicked = false
 let lastPressedKey = null;
 // let newIndex = 0
 let currentIndex = 0
@@ -196,7 +161,6 @@ function getIdElements(e){
     const subSysSelects = anatomyContainer.querySelectorAll('.systems-container >.system-container > .sub-system-container > h3 > a.sub-sys-select')
     subSysSelects.forEach(el => {
         let systemContainer = getSystemContainer(el.parentElement)
-        // console.log(systemContainer)
         if(!systemContainer.classList.contains('hide')){
             currentLetterArray.push(el)
             const groupLinks = systemContainer.querySelectorAll('.sub-system-container > .groups-container > .group > h4 > a')
@@ -208,12 +172,9 @@ function getIdElements(e){
             })
         }
     })
-    // console.log(currentLetterArray.length)
-    const pressedKey = e.key.toLowerCase(); // Convert the pressed key to lowercase for case-insensitivity
-    
+    const pressedKey = e.key.toLowerCase(); // Convert the pressed key to lowercase for case-insensitivity    
     // // Find the index of the first element starting with the pressed key
     const newIndex = currentLetterArray.findIndex(el => el.id.toLowerCase().startsWith(pressedKey));
-    // console.log(currentLetterArray[newIndex])
     if (newIndex !== -1) {
         if (lastPressedKey === pressedKey) {
           // If the same key is pressed again, go to the next element with the same starting letter
@@ -287,3 +248,72 @@ function getAnatomyContainer(parent){
 
 
 
+addEventListener('keydown' , e => {
+    let letter = e.key.toLowerCase()
+    shiftM.unshift(letter)
+    
+    
+    
+    if(sysSelectFocus || subSysSelectFocus){
+        getIdElements(e)        
+    }    
+    if(groupItemsFocused){
+        let group = getGroup(e.target.parentElement)
+        let groupLink = group.querySelector('h4 > a')
+        let groupItems = group.querySelectorAll('.group-items-container > ul > li > a')
+        groupItems.forEach(el =>{
+            if(letter == el.innerText[0].toLowerCase()){
+                el.focus()
+            }
+        })
+        if(letter == groupLink.id[0] && letterGroupClicked){
+            groupLink.focus()
+            letterGroupClicked = false
+        } else {
+
+            letterGroupClicked = true
+        }
+    }
+    if(subGroupLinksFocused){
+        let group = getGroup(e.target.parentElement)
+        let subGroupLinks = group.querySelectorAll('.sub-group > h5 > a')
+        subGroupLinks.forEach(subGroupLink =>{
+            if(letter == subGroupLink.innerText[0].toLowerCase()){
+                subGroupLink.focus()
+                letterSubGroupClicked = false
+            } else {
+                letterSubGroupClicked = true
+            }
+        })
+    }
+    if(subGroupItemsFocused){
+        let group = getGroup(e.target.parentElement)
+        let groupLink = group.querySelector('h4 a')
+        if(letter == groupLink.id[0]){
+            groupLink.focus()
+        }
+        let groupItemsContainer = getGroupItemsContainer(e.target.parentElement)
+        if(groupItemsContainer){
+
+            let groupItems = groupItemsContainer.querySelectorAll('ul > li > a')
+            groupItems.forEach(el => {
+                if(letter == el.innerText[1]){
+                    el.focus()
+                }
+            })
+        }
+        let subGroup = getSubGroup(e.target.parentElement)
+        let subGroupLink = subGroup.querySelector('h5 > a')
+        if(letter == subGroupLink.innerText[0].toLowerCase()){
+            subGroupLink.focus()
+        }
+
+
+    }
+    if(shiftM.length > 2){
+        shiftM.pop()
+    }
+    if(shiftM[0] === 'm' && shiftM[1] == 'shift'){
+        myMris.focus()
+    }    
+})
