@@ -9,7 +9,8 @@
     <script src="js/loadImg.js" defer></script>
     <!-- <script module src="js/textAreaFocus.js" defer></script> -->
     <script src="js/dropDowns.js" defer></script>
-    <script src="js/letterFocus.js" defer></script>
+    <script type="module" src="js/letterFocus.js" defer></script>
+    <script type="module" src="js/note-entry.js" defer></script>
 </head>
 <body>
     <header>
@@ -24,8 +25,8 @@
             <div class="fi anatomy-container">
                 <header class="system-select-header">
                     <ul>
-                        <li><a autofocus  id="skeleton" class="sys-select"  href="#">Skeleton</a></li>
-                        <li><a id="muscles"  class="sys-select"  href="#">Muscles</a></li>
+                        <li><a autofocus  id="skeleton" class="sys-select"  href="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Blausen_0229_ClassificationofBones.png/600px-Blausen_0229_ClassificationofBones.png">Skeleton</a></li>
+                        <li><a id="muscles"  class="sys-select"  href="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Muscle_posterior_labeled.png/197px-Muscle_posterior_labeled.png">Muscles</a></li>
                     </ul>   
                     <h2 id="currentSystemH2">Skeleton</h2>
                 </header>
@@ -94,22 +95,22 @@
                                     <div class="sub-group ">
                                         <h5><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Cervical_vertebrae_animation_small.gif/240px-Cervical_vertebrae_animation_small.gif
                                             ">Cervical</a></h5>
-                                        <div class="bones">
+                                        <div class="group-items-container bones">
                                             <ul>
-                                                <li>C1</li>
-                                                <li>C2</li>
-                                                <li>C3</li>
-                                                <li>C4</li>
-                                                <li>C5</li>
-                                                <li>C6</li>
-                                                <li>C7</li>
+                                                <li><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Atlas_%28C1%29_from_top_animation_small.gif/240px-Atlas_%28C1%29_from_top_animation_small.gif">C1</a></li>
+                                                <li><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/C2_from_top_animation_small.gif/240px-C2_from_top_animation_small.gif">C2</a></li>
+                                                <li><a href="https://upload.wikimedia.org/wikipedia/commons/4/4d/Gray308.png">C3</a></li>
+                                                <li><a href="https://upload.wikimedia.org/wikipedia/commons/9/96/HWS_seitlich_Annotation.jpg">C4</a></li>
+                                                <li><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Cervical_vertebra_english.png/500px-Cervical_vertebra_english.png">C5</a></li>
+                                                <li><a href="https://upload.wikimedia.org/wikipedia/commons/7/7f/Gray384.png">C6</a></li>
+                                                <li><a href="https://upload.wikimedia.org/wikipedia/commons/c/c2/C7_animation_small.gif">C7</a></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <!-- Thoracic  -->
                                     <div class="sub-group">
                                         <h5><a href="#">Thoracic</a></h5>
-                                        <div class="bones">
+                                        <div class="group-items-container bones">
                                             <ul>
                                                 <li>T1</li>
                                                 <li>T2</li>
@@ -124,7 +125,7 @@
                                     <!-- Lumbar -->
                                     <div class="sub-group">
                                         <h5><a href="#">Lumbar</a></h5>
-                                        <div class="bones">
+                                        <div class="group-items-container bones">
                                             <ul>
                                                 <li>l1</li>
                                                 <li>l2</li>
@@ -144,7 +145,7 @@
                                 <!-- Thoracic Cage -->
                                 <div class="group">
                                     <h4><a id="thoracicCage" href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Blausen_0467_HeartLocation.png/240px-Blausen_0467_HeartLocation.png">Thoracic Cage</a></h4>
-                                    <div class="bones">
+                                    <div class="group-items-container bones">
                                         <ul>
                                             <li>Sternum</li>
                                             <li>Ribs
@@ -164,7 +165,7 @@
                                 <!-- Upper Extremity -->
                                 <div class="group">
                                     <h4><a id="upperExtremity" href="#">Upper Extremity</a></h4>
-                                    <div class="bones">
+                                    <div class="group-items-container bones">
                                         <ul>
                                             <li>Carpals</li>
                                             <li>Humerus</li>
@@ -178,7 +179,7 @@
                                 <!-- Pectoral Girdles -->
                                 <div class="group">
                                     <h4><a id="pectoralGirdles" href="#">Pectoral Girdles</a></h4>
-                                    <div class="bones">
+                                    <div class="group-items-container bones">
                                         <ul>
                                             <li>Clavicle</li>
                                             <li>Scapula</li>
@@ -188,7 +189,7 @@
                                 <!-- Pelvic Girdle -->
                                 <div class="group">
                                     <h4><a id="pelvicGirdle" href="#">Pelvic Girdle</a></h4>
-                                    <div class="bones">
+                                    <div class="group-items-container bones">
                                         <ul>
                                             <li>Coxal</li>
                                             <li>Asetabulum</li>
@@ -202,7 +203,7 @@
                                 <!-- Lower Extremity -->
                                 <div class="group">
                                     <h4><a id="lowerExtremity" href="#">Lower Extremity</a></h4>
-                                    <div class="bones">
+                                    <div class="group-items-container bones">
                                         <ul>
                                             <li>Femur</li>
                                             <li>Patella</li>
@@ -277,23 +278,24 @@
                                     <h4><a   href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Illu_vertebral_column.svg/500px-Illu_vertebral_column.svg.png">Vetebral Column</a></h4>
                                     <!-- Cervical -->
                                     <div class="sub-group ">
-                                        <h5><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Cervical_vertebrae_animation_small.gif/240px-Cervical_vertebrae_animation_small.gif
+                                        <h5><a id="cervical" href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Cervical_vertebrae_animation_small.gif/240px-Cervical_vertebrae_animation_small.gif
                                             ">Cervical</a></h5>
                                         <div class="group-items-container ">
                                             <ul>
-                                                <li>C1</li>
-                                                <li>C2</li>
-                                                <li>C3</li>
-                                                <li>C4</li>
-                                                <li>C5</li>
-                                                <li>C6</li>
-                                                <li>C7</li>
+                                                <li><a href="#">C11111</a></li>
+                                                <li><a href="#">C1</a></li>
+                                                <li><a href="#">C2</a></li>
+                                                <li><a href="#">C3</a></li>
+                                                <li><a href="#">C4</a></li>
+                                                <li><a href="#">C5</a></li>
+                                                <li><a href="#">C6</a></li>
+                                                <li><a href="#">C7</a></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <!-- Thoracic  -->
                                     <div class="sub-group">
-                                        <h5><a href="#">Thoracic</a></h5>
+                                        <h5><a id="thoracic" href="#">Thoracic</a></h5>
                                         <div class="group-items-container ">
                                             <ul>
                                                 <li>T1</li>
@@ -308,7 +310,7 @@
                                     </div>
                                     <!-- Lumbar -->
                                     <div class="sub-group">
-                                        <h5><a href="#">Lumbar</a></h5>
+                                        <h5><a id="lumbar" href="#">Lumbar</a></h5>
                                         <div class="group-items-container ">
                                             <ul>
                                                 <li>l1</li>
@@ -319,16 +321,16 @@
                                     </div>
                                     <!-- Sacrum -->
                                     <div class="sub-group">
-                                        <h5><a href="#">Sacrum</a></h5>
+                                        <h5><a id="sacrum" href="#">Sacrum</a></h5>
                                     </div>
                                     <!-- Coccyx -->
                                     <div class="sub-group">
-                                        <h5><a href="#">Coccyx</a></h5>
+                                        <h5><a id="coccyx" href="#">Coccyx</a></h5>
                                     </div>
                                 </div>
                                 <!-- Thoracic Cage -->
                                 <div class="group">
-                                    <h4><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Blausen_0467_HeartLocation.png/240px-Blausen_0467_HeartLocation.png">Thoracic Cage</a></h4>
+                                    <h4><a id="thoracicCage" href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Blausen_0467_HeartLocation.png/240px-Blausen_0467_HeartLocation.png">Thoracic Cage</a></h4>
                                     <div class="group-items-container bones">
                                         <ul>
                                             <li>Sternum</li>
@@ -385,4 +387,4 @@
     </main>
 
 </body>
-</html>
+    </html>

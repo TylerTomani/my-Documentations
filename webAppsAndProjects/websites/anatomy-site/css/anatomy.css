@@ -103,6 +103,7 @@ a:active,a:focus,a:hover{
     width: 100%;
     max-height: 550px;
     padding: 5%;
+    padding-bottom: 0;
 }
 
 .img-container>textarea {
@@ -111,4 +112,7 @@ a:active,a:focus,a:hover{
 .show {display: flex;}
 .hide {
     display: none;
+}
+textarea {
+    width: 90%;
 }

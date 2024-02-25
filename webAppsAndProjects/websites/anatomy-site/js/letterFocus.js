@@ -11,6 +11,11 @@ let subSysSelectFocus = false
 const groupLinks = document.querySelectorAll('.group > h4 > a')
 const groupItemsContainers = document.querySelectorAll('.group > .group-items-container > ul > li a')
 let groupItemsFocused = false
+
+const subGroupLinks = document.querySelectorAll('.sub-group > h5 > a')
+const subGroupItemsContainers = document.querySelectorAll('.sub-group > .group-items-container > ul > li a')
+let subGroupLinksFocused = false
+let subGroupItemsFocused = false
 const currentSystemH2 = document.getElementById('currentSystemH2')
 let currentSys
 
@@ -87,6 +92,8 @@ groupLinks.forEach(el =>{
         sysSelectFocus = true
         subSysSelectFocus = true
         groupItemsFocused= false
+        subGroupLinksFocused = false
+        subGroupItemsFocused = false
     });
 })
 groupItemsContainers.forEach(el => {
@@ -94,6 +101,27 @@ groupItemsContainers.forEach(el => {
         sysSelectFocus =false
         subSysSelectFocus =false
         groupItemsFocused = true 
+        subGroupLinksFocused = false
+        subGroupItemsFocused = false
+    });
+})
+subGroupLinks.forEach(el =>{
+    el.addEventListener('focus', e => { 
+        sysSelectFocus = false
+        subSysSelectFocus = false
+        groupItemsFocused= true
+        subGroupLinksFocused = true
+        subGroupItemsFocused = false
+    });
+})
+subGroupItemsContainers.forEach(el => {
+    el.addEventListener('focus', e  => {
+        console.log('focus')
+        sysSelectFocus =false
+        subSysSelectFocus =false
+        groupItemsFocused = false
+        subGroupLinksFocused = false
+        subGroupItemsFocused = true 
     });
 })
 function getSystem(id){
@@ -122,12 +150,14 @@ function toggleSystemContainer(el){
 }
 
 let letterGroupClicked = false
+let letterSubGroupClicked = false
+let letterSubGroupItemClicked = false
 addEventListener('keydown' , e => {
     let letter = e.key.toLowerCase()
     if(sysSelectFocus || subSysSelectFocus){
         getIdElements(e)        
     }    
-     if(groupItemsFocused){
+    if(groupItemsFocused){
         // console.log('groupItemFocused',groupItemsFocused)
         let group = getGroup(e.target.parentElement)
         let groupLink = group.querySelector('h4 > a')
@@ -146,6 +176,43 @@ addEventListener('keydown' , e => {
 
             letterGroupClicked = true
         }
+    }
+     if(subGroupLinksFocused){
+        let group = getGroup(e.target.parentElement)
+        let subGroupLinks = group.querySelectorAll('.sub-group > h5 > a')
+        subGroupLinks.forEach(subGroupLink =>{
+            if(letter == subGroupLink.innerText[0].toLowerCase()){
+                subGroupLink.focus()
+                letterSubGroupClicked = false
+            } else {
+                letterSubGroupClicked = true
+            }
+        })
+    }
+     if(subGroupItemsFocused){
+        let group = getGroup(e.target.parentElement)
+        let groupLink = group.querySelector('h4 a')
+        if(letter == groupLink.id[0]){
+            groupLink.focus()
+        }
+        let groupItemsContainer = getGroupItemsContainer(e.target.parentElement)
+        if(groupItemsContainer){
+
+            let groupItems = groupItemsContainer.querySelectorAll('ul > li > a')
+            groupItems.forEach(el => {
+                if(letter == el.innerText[1]){
+                    el.focus()
+                }
+            })
+        }
+        let subGroup = getSubGroup(e.target.parentElement)
+        let subGroupLink = subGroup.querySelector('h5 > a')
+        console.log(subGroupLink.innerText)
+        if(letter == subGroupLink.innerText[0].toLowerCase()){
+            subGroupLink.focus()
+        }
+
+
     }
 })
 let lastPressedKey = null;
@@ -191,11 +258,21 @@ function getIdElements(e){
     }
 }
 // Get Parent Functions
+
 function getGroupItemsContainer(parent){
     if(parent.classList.contains('group-items-container')){
         return parent
     } else if (parent.parentElement){
         return getGroupItemsContainer(parent.parentElement)
+    } else {
+        return null
+    }
+}
+function getSubGroup(parent){
+    if(parent.classList.contains('sub-group')){
+        return parent
+    } else if (parent.parentElement){
+        return getSubGroup(parent.parentElement)
     } else {
         return null
     }
