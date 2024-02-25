@@ -2,12 +2,14 @@
     margin: 0;
     padding:0;
 }
-header>.title>a img {
+header>.page-logo > img {
+    empty-cells: show;
     margin-right: 2.5%;
-}
-
-header>.title>a img {
     max-width: 250px;
+}
+.page-title {
+    display: flex;
+    flex-direction: column;
 }
 canvas {
     height: 55vmax;
@@ -72,3 +74,16 @@ a:active,a:focus,a:hover,
 .show {
     display: block;
 }
+
+.changeScriptPosition{
+    position: absolute;
+    top:0;
+    right: 0;
+    z-index: 1;
+    border: 1px solid black;
+}
+
+.dechangeScriptPosition{
+
+}
+

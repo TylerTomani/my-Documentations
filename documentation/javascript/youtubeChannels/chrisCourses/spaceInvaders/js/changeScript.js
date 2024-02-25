@@ -1,3 +1,4 @@
+// const tutorial
 const scripts = document.querySelectorAll('.script')
 const arrScripts = Array.from(scripts)
 const prevBtn = document.getElementById('prevBtn')
@@ -44,6 +45,6 @@ function changeScript(){
 arrScripts.forEach((script,i) => {  
     if(script.classList.contains('show')){
         currentIndex = i
-        console.log(currentIndex)
+        // console.log(currentIndex)
     }
 })
