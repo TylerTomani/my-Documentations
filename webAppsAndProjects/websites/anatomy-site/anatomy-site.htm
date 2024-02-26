@@ -9,7 +9,7 @@
     <script src="js/loadImg.js" defer></script>
     <!-- <script module src="js/textAreaFocus.js" defer></script> -->
     <script src="js/dropDowns.js" defer></script>
-    <!-- <script type="module" src="js/note-entry.js" defer></script> -->
+    <script type="module" src="js/note-entry.js" defer></script>
     <script type="module" src="js/letterFocus.js" defer></script>
 </head>
 <body>
@@ -27,12 +27,14 @@
                     <ul>
                         <li><a autofocus  id="skeleton" class="sys-select"  href="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Blausen_0229_ClassificationofBones.png/600px-Blausen_0229_ClassificationofBones.png">Skeleton</a></li>
                         <li><a id="muscles"  class="sys-select"  href="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Muscle_posterior_labeled.png/197px-Muscle_posterior_labeled.png">Muscles</a></li>
+                        <li><a id="veinsArteries"  class="sys-select"  href="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Circulatory_System_en.svg/500px-Circulatory_System_en.svg.png">Veins/Arteries <br><sup>circulatory</sup></a></li>
                     </ul>   
-                    <h2 id="currentSystemH2">Skeleton</h2>
+                    
                 </header>
                 <div class="systems-container">
+                    <h2 id="currentSystemH2">Skeleton</h2>
                     <!-- Skeleton -->
-                    <div class="system-container skeletal-system show">
+                    <div class="system-container skeletal-system ">
                         <!-- Axial Skeleton -->
                         <div class="sub-system-container">
                             <h3><a id="axial" class="sub-sys-select" href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Axial_skeleton_diagram.svg/500px-Axial_skeleton_diagram.svg.png
@@ -223,125 +225,126 @@
                         <!-- Skeletal Muscles -->
                         <div class="sub-system-container">
                             <h3><a id="axial" class="sub-sys-select" href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Axial_skeleton_diagram.svg/500px-Axial_skeleton_diagram.svg.png
-                                ">Skeletal Muscles</a></h3>
-                                <div class="groups-container ">
-                                <!-- Upper Body -->
-                                <!-- Head -->
-                                <div class="group">
-                                    <h4><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Slide1ghe.JPG/700px-Slide1ghe.JPG
-                                        ">Head</a></h4>
-                                    <div class="group-items-container bones">
+                                ">Skeletal Muscles</a>
+                            </h3>
+                            <div class="groups-container ">
+                            <!-- Upper Body -->
+                            <!-- Head -->
+                            <div class="group">
+                                <h4><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Slide1ghe.JPG/700px-Slide1ghe.JPG
+                                    ">Head</a></h4>
+                                <div class="group-items-container bones">
+                                    <ul>
+                                        <li>tbd</li>
+                                        <li>tbd</li>
+                                        <li>tbd</li>
+                                        <li>more </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Neck -->
+                            <div class="group">
+                                <h4><a href="#">Back</a></h4>
+                                <div class="group-items-container bones">
+                                    <ul>
+                                        <li>Enthmoid</li>
+                                        <li>Frontal</li>
+                                        <li>Occipital</li>
+                                        <li>Parietal</li>
+                                        <li>Sphenoid</li>
+                                        <li>Temporal</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Facial Group-items-container bones -->
+                            <div class="group">
+                                <h4><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Facial_skeleton_-_en.svg/500px-Facial_skeleton_-_en.svg.png">Facial Bones</a></h4>
+                                <div class="group-items-container bones">
+                                    <ul>
+                                        <li>Inferior nasal concha</li>
+                                        <li>Lacrimal</li>
+                                        <li>Mandible</li>
+                                        <li>Maxilla</li>
+                                        <li>Nasal</li>
+                                        <li>Platine</li>
+                                        <li>Vomer</li>
+                                        <li>Zygomatic</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Hyoid Bone -->
+                            <div class="group">
+                                <h4><a href="#">Hyoid Bone</a></h4>
+                            </div>
+                            <!-- Vertebral Column -->
+                            <div class="group ">
+                                <h4><a   href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Illu_vertebral_column.svg/500px-Illu_vertebral_column.svg.png">Vetebral Column</a></h4>
+                                <!-- Cervical -->
+                                <div class="sub-group ">
+                                    <h5><a id="cervical" href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Cervical_vertebrae_animation_small.gif/240px-Cervical_vertebrae_animation_small.gif
+                                        ">Cervical</a></h5>
+                                    <div class="group-items-container ">
                                         <ul>
-                                            <li>tbd</li>
-                                            <li>tbd</li>
-                                            <li>tbd</li>
-                                            <li>more </li>
+                                            <li><a href="#">C11111</a></li>
+                                            <li><a href="#">C1</a></li>
+                                            <li><a href="#">C2</a></li>
+                                            <li><a href="#">C3</a></li>
+                                            <li><a href="#">C4</a></li>
+                                            <li><a href="#">C5</a></li>
+                                            <li><a href="#">C6</a></li>
+                                            <li><a href="#">C7</a></li>
                                         </ul>
                                     </div>
                                 </div>
-                                <!-- Neck -->
-                                <div class="group">
-                                    <h4><a href="#">Back</a></h4>
-                                    <div class="group-items-container bones">
+                                <!-- Thoracic  -->
+                                <div class="sub-group">
+                                    <h5><a id="thoracic" href="#">Thoracic</a></h5>
+                                    <div class="group-items-container ">
                                         <ul>
-                                            <li>Enthmoid</li>
-                                            <li>Frontal</li>
-                                            <li>Occipital</li>
-                                            <li>Parietal</li>
-                                            <li>Sphenoid</li>
-                                            <li>Temporal</li>
+                                            <li>T1</li>
+                                            <li>T2</li>
+                                            <li>T3</li>
+                                            <li>T4</li>
+                                            <li>T5</li>
+                                            <li>T6</li>
+                                            <li>...</li>
                                         </ul>
                                     </div>
                                 </div>
-                                <!-- Facial Group-items-container bones -->
-                                <div class="group">
-                                    <h4><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Facial_skeleton_-_en.svg/500px-Facial_skeleton_-_en.svg.png">Facial Bones</a></h4>
-                                    <div class="group-items-container bones">
+                                <!-- Lumbar -->
+                                <div class="sub-group">
+                                    <h5><a id="lumbar" href="#">Lumbar</a></h5>
+                                    <div class="group-items-container ">
                                         <ul>
-                                            <li>Inferior nasal concha</li>
-                                            <li>Lacrimal</li>
-                                            <li>Mandible</li>
-                                            <li>Maxilla</li>
-                                            <li>Nasal</li>
-                                            <li>Platine</li>
-                                            <li>Vomer</li>
-                                            <li>Zygomatic</li>
+                                            <li>l1</li>
+                                            <li>l2</li>
+                                            <li>..</li>
                                         </ul>
                                     </div>
                                 </div>
-                                <!-- Hyoid Bone -->
-                                <div class="group">
-                                    <h4><a href="#">Hyoid Bone</a></h4>
+                                <!-- Sacrum -->
+                                <div class="sub-group">
+                                    <h5><a id="sacrum" href="#">Sacrum</a></h5>
                                 </div>
-                                <!-- Vertebral Column -->
-                                <div class="group ">
-                                    <h4><a   href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Illu_vertebral_column.svg/500px-Illu_vertebral_column.svg.png">Vetebral Column</a></h4>
-                                    <!-- Cervical -->
-                                    <div class="sub-group ">
-                                        <h5><a id="cervical" href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Cervical_vertebrae_animation_small.gif/240px-Cervical_vertebrae_animation_small.gif
-                                            ">Cervical</a></h5>
-                                        <div class="group-items-container ">
+                                <!-- Coccyx -->
+                                <div class="sub-group">
+                                    <h5><a id="coccyx" href="#">Coccyx</a></h5>
+                                </div>
+                            </div>
+                            <!-- Thoracic Cage -->
+                            <div class="group">
+                                <h4><a id="thoracicCage" href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Blausen_0467_HeartLocation.png/240px-Blausen_0467_HeartLocation.png">Thoracic Cage</a></h4>
+                                <div class="group-items-container bones">
+                                    <ul>
+                                        <li>Sternum</li>
+                                        <li>Ribs
                                             <ul>
-                                                <li><a href="#">C11111</a></li>
-                                                <li><a href="#">C1</a></li>
-                                                <li><a href="#">C2</a></li>
-                                                <li><a href="#">C3</a></li>
-                                                <li><a href="#">C4</a></li>
-                                                <li><a href="#">C5</a></li>
-                                                <li><a href="#">C6</a></li>
-                                                <li><a href="#">C7</a></li>
+                                                <li>maybe do each rib <br> and what connects</li>
                                             </ul>
-                                        </div>
-                                    </div>
-                                    <!-- Thoracic  -->
-                                    <div class="sub-group">
-                                        <h5><a id="thoracic" href="#">Thoracic</a></h5>
-                                        <div class="group-items-container ">
-                                            <ul>
-                                                <li>T1</li>
-                                                <li>T2</li>
-                                                <li>T3</li>
-                                                <li>T4</li>
-                                                <li>T5</li>
-                                                <li>T6</li>
-                                                <li>...</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!-- Lumbar -->
-                                    <div class="sub-group">
-                                        <h5><a id="lumbar" href="#">Lumbar</a></h5>
-                                        <div class="group-items-container ">
-                                            <ul>
-                                                <li>l1</li>
-                                                <li>l2</li>
-                                                <li>..</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!-- Sacrum -->
-                                    <div class="sub-group">
-                                        <h5><a id="sacrum" href="#">Sacrum</a></h5>
-                                    </div>
-                                    <!-- Coccyx -->
-                                    <div class="sub-group">
-                                        <h5><a id="coccyx" href="#">Coccyx</a></h5>
-                                    </div>
+                                        </li>
+                                    </ul>
                                 </div>
-                                <!-- Thoracic Cage -->
-                                <div class="group">
-                                    <h4><a id="thoracicCage" href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Blausen_0467_HeartLocation.png/240px-Blausen_0467_HeartLocation.png">Thoracic Cage</a></h4>
-                                    <div class="group-items-container bones">
-                                        <ul>
-                                            <li>Sternum</li>
-                                            <li>Ribs
-                                                <ul>
-                                                    <li>maybe do each rib <br> and what connects</li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
+                            </div>
                             </div>
                         </div>
                         <!-- Involuntary -->
@@ -367,13 +370,182 @@
                             </div>
                         </div>
                     </div>
+                    <!-- veins/arteries -->
+                    <div class="system-container veinsArteries-system">
+                        <!-- Arteries -->
+                        <div class="sub-system-container">
+                            <h3><a id="arteries" class="sub-sys-select" href="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Artery.svg/500px-Artery.svg.png
+                                ">Arteries</a>
+                            </h3>
+                            <div class="groups-container ">
+                                <!-- Head -->
+                                <div class="group">
+                                    <h4><a id="head" href="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/External_carotid_artery_with_branches.jpg/1920px-External_carotid_artery_with_branches.jpg
+                                        ">Head</a></h4>
+                                    <div class="group-items-container bones">
+                                        <ul>
+                                            <li></li>
+                                            <li></li>
+                                            <li></li>
+                                            <li> </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Neck -->
+                                <div class="group">
+                                    <h4><a id="neck" href="#">Neck</a></h4>
+                                    <div class="group-items-container bones">
+                                        <ul>
+                                            <li><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Blausen_0170_CarotidArteries.png/500px-Blausen_0170_CarotidArteries.png"
+                                                >External Carotid Artery</a></li>
+                                            <li><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Gray513.png/500px-Gray513.png"
+                                                >Internal Carotid Artery</a></li>
+                                            <li><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Blausen_0170_CarotidArteries.png/500px-Blausen_0170_CarotidArteries.png"
+                                                >Common Carotid Artery</a></li>
+                                            <li></li>
+                                            <li></li>
+                                            <li></li>
+                                            <li></li>
+                                            <li></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Thoracic Cage -->
+                                <div class="group">
+                                    <h4><a id="thoracicCage"
+                                            href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Blausen_0467_HeartLocation.png/240px-Blausen_0467_HeartLocation.png">Thoracic
+                                            Cage</a></h4>
+                                    <div class="group-items-container bones">
+                                        <ul>
+                                            <li>Sternum</li>
+                                            <li>Ribs
+                                                <ul>
+                                                    <li>maybe do each rib <br> and what connects</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            <!-- Vertebral Column -->
+                            <div class="group ">
+                                <h4><a id="vetebralColumn"   href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Illu_vertebral_column.svg/500px-Illu_vertebral_column.svg.png">Vetebral Column</a></h4>
+                                <!-- Cervical -->
+                                <div class="sub-group ">
+                                    <h5><a id="cervical" href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Cervical_vertebrae_animation_small.gif/240px-Cervical_vertebrae_animation_small.gif
+                                        ">Cervical</a></h5>
+                                    <div class="group-items-container ">
+                                        <ul>
+                                            <li><a href="#">C11111</a></li>
+                                            <li><a href="#">C1</a></li>
+                                            <li><a href="#">C2</a></li>
+                                            <li><a href="#">C3</a></li>
+                                            <li><a href="#">C4</a></li>
+                                            <li><a href="#">C5</a></li>
+                                            <li><a href="#">C6</a></li>
+                                            <li><a href="#">C7</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Thoracic  -->
+                                <div class="sub-group">
+                                    <h5><a id="thoracic" href="#">Thoracic</a></h5>
+                                    <div class="group-items-container ">
+                                        <ul>
+                                            <li>T1</li>
+                                            <li>T2</li>
+                                            <li>T3</li>
+                                            <li>T4</li>
+                                            <li>T5</li>
+                                            <li>T6</li>
+                                            <li>...</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Lumbar -->
+                                <div class="sub-group">
+                                    <h5><a id="lumbar" href="#">Lumbar</a></h5>
+                                    <div class="group-items-container ">
+                                        <ul>
+                                            <li>l1</li>
+                                            <li>l2</li>
+                                            <li>..</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Sacrum -->
+                                <div class="sub-group">
+                                    <h5><a id="sacrum" href="#">Sacrum</a></h5>
+                                </div>
+                                <!-- Coccyx -->
+                                <div class="sub-group">
+                                    <h5><a id="coccyx" href="#">Coccyx</a></h5>
+                                </div>
+                            </div>
+                            
+                            </div>
+                        </div>
+                        <!-- Veins-->
+                        <div class="sub-system-container">
+                            <h3><a id="veins" class="sub-sys-select" href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Vein_%28retouched%29.svg/400px-Vein_%28retouched%29.svg.png">
+                                Veins</a></h3>
+                            <div class="groups-container">
+                            <!-- Head -->
+                            <div class="group">
+                                <h4><a id="head" href="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Slide1ghe.JPG/700px-Slide1ghe.JPG
+                                                                ">Head</a></h4>
+                                <div class="group-items-container bones">
+                                    <ul>
+                                        <li></li>
+                                        <li></li>
+                                        <li></li>
+                                        <li> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Neck -->
+                            <div class="group">
+                                <h4><a id="neck" href="#">Neck</a></h4>
+                                <div class="group-items-container bones">
+                                    <ul>
+                                        <li><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Gray557.png/500px-Gray557.png">External Jugular Vein</a></li>
+                                        <li><a href="https://upload.wikimedia.org/wikipedia/commons/e/e9/Gray562.png">Internal Jugular Vein</a></li>
+                                        <li></li>
+                                        <li></li>
+                                        <li></li>
+                                        <li></li>
+                                        <li></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Thoracic Cage -->
+                            <div class="group">
+                                <h4><a id="thoracicCage"
+                                        href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Blausen_0467_HeartLocation.png/240px-Blausen_0467_HeartLocation.png">Thoracic
+                                        Cage</a></h4>
+                                <div class="group-items-container bones">
+                                    <ul>
+                                        <li>Sternum</li>
+                                        <li>Ribs
+                                            <ul>
+                                                <li>maybe do each rib <br> and what connects</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
                 <div class="note-images-container">
                     <img class="note-img" src="">
                 </div>
             </div>            
-            <div class="fi img-container">
+            <div class="fi img-container default-notes-textarea">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Maxilla_-_animation_02.gif/120px-Maxilla_-_animation_02.gif">
+                <p class="p1"></p>
                 <textarea name="" id="textarea" cols="30" rows="10">
 &uparrow;;(Make it so img is interactive and image changes when clicked &uarr;)
                     Notes can be made here for each user and saved for doctor visits

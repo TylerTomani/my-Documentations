@@ -1,4 +1,4 @@
-const myMris = document.getElementById('myMris')
+export const myMris = document.getElementById('myMris')
 const allEls = document.querySelectorAll('.anatomy-container *')
 
 const allElsArray = []
@@ -130,8 +130,10 @@ function getSystem(id){
             return 'skeletal'
         case 'muscles':
             return 'muscular'
+        case 'veinsArteries':
+            return 'veinsArteries'
         default:
-            print('no system clicked')
+            console.log('no system clicked')
             break
     }
 }

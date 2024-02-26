@@ -1,4 +1,6 @@
-
+import { myMris } from "./letterFocus.js"
+let mriImg = myMris.querySelector('img')
+const p1 = document.querySelector('.default-notes-textarea > .p1')
 let shiftM = []
 const allElements = document.querySelectorAll('body *')
 let currentSelection
@@ -15,11 +17,9 @@ allElements.forEach(el => {
         if(key === 13){
             currentSelection = e.target.innerText
             fillTextArea()
-            console.log(currentSelection.toLowerCase())
         }
-        if(e.target.innerText == currentElement){
+        if(e.target.innerText == currentSelection){
             noteImg.focus()
-            console.log(noteImg)
         }        
     });
 })
@@ -38,6 +38,7 @@ At C6, the oesophagus becomes continuous with the laryngopharynx and also where 
     }
     if(currentSelection.toLowerCase() == 'c2'){
         textArea.value=`c2-c3,I have 'Minor facet anthropathy' at c2-c3`
+        p1.innerText = 'Not A Wikipedia photo/ need to get my own'
         noteImg.src = 'https://spineconnection.org/wp-content/uploads/2018/06/Facet-Arthropathy-1.jpeg'
         if(!toggled){
             toggled = true
@@ -48,10 +49,14 @@ At C6, the oesophagus becomes continuous with the laryngopharynx and also where 
             return
         }
         // return
-        console.log(toggled)
     }
     if(currentSelection.toLowerCase() == 'c3'){
-        textArea.value=`c3-c4,Large disc osteophyte complex eccentric to the left partially effaces the ventral subarachnoid space and minimally impinges on the left ventral cord surface causing slight flattening. Tiny central annular tear without focal soft disc protrusion/herniation. No central or lateral recess stenosis.  Uncovertebral facet arthropathy results in mild foraminal narrowing on the left.`
+        textArea.value=`c3-c4,Large disc osteophyte complex eccentric to the left partially effaces the ventral subarachnoid space and minimally impinges on the left ventral cord surface causing slight flattening. Tiny central annular tear without focal soft disc protrusion/herniation. No central or lateral recess stenosis.  Uncovertebral facet arthropathy results in mild foraminal narrowing on the left`
+        p1.innerHTML = '<a target="_blank" href="https://www.youtube.com/watch?v=2XEHRgtIBfU">good tutorial</a>'
+        console.log(p1)
+        p1.querySelector('a').addEventListener('click', e=>{
+            open(e.target.href,'_blank')
+        })
     }
     if(currentSelection.toLowerCase() == 'c4'){
         textArea.value=`C4-C5: Mild disc osteophyte complex and tiny central annular tear without focal soft disc protrusion/herniation. No cord impingement.  No central or lateral recess stenosis.  No foraminal narrowing.`
@@ -61,6 +66,27 @@ At C6, the oesophagus becomes continuous with the laryngopharynx and also where 
     }
     if(currentSelection.toLowerCase() == 'c6'){
         textArea.value=`Moderate disc osteophyte complex eccentric to the right without cord impingement. No focal soft disc protrusion/herniation. Mild central and right lateral recess stenosis. Uncovertebral and facet arthropathy results in mild right foraminal narrowing.`
+    }
+    if(currentSelection.toLowerCase() == 'external carotid artery'){
+        console.log('why')
+        textArea.value=`Branches: superior thyroid, lingual, facial, ascending pharyngeal, occipital, posterior auricular, maxillary, superficial temporal`
+        textArea.value=`Branches: superior thyroid, lingual, facial, ascending pharyngeal, occipital, posterior auricular, maxillary, superficial temporal`
+        noteImg.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/External_carotid_artery.png/440px-External_carotid_artery.png'
+        
+        mriImg.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Mra1.jpg/240px-Mra1.jpg'
+    }
+    if(currentSelection.toLowerCase() == 'internal carotid artery'){
+        textArea.value=`Branches:	Ophthalmic, anterior choroidal, anterior cerebral, middle cerebral and posterior communicating artery
+        Source:	Common carotid artery`
+        noteImg.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Internal_carotid_artery.jpg/440px-Internal_carotid_artery.jpg'
+        
+    }
+    if(currentSelection.toLowerCase() == 'common carotid artery'){
+        textArea.value=`Source:	aortic arch, brachiocephalic artery
+Branches:	internal carotid artery, external carotid artery
+Vein:	internal jugular vein`
+        noteImg.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Internal_carotid_artery.jpg/440px-Internal_carotid_artery.jpg'
+        
     }
 }
 
