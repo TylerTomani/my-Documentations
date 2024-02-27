@@ -26,3 +26,12 @@ addEventListener('keydown', e => {
 homelink.addEventListener('click', e => {
     open(e.target.href,'_self')
 });
+homelink.addEventListener('keydown', e => {
+    let key = e.keyCode
+    if(key === 13){
+        console.log('djkhf')
+        open(e.target.href,'_self')
+         
+    }
+    
+});
