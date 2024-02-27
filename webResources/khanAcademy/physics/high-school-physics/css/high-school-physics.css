@@ -14,8 +14,15 @@
 #navMain:active,#navMain:focus{
     box-shadow: 0 0px 4px 2px lawngreen;
 }
+
 #asideMain:active,#asideMain:focus{
     box-shadow: 0 2px 4px 6px lawngreen;
+}
+iframe:active,iframe:focus{
+    /* box-shadow: 0 0px 24px 6px orange; */
+    border: 20px solid orange;
+    height: 100vh;
+
 }
 header {
     display: flex;
@@ -35,7 +42,7 @@ main > nav {
 }
 .main-container > #asideMain {
     border-right: 1px solid black;
-    flex: 15%;
+    flex: 25%;
 }
 
 
@@ -71,7 +78,7 @@ ul.lessons-container > li {
 ul.lessons-container > li > a{
     text-decoration: none;
 }
-.main-container>#target-inject {
+.main-container>iframe{
     border: 2px solid blue;
     flex-basis: 100%;
     height: 100vh;

@@ -1,10 +1,7 @@
 const chapterLinks = document.querySelectorAll(".chapter-link");
 const lessons = document.querySelectorAll(".chapter > ul > li > a")
 const subLessonsLink = document.querySelectorAll(".sub-lessons-link")
-
 const subLessons = document.querySelectorAll(".chapter > ul > li > ul > li > a")
-
-
 const chapterDisplay = document.querySelector(".chapter-display")
 const lessonDisplay = document.querySelector(".lesson-display")
 
@@ -57,9 +54,7 @@ subLessonsLink.forEach(link => {
     link.addEventListener('click', e => {
         if(!loadSubToggle){
             loadSubToggle = true
-
         }
-        
         let parent = link.parentElement;
         let lessonUl = parent.querySelector('ul');
         if(lessonUl.classList.contains('show')){
@@ -79,10 +74,7 @@ subLessonsLink.forEach(link => {
 // Load Lessons
 let selectArray = []
 let currentLesson = ''
-lessons.forEach(lesson => {
-
-   
-        
+lessons.forEach(lesson => {        
     // REMOVE THIS WHEN NOT WORKING ON SITE
         // if(lesson.hasAttribute('autofocus')){
         //     iframe.src = lesson.href
@@ -155,7 +147,6 @@ subLessons.forEach(lesson => {
 // Specific just-drop lesson links  have sub lessons but also a page that can be tabbed to
 const justDrops = document.querySelectorAll(".just-drop")
 justDrops.forEach(drop => {
-    
     drop.addEventListener('click', e => {
         let parent = drop.parentElement
         let ul = parent.querySelector('ul')
@@ -178,7 +169,6 @@ justDrops.forEach(drop => {
 
     } )    
 })
-
 // Chapter number selection
 addEventListener('keydown', ({key}) => {
     chapterLinks.forEach(chapter => {
