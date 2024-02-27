@@ -36,9 +36,9 @@ main {
     display: flex;
     border: 1px solid black;
 }
-.dropResource > h4,
-.dropResource > img{
-    /* flex-basis: 10%; */
+.resource > img{
+    min-width: 200px;
+    min-height: 100px;
 }
 .dropResource > img {
     flex-basis: 30%;

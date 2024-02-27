@@ -25,7 +25,7 @@ function hideSubResourcesContainer(){
 }
 function hideResourceContainers(){
     resourceContainers.forEach(el => {
-        if(!el.classList.contains('hide')){
+        if(!el.classList.contains('hide') && !el.classList.contains('show')){
             el.classList.add('hide')
         }
     })

@@ -160,22 +160,25 @@ let currentIndex = 0
 function getIdElements(e){
     currentLetterArray = []
     let anatomyContainer = getAnatomyContainer(e.target.parentElement)
-    const sysSelects = anatomyContainer.querySelectorAll('.system-select-header > ul > li > a.sys-select')
-    currentLetterArray = Array.from(sysSelects)
-    const subSysSelects = anatomyContainer.querySelectorAll('.systems-container >.system-container > .sub-system-container > h3 > a.sub-sys-select')
-    subSysSelects.forEach(el => {
-        let systemContainer = getSystemContainer(el.parentElement)
-        if(!systemContainer.classList.contains('hide')){
-            currentLetterArray.push(el)
-            const groupLinks = systemContainer.querySelectorAll('.sub-system-container > .groups-container > .group > h4 > a')
-            groupLinks.forEach(el => {
-                let groupsContainer = getGroupsContainer(el.parentElement)
-                if(!groupsContainer.classList.contains('hide')){
-                    currentLetterArray.push(el)
-                }
-            })
-        }
-    })
+    if(anatomyContainer){
+        
+        const sysSelects = anatomyContainer.querySelectorAll('.system-select-header > ul > li > a.sys-select')
+        currentLetterArray = Array.from(sysSelects)
+        const subSysSelects = anatomyContainer.querySelectorAll('.systems-container >.system-container > .sub-system-container > h3 > a.sub-sys-select')
+        subSysSelects.forEach(el => {
+            let systemContainer = getSystemContainer(el.parentElement)
+            if(!systemContainer.classList.contains('hide')){
+                currentLetterArray.push(el)
+                const groupLinks = systemContainer.querySelectorAll('.sub-system-container > .groups-container > .group > h4 > a')
+                groupLinks.forEach(el => {
+                    let groupsContainer = getGroupsContainer(el.parentElement)
+                    if(!groupsContainer.classList.contains('hide')){
+                        currentLetterArray.push(el)
+                    }
+                })
+            }
+        })
+    }
     const pressedKey = e.key.toLowerCase(); // Convert the pressed key to lowercase for case-insensitivity    
     // // Find the index of the first element starting with the pressed key
     const newIndex = currentLetterArray.findIndex(el => el.id.toLowerCase().startsWith(pressedKey));
