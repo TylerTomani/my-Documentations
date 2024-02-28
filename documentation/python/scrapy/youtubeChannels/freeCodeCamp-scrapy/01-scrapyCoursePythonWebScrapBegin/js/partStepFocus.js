@@ -1,13 +1,13 @@
 import { mainTargetFocused } from "./sectionFocusLessonLoad.js"
 import { mainTargetDivContainer } from "./sectionFocusLessonLoad.js"
+import { currentLessonEl } from "./sectionFocusLessonLoad.js"
+import { getSection } from "./sectionFocusLessonLoad.js"
 export function partStepsEventListeners(){
-    
     const dropParts = document.querySelectorAll('.dropPart')
     const stepsContainers = document.querySelectorAll('.steps-container')
     const part01 = document.getElementById('part01')
     let partsFocused = false
     let stepsFocused = false
-    
     const dropSections = document.querySelectorAll('.dropSection')
     const lessons = document.querySelectorAll('.section > ul > li a')
     const img2Containers = document.querySelectorAll('.img-2-container')
@@ -27,6 +27,26 @@ export function partStepsEventListeners(){
     let currentVid 
     let playing = false
     const enlargeFirstImages = document.querySelectorAll('.enlarge-first-img')
+    let nxtElement
+    let currentIndex;
+    const nxtBtn = document.querySelector('#nxtLesson');
+    nxtBtn.addEventListener('click', e  => {
+        let section = getSection(currentLessonEl.parentElement);
+        let lessons = section.querySelectorAll('ul > li a');
+        lessons.forEach((el, i, arr) => {
+            if (currentLessonEl === el) {
+                if (i >= arr.length - 1) {
+                    currentIndex = 0;
+                } else {
+                    currentIndex = i + 1;
+                }
+                scrollTo(0, 0);
+                if (arr[currentIndex]) { // Check if next element exists
+                    arr[currentIndex].focus();
+                }
+            }
+        });
+    });
     
     lessons.forEach(el => {
         el.addEventListener('focus', e => {
@@ -464,7 +484,7 @@ export function partStepsEventListeners(){
     addEventListener('keydown', e => {
         let key = e.key.toLowerCase()
         let letter = e.key.toLowerCase()
-        console.log(letter)
+        
         const nxtLessonBtn = document.getElementById('#nxtLesson')    
         if(letter == 'e'){
             console.log(nxtLessonBtn)

@@ -27,6 +27,7 @@ const displayCurrentSection = document.getElementById('displayCurrentSection')
 const displayCurrentLesson = document.getElementById('displayCurrentLesson')
 let currentSection
 export let currentLesson
+export let currentLessonEl
 
 const allElements = document.querySelectorAll('body  *')
 
@@ -43,7 +44,7 @@ function fetchLessonHref(href){
         
             partStepsEventListeners()
             chatGptDropTopics()
-
+            
 
 
     })
@@ -62,7 +63,8 @@ allElements.forEach(el => {
         })
     }
     if(el.hasAttribute('autofocus')){
-        console.log(el)
+        currentLessonEl = el
+        currentLesson = el.href
         fetchLessonHref(el.href)
     }
 })
@@ -80,7 +82,7 @@ asideMain.addEventListener('focus', () => {
     lessonsFocused = false
     mainTargetFocused = false
     if(currentLesson){
-        currentLesson.focus()
+        currentLessonEl.focus()
     }
 })
 // drop toggle sections & load lessons
@@ -125,13 +127,14 @@ lessons.forEach(el => {
     el.addEventListener('click', e => {
         e.preventDefault()
         e.stopPropagation()
-        fetchLessonHref(e.target.href)
         if(currentLesson == e.target){
             mainTargetDivContainer.focus()
             window.scrollTo(0,0)
         }
-        displayCurrentLesson.innerText = e.target.innerText
+        currentLessonEl = e.target
         currentLesson = e.target
+        fetchLessonHref(e.target.href)
+        displayCurrentLesson.innerText = e.target.innerText
     });
 })
 
@@ -159,7 +162,7 @@ function addLessonTabIndexes(e){
     
 }
 // Get parent fucntions
-function getSection(parent){
+export function getSection(parent){
     if(parent.classList.contains('section')){
         return parent
     }else if (parent.parentElement){
