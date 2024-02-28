@@ -33,7 +33,7 @@ subunits.forEach(el => {
     });
 })
 lessons.forEach(el =>{
-    // console.log(el.href)
+    // 
     el.addEventListener('focusin', e  => {
         unitFocus = false
         subunitsFocus = false
@@ -87,21 +87,21 @@ function unitFocusChange(letter,e){
         }
     }
     if(lessonsFocus){
-        console.log('jkdjf')
+        
         let subUnitContainer = getSubUnitsContainer(e.target.parentElement)
         let subUnit = subUnitContainer.querySelector('h4 > a.sub-unit')
-        console.log(subUnitContainer)
+        
         let lessons = subUnitContainer.querySelectorAll('ul.lessons-container > li > a')
         if(lessons){
             lessons.forEach(el => {
-                console.log(el)
+                
                 if(letter == el.innerText[0]){
                     el.focus()
                 }
             })
             if(letter == 'p' || letter == 'u' || letter == 's'){
                 subUnit.focus()
-                // console.log(subUnitContainer)
+                // 
             }
         }
     }

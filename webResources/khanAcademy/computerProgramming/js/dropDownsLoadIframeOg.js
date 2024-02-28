@@ -4,125 +4,89 @@ import { getSubUnitsContainer } from "./unitsFocus.js";
 import { units } from "./unitsFocus.js";
 import { subunits } from "./unitsFocus.js";
 import { lessons } from "./unitsFocus.js";
-const subUnitsContainers = document.querySelectorAll('.sub-units-container')
-const targetInject = document.querySelector('#target-inject')
-let injected = false
-let asideFocused = false
-let currentLesson
+const subUnitsContainer = document.querySelectorAll('.sub-units-container')
+const lessonsContainers = document.querySelectorAll('.lessons-container')
+const iframe = document.querySelector('iframe')
 
+let selectArray = []
+let currentLesson = ''
 function hideSubUnitsContainers(){
-    subUnitsContainers.forEach(el =>{
+    subUnitsContainer.forEach(el =>{
         if(!el.classList.contains('show')){
+            el.classList.add('hide')
+        } 
+    })
+}
+function hideLessonsContainer(){    
+    lessonsContainers.forEach(el =>{
+        let subUnitContainer = getSubUnitsContainer(el.parentElement)
+        console.log(subUnitContainer)
+        if(!subUnitContainer.classList.contains('show')){
+
             el.classList.add('hide')
         }
     })
 }
-
+hideLessonsContainer()
 hideSubUnitsContainers()
-
-units.forEach(el => {
-    el.addEventListener('click', e => {
-        const unitContainer = getUnitContainer(e.target.parentElement)
-        const subUnitsContainer = unitContainer.querySelector('ul > li.sub-units-container')
-        toggleContainer(subUnitsContainer)
-    });
+units.forEach(el =>{
+    el.addEventListener('click', e =>{
+        let unitContainer = getUnitContainer(e.target.parentElement)
+        let subUnitsContainers = unitContainer.querySelectorAll('.sub-unit-container')
+        subUnitsContainers.forEach(el =>{
+            toggleContainer(el)
+        })
+    })
 })
-
-function toggleContainer(c){
-    console.log(c)
-    if(c.classList.contains('show')){
-        c.classList.remove('show')
-        c.classList.add('hide')
-    } else
-    if(c.classList.contains('hide')){
-        hideSubUnitsContainers()
-        c.classList.remove('hide')
+subunits.forEach(el =>{
+    el.addEventListener('click', e =>{
+        let subUnitContainer = getSubUnitsContainer(e.target.parentElement)
+        let lessonsContainer = subUnitContainer.querySelector('.lessons-container')
+        toggleContainer(lessonsContainer)
+        // lessonsContainer.forEach(el =>{
+        // })
+    })
+})
+function toggleContainer(el){
+    if(el.classList.contains('show')){
+        el.classList.remove('show')
+        el.classList.add('hide')
+    } else if(!el.classList.contains('hide')){
+        el.classList.add('hide')
     } else {
-        c.classList.add('hide')
+        el.classList.remove('hide')
     }
 }
-
-lessons.forEach(el => {
-    if(el.hasAttribute('autofocus')){
-    }
-    el.addEventListener('focus', e => {
-        injected =false
-        console.log('focus')
-    });
+lessons.forEach(el =>{
     el.addEventListener('click', e => {
         e.preventDefault()
         e.stopPropagation()
-        currentLesson = e.target
-        // console.log(injected)
-            fetchHtml(e.target.href,injectHtml)
-
+        selectArray.unshift(e.target.innerText)
+        if(selectArray.length > 2){
+            selectArray.pop()
+        }
+        iframe.src = e.target.href
+        if(selectArray[0] === selectArray[1]){
+            iframe.focus()
+            iframe.src = e.target.href
+            currentLesson = e.target
+        } 
+        console.log(selectArray)
     });
 })
 
+iframe.addEventListener('focusout', e => {
+        currentLesson.focus()
+
+    } )    
 
 addEventListener('keydown', e  => {
     let letter = e.key.toLowerCase()
+    if(letter == 'a'){
+        asideMain.focus()
+    }
     if(letter == 'm'){
         iframe.focus()
     }
-    if(currentLesson){
-        if(letter == 'a'){
-            currentLesson.focus(0)
-        }
-    }
+    
 });
-
-function fetchHtml(url,callback){
-    fetch(url)
-    .then(response => {
-        return response.text()
-    })
-    .then(htmlContent =>{
-        callback(htmlContent)
-    }) 
-    .catch( error => {console.log('something wrong'),error})
-}
-
-function injectHtml(htmlContent){
-    targetInject.innerHTML = htmlContent;
-
-    // Create a temporary div element to parse the HTML content
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = htmlContent;
-
-    // Find the script element within the temporary div
-    const scriptElement = tempDiv.querySelector('script');
-
-    // Extract the src attribute value from the script element, if it exists
-    if (scriptElement) {
-        const srcValue = scriptElement.getAttribute('src');
-        const newScriptTag = document.createElement('script')
-        newScriptTag.src = srcValue
-        targetInject.append(newScriptTag)
-        injected = false
-        
-    }
-}
-// function injectHtml(htmlContent){
-//     targetInject.innerHTML = htmlContent;
-
-//     // Create a temporary div element to parse the HTML content
-//     const tempDiv = document.createElement('div');
-//     tempDiv.innerHTML = htmlContent;
-
-//     // Find the script element within the temporary div
-//     const scriptElement = tempDiv.querySelector('script');
-
-//     // Extract the src attribute value from the script element, if it exists
-//     if (scriptElement) {
-//         const srcValue = scriptElement.getAttribute('src');
-        
-//         // Check if the script has already been injected
-//         if (!document.querySelector(`script[src="${srcValue}"]`)) {
-//             const newScriptTag = document.createElement('script')
-//             newScriptTag.src = srcValue
-//             targetInject.append(newScriptTag)
-//             injected = true
-//         }
-//     }
-// }

@@ -1,8 +1,8 @@
 const canvas = document.querySelector("canvas")
-import { drawCar } from "../../../js-shapes/shapeLibrary.js";
+import { drawCar } from "../../../../js-shapes/shapeLibrary.js";
 const c = canvas.getContext('2d')
 canvas.width = innerWidth;
-canvas.height = innerHeight * .3;
+canvas.height = innerHeight * .5;
 
 let x = 20
 let forward = true

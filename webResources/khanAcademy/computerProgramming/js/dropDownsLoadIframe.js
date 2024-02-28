@@ -19,11 +19,16 @@ function hideSubUnitsContainers(){
 }
 function hideLessonsContainer(){    
     lessonsContainers.forEach(el =>{
-        el.classList.add('hide')
+        let subUnitContainer = getSubUnitsContainer(el.parentElement)
+        
+        if(!subUnitContainer.classList.contains('show')){
+
+            el.classList.add('hide')
+        }
     })
 }
-hideSubUnitsContainers()
 hideLessonsContainer()
+hideSubUnitsContainers()
 units.forEach(el =>{
     el.addEventListener('click', e =>{
         let unitContainer = getUnitContainer(e.target.parentElement)
@@ -66,7 +71,7 @@ lessons.forEach(el =>{
             iframe.src = e.target.href
             currentLesson = e.target
         } 
-        console.log(selectArray)
+        
     });
 })
 

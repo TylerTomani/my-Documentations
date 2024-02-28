@@ -1,8 +1,8 @@
-const canvas = document.querySelector("canvas");
-const c = canvas.getContext('2d');
+import { canvas } from "../../../../js-shapes/shapeLibrary.js";
+import { c } from "../../../../js-shapes/shapeLibrary.js";
 canvas.width = innerWidth;
 canvas.height = innerHeight * .25;
-
+import { drawWinston } from "../../../../js-shapes/shapeLibrary.js";
 const eyeColorId = document.getElementById("eyeColorID");
 let eyeColor = "white"
 function changeEyeColor(){

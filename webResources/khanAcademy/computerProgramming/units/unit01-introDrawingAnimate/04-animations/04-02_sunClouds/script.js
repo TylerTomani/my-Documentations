@@ -1,5 +1,9 @@
 const canvas = document.querySelector("canvas")
 const c = canvas.getContext('2d')
+import { drawGround } from "../../../../js-shapes/shapeLibrary.js";
+import { drawSky } from "../../../../js-shapes/shapeLibrary.js";
+import { drawCloud } from "../../../../js-shapes/shapeLibrary.js";
+import { drawSun } from "../../../../js-shapes/shapeLibrary.js";
 
 canvas.width = innerWidth;
 canvas.height = innerHeight * .5;

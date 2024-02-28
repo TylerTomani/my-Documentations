@@ -2,7 +2,7 @@
 
 
 
-class Fish {
+ class Fish {
     constructor(x = 50, y = 150, width = (canvas.width * .05), color = "orange", xVelocity = .5){
         this.x = x;
         this.y = y;
