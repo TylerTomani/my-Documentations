@@ -157,15 +157,6 @@ addEventListener('keydown', e => {
     if(letter == 'h'){
         homeLink.focus()
     }
-    if(resourceFocus){
-        resources.forEach(el => {
-            let id = el.getAttribute('id')
-            if(letter == id[0]){
-                el.focus()
-            }
-        })     
-        
-    }
     if(topicFocus){
         dropTopics.forEach(el => {
             let id = el.getAttribute('id')
@@ -186,8 +177,7 @@ addEventListener('keydown', e => {
             }
         })
     } else {
-        let resourceContainer = getResourceContainer(e.target.parentElement) ? getResourceContainer(e.target.parentElement) : getSubResourcesContainer(e.target.parentElement)
-        
+        let resourceContainer = getResourceContainer(e.target.parentElement) ? getResourceContainer(e.target.parentElement) : getSubResourcesContainer(e.target.parentElement)   
         if(resourceContainer){
             let resources = resourceContainer.querySelectorAll('.sub-resources-container > ul > li > .resource')
             if(resources){
@@ -216,4 +206,14 @@ addEventListener('keydown', e => {
         }
         
     }
+    if(resourceFocus){
+        resources.forEach(el => {
+            let id = el.getAttribute('id')
+            if(letter == id[0]){
+                el.focus()
+            }
+        })     
+        
+    }
 });
+

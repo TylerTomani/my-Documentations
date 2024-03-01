@@ -54,6 +54,7 @@ main {
 .sub-resources-container > ul {
     list-style: none;
     display: flex;
+    flex-wrap: wrap;
     gap: 2%;
 }
 .sub-resources-container > ul > li{
