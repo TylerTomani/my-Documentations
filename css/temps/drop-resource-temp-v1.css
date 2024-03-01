@@ -11,6 +11,7 @@ main {
 .dropTopic {
     border: 1px solid blue;
     margin: 2% 0;
+    
 }
 .resources-container {
     margin-top: 1.5%;
@@ -50,11 +51,8 @@ main {
     z-index: 20;
     transition: all 250ms;
 }
-.session:active,.session:focus,
-.project:active,.project:focus,.project:hover,
-.playlist-container:active,.playlist-container:focus,
 .resource:active,.resource:focus{
-        box-shadow: 5px 4px 6px 6px lightblue;
+        box-shadow: 5px 4px 6px 6px orange;
         border: 2px solid blue;
         background-color: white;
         background-color: lightcyan;
@@ -62,6 +60,14 @@ main {
         bottom: 2%;
         z-index: 20;
         transition: all 250ms;
+} */
+.dropTopic{
+    /* background-color: lightyellow; */
+}
+.dropTopic:active,.dropTopic:focus{
+    box-shadow: 0 0 5px 5px orange ;
+    /* background-color: blue; */
+    /* background-color: yellow; */
 }
 /* Sessions */
 .hide {

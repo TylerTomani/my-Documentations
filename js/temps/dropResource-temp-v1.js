@@ -22,10 +22,11 @@ dropTopics.forEach(el => {
     });
     el.addEventListener('click', e => {
         e.preventDefault()
+        
         const topicContainer = getTopicContainer(e.target.parentElement)
         const resourcesContainers = topicContainer.querySelector('.resources-container')
         toggleHideContainer(resourcesContainers)
-
+        
     });
     el.addEventListener('keydown', e => {
         let key = e.keyCode
@@ -37,12 +38,17 @@ dropTopics.forEach(el => {
     });
 })
 function toggleHideContainer(container){
+    
     if(!container.classList.contains('hide')){
         container.classList.add('hide')
-    } else [
+        topicFocus = true
+        resourceFocus = false
+    } else {
+        console.log('kdjf')
         container.classList.remove('hide')
-
-    ]
+        topicFocus = false
+        resourceFocus = true
+    }
     if(container.classList.contains('show')){
         container.classList.remove('show')
         container.classList.add('hide')
@@ -96,10 +102,8 @@ addEventListener('keydown', e => {
         })
         const topicContainer = getTopicContainer(e.target.parentElement)
         const dropTopic = topicContainer.querySelector('.dropTopic')
-        console.log(dropTopic)
         let id = dropTopic.id
         if(letter == id[0].toLowerCase(0)){
-            console.log('yes')
             dropTopic.focus()
         }
     }
