@@ -150,6 +150,17 @@ function noteSectionChange(e){
             noteSection.appendChild(h4)
             noteSection.appendChild(p1)
             noteSection.appendChild(p2)
+            break
+        case 'claude':
+            noteSection.innerHTML = ''
+            let h4 = document.createElement('h4')
+            h4.innerText = 'Claude'
+            let p1 = document.createElement('p')
+            p2.innerText = 'Great for Long documentation'
+            noteSection.appendChild(h4)
+            noteSection.appendChild(p1)
+            noteSection.appendChild(p2)
+            break
 
     }
 }
