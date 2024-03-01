@@ -5,7 +5,7 @@ const resourcesContainers = document.querySelectorAll('.resources-container')
 const resourceslist = document.querySelectorAll('.resources-list')
 const resources = document.querySelectorAll('.resource')
 let topicFocus = true;
-let resourceFocus = false;
+let resourceFocus = true;
 function hideResourcesContainers(){
     resourcesContainers.forEach(el => {
         if(!el.classList.contains('hide') && !el.classList.contains('show')){
