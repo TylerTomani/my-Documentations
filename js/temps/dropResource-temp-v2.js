@@ -6,6 +6,9 @@ const resourceslist = document.querySelectorAll('.resources-list')
 const resources = document.querySelectorAll('.resource')
 let topicFocus = true;
 let resourceFocus = true;
+let clickedResource = false
+const iframe = document.querySelector('iframe')
+const youtubeVideo = document.getElementById('youtubeVideo')
 function hideResourcesContainers(){
     resourcesContainers.forEach(el => {
         if(!el.classList.contains('hide') && !el.classList.contains('show')){
@@ -68,15 +71,28 @@ resources.forEach(el => {
         topicFocus = false
         resourceFocus = true
     });
-    ;
+    el.addEventListener('keydown', e  => {
+        let key = e.keyCode
+        e.stopPropagation()
+        if(13 === key){
+            // clickedResource = !clickedResource
+            clickedResource = true
+            if(clickedResource){
+                 e.preventDefault()
+                 seekVideo()
+             }
+        }
+    });
 })
+function seekVideo(){
+    console.log(youtubeVideo.href)
+}
 addEventListener('keydown', e => {
     let letter = e.key.toLowerCase()
     if(letter == 'h'){
         homeLink.focus()
     }
     if(letter == 'i'){
-        const iframe = document.querySelector('iframe')
         if(iframe){
             iframe.focus()
         }   
@@ -115,3 +131,4 @@ addEventListener('keydown', e => {
     }
     
 });
+

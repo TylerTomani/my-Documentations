@@ -64,6 +64,7 @@ main {
 .dropTopic{
     /* background-color: lightyellow; */
 }
+iframe:active,iframe:focus,
 .dropTopic:active,.dropTopic:focus{
     box-shadow: 0 0 5px 5px orange ;
     /* background-color: blue; */
