@@ -9,6 +9,7 @@ let resourceFocus = true;
 let clickedResource = false
 const iframe = document.querySelector('iframe')
 const youtubeVideo = document.getElementById('youtubeVideo')
+const noteSection = document.getElementById('noteSection')
 function hideResourcesContainers(){
     resourcesContainers.forEach(el => {
         if(!el.classList.contains('hide') && !el.classList.contains('show')){
@@ -73,20 +74,22 @@ resources.forEach(el => {
     });
     el.addEventListener('keydown', e  => {
         let key = e.keyCode
-        e.stopPropagation()
         if(13 === key){
-            // clickedResource = !clickedResource
-            clickedResource = true
+            clickedResource = !clickedResource
+            // clickedResource = true
+            noteSectionChange(e)
             if(clickedResource){
-                 e.preventDefault()
-                 seekVideo()
-             }
+                e.stopPropagation()
+                e.preventDefault()
+                //  seekVideo()
+            }
         }
     });
 })
 function seekVideo(){
-    console.log(youtubeVideo.href)
+    // youtubeVideo.src
 }
+ 
 addEventListener('keydown', e => {
     let letter = e.key.toLowerCase()
     if(letter == 'h'){
@@ -132,3 +135,21 @@ addEventListener('keydown', e => {
     
 });
 
+function noteSectionChange(e){
+    const id = e.target.id    
+    console.log(id)
+    switch (id){
+        case 'googleBardGemini':
+            noteSection.innerHTML = ''
+            let h4 = document.createElement('h4')
+            h4.innerText = 'Google Bard (now Gemini)'
+            let p1 = document.createElement('p')
+            let p2 = document.createElement('p')
+            p1.innerText = 'If you are 18 or older, or under 18 and turn Gemini Apps Activity on, then by default Google stores your Gemini Apps activityOpens in a new window with your Google Account for up to 18 months, which you can change to 3 or 36 months in you'
+            p2.innerText = 'To help with quality and improve our products (such as generative machine-learning models that power Gemini Apps), human reviewers read, annotate, and process your Gemini Apps conversations. '
+            noteSection.appendChild(h4)
+            noteSection.appendChild(p1)
+            noteSection.appendChild(p2)
+
+    }
+}

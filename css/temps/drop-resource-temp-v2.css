@@ -80,3 +80,6 @@ iframe:active,iframe:focus,
 iframe {
     border: 1px solid black;
 }
+#noteSection > p {
+    font-size: .65rem;
+}
