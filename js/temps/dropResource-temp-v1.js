@@ -1,21 +1,21 @@
-const homeLink = document.getElementById('homeLink')
+// const homeLink = document.getElementById('homeLink')
 const header = document.querySelector('header')
-const dropTopics = document.querySelectorAll('.dropTopic')
-const resourcesContainers = document.querySelectorAll('.resources-container')
+const dropResources = document.querySelectorAll('.dropResource')
+const subResourcesContainers = document.querySelectorAll('.sub-resources-container')
 const resourceslist = document.querySelectorAll('.resources-list')
 const resources = document.querySelectorAll('.resource')
 let topicFocus = true;
 let resourceFocus = true;
-function hideResourcesContainers(){
-    resourcesContainers.forEach(el => {
+function hideSubResourcesContainers(){
+    subResourcesContainers.forEach(el => {
         if(!el.classList.contains('hide') && !el.classList.contains('show')){
             el.classList.add('hide')
         }
     })
 }
-hideResourcesContainers()
+hideSubResourcesContainers()
 
-dropTopics.forEach(el => {
+dropResources.forEach(el => {
     el.addEventListener('focus', e  => {
         topicFocus = true
         resourceFocus = false
@@ -24,16 +24,16 @@ dropTopics.forEach(el => {
         e.preventDefault()
         
         const topicContainer = getTopicContainer(e.target.parentElement)
-        const resourcesContainers = topicContainer.querySelector('.resources-container')
-        toggleHideContainer(resourcesContainers)
+        const subResourcesContainers = topicContainer.querySelector('.subresources-container')
+        toggleHideContainer(subResourcesContainers)
         
     });
     el.addEventListener('keydown', e => {
         let key = e.keyCode
         if(key === 13){   
             const topicContainer = getTopicContainer(e.target.parentElement)
-            const resourcesContainers = topicContainer.querySelector('.resources-container')
-            toggleHideContainer(resourcesContainers)
+            const subResourcesContainers = topicContainer.querySelector('.resources-container')
+            toggleHideContainer(subResourcesContainers)
         }
     });
 })
@@ -54,11 +54,11 @@ function toggleHideContainer(container){
         container.classList.add('hide')
     }
 }
-function getTopicContainer(parent){
-    if(parent.classList.contains('topic-container')){
+function getResourceContainer(parent){
+    if(parent.classList.contains('resource-container')){
         return parent
     } else if (parent.parentElement){
-        return getTopicContainer(parent.parentElement)
+        return getResourceContainer(parent.parentElement)
     } else {
         return null
     }
@@ -82,7 +82,7 @@ addEventListener('keydown', e => {
         }   
     }
     if(topicFocus){
-        dropTopics.forEach(el => {
+        dropResources.forEach(el => {
         let id = el.getAttribute('id')
         if(id){
             if(letter == id[0]){
@@ -106,11 +106,11 @@ addEventListener('keydown', e => {
                 el.focus()
             }
         })
-        const topicContainer = getTopicContainer(e.target.parentElement)
-        const dropTopic = topicContainer.querySelector('.dropTopic')
-        let id = dropTopic.id
+        const getResourceContainer = getResourceContainer(e.target.parentElement)
+        const dropResource = topicContainer.querySelector('.dropResource')
+        let id = dropResource.id
         if(letter == id[0].toLowerCase(0)){
-            dropTopic.focus()
+            dropResource.focus()
         }
     }
     

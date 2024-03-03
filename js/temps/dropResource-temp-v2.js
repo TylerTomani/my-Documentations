@@ -1,4 +1,6 @@
 const homeLink = document.getElementById('homeLink')
+const chatBots = document.querySelector('#chatBots')
+const claude = document.querySelector('#claude')
 const header = document.querySelector('header')
 const dropTopics = document.querySelectorAll('.dropTopic')
 const resourcesContainers = document.querySelectorAll('.resources-container')
@@ -26,7 +28,6 @@ dropTopics.forEach(el => {
     });
     el.addEventListener('click', e => {
         e.preventDefault()
-        
         const topicContainer = getTopicContainer(e.target.parentElement)
         const resourcesContainers = topicContainer.querySelector('.resources-container')
         toggleHideContainer(resourcesContainers)
@@ -71,17 +72,22 @@ resources.forEach(el => {
     el.addEventListener('focus', e => {
         topicFocus = false
         resourceFocus = true
+        noteSectionChange(e)
     });
     el.addEventListener('keydown', e  => {
+        topicFocus = false
+        resourceFocus = true
         let key = e.keyCode
         if(13 === key){
+            e.preventDefault()
+            e.stopPropagation()
             clickedResource = !clickedResource
-            // clickedResource = true
-            noteSectionChange(e)
+            clickedResource = true
             if(clickedResource){
-                e.stopPropagation()
-                e.preventDefault()
+                open(e.target.href,'_blank')
+                console.log(e.target.href)
                 //  seekVideo()
+                clickedResource = false
             }
         }
     });
@@ -95,7 +101,7 @@ addEventListener('keydown', e => {
     if(letter == 'h'){
         homeLink.focus()
     }
-    if(letter == 'i'){
+    if(letter == 'y'){
         if(iframe){
             iframe.focus()
         }   
@@ -113,7 +119,7 @@ addEventListener('keydown', e => {
             threeDanimation.focus()
         }
         if('t' == letter ){
-            const textToImage = document.getElementById('textToImage')
+            const textToImage = document.getElementById('textToImage') ? document.getElementById('textToImage') : document.getElementById('textToVideo')
             textToImage.focus()
         }
     })
@@ -126,10 +132,13 @@ addEventListener('keydown', e => {
             }
         })
         const topicContainer = getTopicContainer(e.target.parentElement)
-        const dropTopic = topicContainer.querySelector('.dropTopic')
-        let id = dropTopic.id
-        if(letter == id[0].toLowerCase(0)){
-            dropTopic.focus()
+        if(topicContainer){
+
+            const dropTopic = topicContainer.querySelector('.dropTopic')
+            let id = dropTopic.id
+            if(letter == id[0].toLowerCase(0) && dropTopic){
+                dropTopic.focus()
+            }
         }
     }
     
@@ -137,14 +146,15 @@ addEventListener('keydown', e => {
 
 function noteSectionChange(e){
     const id = e.target.id    
+    let h4, p1, p2,img;
     console.log(id)
     switch (id){
         case 'googleBardGemini':
             noteSection.innerHTML = ''
-            let h4 = document.createElement('h4')
+            h4 = document.createElement('h4')
+            p1 = document.createElement('p')
+            p2 = document.createElement('p')
             h4.innerText = 'Google Bard (now Gemini)'
-            let p1 = document.createElement('p')
-            let p2 = document.createElement('p')
             p1.innerText = 'If you are 18 or older, or under 18 and turn Gemini Apps Activity on, then by default Google stores your Gemini Apps activityOpens in a new window with your Google Account for up to 18 months, which you can change to 3 or 36 months in you'
             p2.innerText = 'To help with quality and improve our products (such as generative machine-learning models that power Gemini Apps), human reviewers read, annotate, and process your Gemini Apps conversations. '
             noteSection.appendChild(h4)
@@ -153,14 +163,88 @@ function noteSectionChange(e){
             break
         case 'claude':
             noteSection.innerHTML = ''
-            let h4 = document.createElement('h4')
+            h4 = document.createElement('h4')
+            p1 = document.createElement('p')
             h4.innerText = 'Claude'
-            let p1 = document.createElement('p')
-            p2.innerText = 'Great for Long documentation'
+            p1.innerText = 'Great for Long documentation, send and receives 150,000 words'
             noteSection.appendChild(h4)
             noteSection.appendChild(p1)
-            noteSection.appendChild(p2)
             break
-
+        case 'perplexity':
+            noteSection.innerHTML = ''
+            h4 = document.createElement('h4')
+            p1 = document.createElement('p')
+            h4.innerText = 'peplexity'
+            p1.innerText = 'Great for searching pages for items, search / domain and  great extension'
+            noteSection.appendChild(h4)
+            noteSection.appendChild(p1)
+            img.src = './images/perplexity.png'
+            console.log(img)
+            noteSection.appendChild(img)
+            break
+        case 'leonardoAi':
+            noteSection.innerHTML = ''
+            h4 = document.createElement('h4')
+            p1 = document.createElement('p')
+            h4.innerText = 'leonardoAican be used commercially'
+            p1.innerText = 'Really good results but confusing'
+            noteSection.appendChild(h4)
+            noteSection.appendChild(p1)
+            break
+        case 'microsoftBingDalle3':
+            noteSection.innerHTML = ''
+            h4 = document.createElement('h4')
+            p1 = document.createElement('p')
+            h4.innerText = 'microsoftBingDalle3'
+            p1.innerText = 'Amazing but limited uses/day, amazing, but i think you can still use it the images just get slower'
+            noteSection.appendChild(h4)
+            noteSection.appendChild(p1)
+            break
+        case 'playgroundAi':
+            noteSection.innerHTML = ''
+            h4 = document.createElement('h4')
+            p1 = document.createElement('p')
+            h4.innerText = 'playgroundAi be used commercially'
+            p1.innerText = '500 images / day'
+            noteSection.appendChild(h4)
+            noteSection.appendChild(p1)
+            break
+        case 'upscale':
+            noteSection.innerHTML = ''
+            h4 = document.createElement('h4')
+            p1 = document.createElement('p')
+            h4.innerText = 'upscale'
+            p1.innerText = 'improve images quality'
+            noteSection.appendChild(h4)
+            noteSection.appendChild(p1)
+            break
+        case 'autodraw':
+            noteSection.innerHTML = ''
+            h4 = document.createElement('h4')
+            p1 = document.createElement('p')
+            h4.innerText = 'autodraw'
+            p1.innerText = 'autocorrect for drawing basic images'
+            noteSection.appendChild(h4)
+            noteSection.appendChild(p1)
+            img.src = './images/autodraw.png'
+            noteSection.appendChild(img)
+            break
+        case 'playphrase':
+            noteSection.innerHTML = ''
+            h4 = document.createElement('h4')
+            p1 = document.createElement('p')
+            h4.innerText = 'playphrase'
+            p1.innerText = 'find scenes where characters say specified text'
+            noteSection.appendChild(h4)
+            noteSection.appendChild(p1)
+            break
     }
 }
+chatBots.addEventListener('keydown', e  => {
+    let letter = e.key.toLowerCase()
+    if(letter == 'c'){
+        claude.focus()
+        
+    }
+    
+});
